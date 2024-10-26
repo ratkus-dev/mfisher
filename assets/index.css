@@ -1,16 +1,4 @@
 @charset "UTF-8";
-@font-face {
-  font-family: "Montserrat";
-  src: url("../fonts/Montserrat-Regular.woff2") format("woff2");
-  font-weight: 400;
-  font-display: swap;
-}
-@font-face {
-  font-family: "Montserrat";
-  src: url("../fonts/Montserrat-Bold.woff2") format("woff2");
-  font-weight: 700;
-  font-display: swap;
-}
 /***
     The new CSS reset - version 1.11 (last updated 20.9.2023)
     GitHub page: https://github.com/elad2412/the-new-css-reset
@@ -160,7 +148,6 @@ html {
 }
 
 body {
-  font-family: "Montserrat";
   background: var(--main-color);
   color: var(--main-text-color);
   font-size: 2.4rem;
