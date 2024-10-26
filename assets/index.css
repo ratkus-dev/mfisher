@@ -1,4 +1,16 @@
 @charset "UTF-8";
+@font-face {
+  font-family: "Montserrat";
+  src: url("/vite-sass-app-template/assets/Montserrat-Regular.woff2") format("woff2");
+  font-weight: 400;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Montserrat";
+  src: url("/vite-sass-app-template/assets/Montserrat-Bold.woff2") format("woff2");
+  font-weight: 700;
+  font-display: swap;
+}
 /***
     The new CSS reset - version 1.11 (last updated 20.9.2023)
     GitHub page: https://github.com/elad2412/the-new-css-reset
@@ -148,6 +160,7 @@ html {
 }
 
 body {
+  font-family: "Montserrat";
   background: var(--main-color);
   color: var(--main-text-color);
   font-size: 2.4rem;
@@ -162,14 +175,12 @@ body {
   display: -webkit-box;
   display: -webkit-flex;
   display: -moz-box;
-  display: -ms-flexbox;
   display: flex;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
   -webkit-flex-flow: column;
      -moz-box-orient: vertical;
      -moz-box-direction: normal;
-      -ms-flex-flow: column;
           flex-flow: column;
 }
 
@@ -215,7 +226,6 @@ body {
   -webkit-box-flex: 1;
   -webkit-flex: 1;
      -moz-box-flex: 1;
-      -ms-flex: 1;
           flex: 1;
 }
 .main-header {
@@ -281,6 +291,43 @@ body {
 .main-badges {
   margin: 3rem 0 5rem;
 }
+
+.badges {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: flex;
+  -webkit-flex-flow: wrap;
+          flex-flow: wrap;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+     -moz-box-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+     -moz-box-align: center;
+          align-items: center;
+  gap: 2rem;
+}
+.badges-link {
+  display: block;
+  border-radius: 5rem;
+  color: var(--main-text-color);
+  text-decoration: none;
+  background: var(--brand-color);
+  padding: 0.8rem 1.8rem;
+  -webkit-transition: 0.2s ease;
+  -moz-transition: 0.2s ease;
+  transition: 0.2s ease;
+}
+.badges-link:hover {
+  background: var(--brand-light-color);
+}
+
+.no-link {
+  pointer-events: none;
+}
+
 @media (min-width: 767px){
   html {
     font-size: 10px;
