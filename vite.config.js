@@ -7,8 +7,24 @@ import { fileURLToPath } from "url";
 import { ViteImageOptimizer } from "vite-plugin-image-optimizer";
 
 export default defineConfig({
+  css: {
+    preprocessorOptions: {
+      scss: {
+        silenceDeprecations: ['legacy-js-api'],
+      }
+    }
+  },
   plugins: [
     ViteImageOptimizer({
+      svg: {
+        plugins: [
+          'removeDoctype',
+          'removeXMLProcInst',
+          'minifyStyles',
+          'sortAttrs',
+          'sortDefsChildren',
+        ],
+      },
       png: {
         quality: 86,
       },
