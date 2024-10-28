@@ -1,6 +1,6 @@
 {
-  "name": "vite-sass-app-template",
-  "private": true,
+  "name": "MFisher",
+  "private": false,
   "version": "0.0.1",
   "type": "module",
   "scripts": {
@@ -13,15 +13,18 @@
     "cover 99.5%"
   ],
   "devDependencies": {
-    "autoprefixer": "^10.4.4",
-    "fast-glob": "^3.3.1",
+    "autoprefixer": "^10.4.20",
+    "glob": "^7.2.3",
     "imagemin": "^8.0.1",
+    "imagemin-mozjpeg": "^10.0.0",
     "imagemin-webp": "^8.0.0",
+    "postcss": "^8.4.16",
     "postcss-sort-media-queries": "^5.2.0",
-    "sass": "^1.68.0",
-    "sharp": "^0.32.6",
-    "svgo": "^3.0.2",
-    "vite": "^4.4.5",
-    "vite-plugin-image-optimizer": "^1.1.7"
+    "sass": "^1.57.1",
+    "svgo": "^3.3.2",
+    "vite": "^5.4.6",
+    "vite-plugin-full-reload": "^1.1.0",
+    "vite-plugin-html-inject": "^1.1.2",
+    "vite-plugin-image-optimizer": "^1.1.8"
   }
 }
