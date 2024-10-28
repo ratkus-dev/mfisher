@@ -1,0 +1,39 @@
+@import "vars";
+@import "media";
+
+.btn {
+  font-family: var(--font-family);
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 1.14;
+  text-transform: capitalize;
+  color: var(--white);
+  padding: 15px 32px;
+  width: fit-content;
+
+  @include mobile {
+    line-height: 1.29;
+  }
+
+  @include desktop {
+    font-size: 16px;
+    line-height: 1.25;
+  }
+
+  &_primary {
+    border: 1px solid var(--primary-color);
+    background-color: var(--primary-color);
+  }
+
+  &_secondary {
+    border: 1px solid var(--white);
+    background-color: transparent;
+    color: var(--white);
+  }
+
+  &_secondary-black {
+    border: 1px solid var(--dark-black);
+    background-color: transparent;
+    color: var(--dark-black);
+  }
+}

@@ -1,0 +1,148 @@
+@import "../vars";
+@import "../media";
+
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 900;
+  padding: 10px 0;
+
+  &__content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__toggle-btn {
+    position: relative;
+    width: 24px;
+    height: 24px;
+    min-width: 24px;
+    min-height: 24px;
+    padding: 0;
+    background-color: transparent;
+    cursor: pointer;
+    transition: ease-in-out 0.4s;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 4px;
+
+    @include desktop {
+      display: none;
+
+    }
+
+    &.is-active {
+      .header {
+        &__toggle-btn-icon {
+          &:first-child {
+            position: absolute;
+            background-color: var(--white);
+            transform: rotate(45deg);
+            transform-origin: 0 0;
+            left: 6px;
+            top: 6px;
+          }
+
+          &:nth-child(2) {
+            opacity: 0;
+          }
+
+          &:nth-child(3) {
+            position: absolute;
+            background-color: var(--white);
+            transform: rotate(-45deg);
+            transform-origin: 0 100%;
+            top: 18px;
+            left: 6px;
+          }
+        }
+      }
+    }
+  }
+
+  &__toggle-btn-icon {
+    height: 2px;
+    transition: 0.3s ease-in-out;
+    z-index: 2;
+    width: 18px;
+    left: 3px;
+    background-color: var(--white);
+    border-radius: 4px;
+  }
+
+  .nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 60px;
+
+    &__list,
+    &__btn {
+      display: none;
+    }
+  }
+}
+
+.mobile-menu {
+  position: fixed;
+  right: 0;
+  transform: translateX(105%);
+  top: 0;
+  width: 100%;
+  height: 100%;
+  box-shadow: 0 14px 60px 0 rgba(0, 0, 0, 0.9);
+  background: url("../../assets/img/hero-bg.jpg") no-repeat 50% 50% / cover;
+  z-index: 899;
+  transition: transform var(--animation);
+
+  &.is-active {
+    transform: translateX(0);
+  }
+
+  .nav {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 24px 16px;
+    background-color: rgba(15, 15, 15, 0.6);
+
+    &__list {
+      display: flex;
+      flex-direction: column;
+      gap: 30px;
+      align-items: center;
+      justify-content: center;
+      flex: 1 0 auto;
+    }
+
+    &__link {
+      font-family: var(--second-family), sans-serif;
+      font-weight: 500;
+      font-size: 24px;
+      line-height: 1.75;
+      color: var(--white);
+    }
+  }
+
+  .btn {
+    &__list {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+
+      .btn {
+        display: block;
+        width: 100%;
+      }
+    }
+  }
+}
+
+
+

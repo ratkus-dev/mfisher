@@ -1,0 +1,17 @@
+.hero {
+  background: url("../../../src/assets/img/hero-bg.jpg") no-repeat 50% 50% / cover;
+  min-height: 100vh;
+  padding-top: 100px;
+  padding-bottom: 20px;
+
+  .container {
+    height: 100%;
+  }
+
+  &__content {
+    color: var(--white);
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+  }
+}

@@ -1,0 +1,101 @@
+@import "media";
+@import "vars";
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+  font-family: var(--second-family), sans-serif;
+}
+
+h1 {
+  font-size: 34px;
+  line-height: 1.41;
+
+  @include mobile {
+    font-size: 42px;
+    line-height: 1.43;
+  }
+
+  @include desktop {
+    font-size: 84px;
+  }
+}
+
+h2 {
+  font-size: 26px;
+  line-height: 1.54;
+
+  @include mobile {
+    font-size: 36px;
+    line-height: 1.44;
+  }
+
+  @include desktop {
+    font-size: 60px;
+  }
+}
+
+h3 {
+}
+
+h4 {
+  font-size: 18px;
+  line-height: 1.33;
+
+  @include mobile {
+    font-size: 24px;
+    line-height: 1.75;
+  }
+
+  @include desktop {
+    font-size: 32px;
+    line-height: 1.5;
+  }
+}
+
+h5,
+.h5 {
+  font-size: 18px;
+  line-height: 1.33;
+
+  @include mobile {
+    line-height: 1.44;
+  }
+
+  @include desktop {
+    font-size: 24px;
+    line-height: 1.5;
+  }
+}
+
+.p-1 {
+  //font-size: 16px;
+  //line-height: 1.62;
+  //
+  //@include desktop {
+  //  font-size: 18px;
+  //  line-height: 1.78;
+  //}
+}
+
+.p-2 {
+  font-size: 16px;
+  line-height: 1.62;
+
+  @include desktop {
+    font-size: 18px;
+    line-height: 1.78;
+  }
+}
+
+.p-4 {
+  font-size: 13px;
+  line-height: 1.54;
+
+  @include mobile {
+    font-size: 14px;
+    line-height: 1.57;
+  }
+}

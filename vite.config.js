@@ -1,63 +1,82 @@
-import imagemin from "imagemin";
-import imageminWebp from "imagemin-webp";
-import path from "path";
-import { defineConfig } from "vite";
-import glob from "fast-glob";
-import { fileURLToPath } from "url";
-import { ViteImageOptimizer } from "vite-plugin-image-optimizer";
+import { defineConfig } from 'vite';
+import glob from 'glob';
+import injectHTML from 'vite-plugin-html-inject';
+import FullReload from 'vite-plugin-full-reload';
+import { ViteImageOptimizer } from 'vite-plugin-image-optimizer';
+import autoprefixer from 'autoprefixer';
+import postcssSortMediaQueries from 'postcss-sort-media-queries';
+import path from 'path';
 
-export default defineConfig({
-  css: {
-    preprocessorOptions: {
-      scss: {
-        silenceDeprecations: ['legacy-js-api'],
-      }
-    }
-  },
-  plugins: [
-    ViteImageOptimizer({
-      svg: {
+export default defineConfig(({ command }) => {
+  return {
+    root: './src',
+    build: {
+      outDir: '../dist', // Изменено на '../dist', чтобы выходная папка находилась на уровень выше
+      emptyOutDir: true,
+      sourcemap: true,
+      rollupOptions: {
+        input: [
+          // Получаем HTML-файлы из папки 'pages' и добавляем основной файл
+          ...glob.sync('./src/*.html'),
+          path.resolve(__dirname, './src/index.html'), // Предполагается, что index.html находится в папке src
+        ],
+        output: {
+          manualChunks(id) {
+            if (id.includes('node_modules')) {
+              return 'vendor';
+            }
+          },
+          assetFileNames: (assetInfo) => {
+            return assetInfo.name && assetInfo.name.endsWith('.html')
+              ? '[name].[ext]'
+              : 'assets/[name]-[hash][extname]';
+          },
+        },
+      },
+    },
+    css: {
+      postcss: {
         plugins: [
-          'removeDoctype',
-          'removeXMLProcInst',
-          'minifyStyles',
-          'sortAttrs',
-          'sortDefsChildren',
+          autoprefixer(), // Префиксы для CSS
+          postcssSortMediaQueries({
+            sort: 'mobile-first',
+          }),
         ],
       },
-      png: {
-        quality: 86,
+      preprocessorOptions: {
+        scss: {
+          additionalData: `@import "./src/styles/vars.scss";`, // Убедитесь, что путь правильный
+        },
       },
-      jpeg: {
-        quality: 86,
-      },
-      jpg: {
-        quality: 86,
-      },
-    }),
-    {
-      ...imagemin(["./src/img/**/*.{jpg,png,jpeg}"], {
-        destination: "./src/img/webp/",
-        plugins: [imageminWebp({ quality: 86 })],
+    },
+    plugins: [
+      injectHTML({
+        injectData: {
+          header: path.resolve(__dirname, 'src/components/header.html'),
+          footer: path.resolve(__dirname, 'src/components/footer.html'),
+        },
       }),
-      apply: "serve",
-    },
-  ],
-  build: {
-    minify: false, // disable minification
-    rollupOptions: {
-      input: Object.fromEntries(
-        glob
-          .sync(["./*.html", "./pages/**/*.html"])
-          .map((file) => [
-            path.relative(__dirname, file.slice(0, file.length - path.extname(file).length)),
-            fileURLToPath(new URL(file, import.meta.url)),
-          ])
-      ),
-      // output unminified CSS file
-      output: {
-        assetFileNames: "assets/[name].[ext]",
-      },
-    },
-  },
+      FullReload(['./src/**/*.html', './src/**/*.scss']),
+      ViteImageOptimizer({
+        svg: {
+          plugins: [
+            'removeDoctype',
+            'removeXMLProcInst',
+            'minifyStyles',
+            'sortAttrs',
+            'sortDefsChildren',
+          ],
+        },
+        png: {
+          quality: 85,
+        },
+        jpeg: {
+          quality: 85,
+        },
+        jpg: {
+          quality: 85,
+        },
+      }),
+    ],
+  };
 });
