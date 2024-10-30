@@ -10,6 +10,10 @@
   color: var(--white);
   padding: 15px 32px;
   width: fit-content;
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  justify-content: center;
 
   @include mobile {
     line-height: 1.29;
@@ -21,8 +25,8 @@
   }
 
   &_primary {
-    border: 1px solid var(--primary-color);
-    background-color: var(--primary-color);
+    border: 1px solid var(--main-purple);
+    background-color: var(--main-purple);
   }
 
   &_secondary {
@@ -35,5 +39,15 @@
     border: 1px solid var(--dark-black);
     background-color: transparent;
     color: var(--dark-black);
+  }
+
+  &__icon {
+    width: 20px;
+    height: 20px;
+  }
+
+  &__icon-arrow {
+    background: url("../assets/icons/arrow-right.svg") no-repeat 50% 50% /
+      contain;
   }
 }

@@ -8,6 +8,7 @@
   width: 100%;
   z-index: 900;
   padding: 10px 0;
+  transition: transform var(--animation);
 
   &__content {
     display: flex;
@@ -24,7 +25,7 @@
     padding: 0;
     background-color: transparent;
     cursor: pointer;
-    transition: ease-in-out 0.4s;
+    transition: var(--animation);
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -33,7 +34,10 @@
 
     @include desktop {
       display: none;
+    }
 
+    &__toggle-btn-icon {
+      background-color: var(--white);
     }
 
     &.is-active {
@@ -41,7 +45,6 @@
         &__toggle-btn-icon {
           &:first-child {
             position: absolute;
-            background-color: var(--white);
             transform: rotate(45deg);
             transform-origin: 0 0;
             left: 6px;
@@ -54,7 +57,6 @@
 
           &:nth-child(3) {
             position: absolute;
-            background-color: var(--white);
             transform: rotate(-45deg);
             transform-origin: 0 100%;
             top: 18px;
@@ -80,10 +82,31 @@
     justify-content: space-between;
     align-items: center;
     gap: 60px;
+    transition: color var(--animation);
+
+    &__logo {
+      color: var(--white);
+    }
 
     &__list,
     &__btn {
       display: none;
+    }
+  }
+
+  &.scroll {
+    background-color: var(--white);
+
+    .nav {
+      &__logo {
+        color: var(--dark-black);
+      }
+    }
+
+    .header {
+      &__toggle-btn-icon {
+        background-color: var(--dark-black);
+      }
     }
   }
 }
@@ -100,7 +123,7 @@
   z-index: 899;
   transition: transform var(--animation);
 
-  &.is-active {
+  &.is-open {
     transform: translateX(0);
   }
 
@@ -143,6 +166,3 @@
     }
   }
 }
-
-
-
