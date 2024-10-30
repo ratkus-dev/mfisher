@@ -11,91 +11,157 @@ h5 {
 
 h1 {
   font-size: 34px;
-  line-height: 1.41;
+  line-height: 48px;
+  font-weight: 500;
 
   @include mobile {
     font-size: 42px;
     line-height: 1.43;
   }
 
+  @include tablet {
+    font-size: 63px;
+    line-height: 1.24;
+  }
+
   @include desktop {
-    font-size: 84px;
+    font-size: 90px;
+    line-height: 110px;
+    font-weight: 700;
   }
 }
 
 h2 {
-  font-size: 26px;
-  line-height: 1.54;
+  font-size: 28px;
+  line-height: 1.43;
+  font-weight: 500;
 
   @include mobile {
     font-size: 36px;
     line-height: 1.44;
   }
 
+  @include tablet {
+    font-size: 44px;
+    line-height: 1.18;
+  }
+
   @include desktop {
     font-size: 60px;
+    line-height: 78px;
+    font-weight: 600;
   }
 }
 
 h3 {
-}
-
-h4 {
-  font-size: 18px;
-  line-height: 1.33;
+  font-size: 24px;
+  line-height: 40px;
+  font-weight: 500;
 
   @include mobile {
     font-size: 24px;
     line-height: 1.75;
   }
 
+  @include tablet {
+    font-size: 38px;
+    line-height: 62px;
+  }
+
+  @include desktop {
+    font-size: 46px;
+    line-height: 56px;
+  }
+}
+
+h4 {
+  font-size: 22px;
+  line-height: 33px;
+  font-weight: 500;
+
+  @include mobile {
+    font-size: 24px;
+    line-height: 1.75;
+  }
+
+  @include tablet {
+    font-size: 32px;
+    line-height: 44px;
+  }
+
   @include desktop {
     font-size: 32px;
-    line-height: 1.5;
+    line-height: 48px;
   }
 }
 
 h5,
 .h5 {
-  font-size: 18px;
-  line-height: 1.33;
+  font-size: 17px;
+  line-height: 24px;
+  font-weight: 500;
 
   @include mobile {
     line-height: 1.44;
   }
 
+  @include tablet {
+    font-size: 20px;
+    line-height: 28px;
+  }
+
   @include desktop {
     font-size: 24px;
-    line-height: 1.5;
+    line-height: 36px;
   }
 }
 
 .p-1 {
-  //font-size: 16px;
-  //line-height: 1.62;
-  //
-  //@include desktop {
-  //  font-size: 18px;
-  //  line-height: 1.78;
-  //}
-}
-
-.p-2 {
-  font-size: 16px;
-  line-height: 1.62;
+  font-size: 17px;
+  line-height: 26px;
+  font-weight: 500;
 
   @include desktop {
     font-size: 18px;
-    line-height: 1.78;
+    line-height: 32px;
+  }
+}
+
+.p-2 {
+  font-size: 14px;
+  line-height: 22px;
+  font-weight: 400;
+
+  @include desktop {
+    font-size: 16px;
+    line-height: 26px;
+  }
+}
+
+.p-3 {
+  font-size: 13px;
+  line-height: 20px;
+  font-weight: 400;
+
+  @include mobile {
+    font-size: 14px;
+    line-height: 22px;
   }
 }
 
 .p-4 {
-  font-size: 13px;
-  line-height: 1.54;
+  font-size: 12px;
+  line-height: 18px;
+  font-weight: 400;
+}
+
+.btn {
+  font-size: 14px;
+  line-height: 17px;
+  font-weight: 600;
 
   @include mobile {
-    font-size: 14px;
-    line-height: 1.57;
+    font-size: 16px;
+    line-height: 19px;
   }
 }

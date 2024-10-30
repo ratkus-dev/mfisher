@@ -13,8 +13,24 @@ body {
   line-height: 1.5;
 }
 
+.img {
+  max-width: 100%;
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.no-scroll {
+  overflow: hidden;
+}
+
 .text-color {
-  color: var(--secondary-color);
+  color: var(--main-green);
+}
+
+mark {
+  background-color: var(--main-green-50);
+  padding: 0 2px;
 }
 
 .elem-action {

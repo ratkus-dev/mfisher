@@ -1,19 +1,18 @@
 :root {
   --font-family: "Inter";
   --second-family: "Unbounded";
-  --bg-color: #fff;
-  --primary-color: #6d45ff;
-  --secondary-color: #82da71;
+
+  --main-purple: #6d45ff;
+  --main-green: #82da71;
   --white: #fff;
   --dark-black: #232323;
+  --light-grey: #f0f0f0;
   --grey: #828282;
-  //--second-color: #9b4a73;
-  //--mute-color: #313136;
-  //--main-text-color: rgba(255, 255, 245, 0.86);
-  //--second-text-color: rgba(235, 235, 245, 0.6);
-  //--hero-name-background: linear-gradient(120deg, #cd6699 30%, #9b4a73);
-  //--brand-color: #cd6699;
-  //--brand-light-color: #9b4a73;
+  --medium-grey: #bdbdbd;
+  --dark-grey: #3c3a41;
+  --bg-color: #fff;
+  --main-green-50: rgba(130, 218, 113, 0.5);
+
   --black-gradient: linear-gradient(141deg, #313131 0%, #000 100%);
   --animation: 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }

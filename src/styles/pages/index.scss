@@ -1,6 +1,8 @@
 @import "../components/hero";
 
 .principles {
+  padding-top: 80px;
+
   &__list {
     display: flex;
     flex-direction: column;
@@ -65,7 +67,7 @@
     &__header[aria-expanded="true"] {
       background: url("../../assets/img/accordion-bg-active.png") no-repeat 50%
         50% / cover;
-      border-left: 2px solid var(--secondary-color);
+      border-left: 2px solid var(--main-green);
     }
 
     &__content {
