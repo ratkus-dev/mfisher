@@ -11,6 +11,17 @@
     padding-bottom: 174px;
   }
 
+  @include tablet {
+    padding-top: 260px;
+    padding-bottom: 340px;
+  }
+
+  @include desktop {
+    padding-top: 224px;
+    padding-bottom: 176px;
+    background: url("../../assets/img/hero-bg-lg.jpg") no-repeat 50% 50% / cover;
+  }
+
   .container {
     height: 100%;
   }
@@ -21,6 +32,22 @@
     flex-direction: column;
   }
 
+  &__title {
+    max-width: 720px;
+
+    @include mobile {
+      max-width: 500px;
+    }
+
+    @include tablet {
+      max-width: 740px;
+    }
+
+    @include desktop {
+      max-width: 970px;
+    }
+  }
+
   &__description {
     display: none;
     color: var(--medium-grey);
@@ -28,6 +55,12 @@
 
     @include mobile {
       display: block;
+      max-width: 450px;
+    }
+
+    @include tablet {
+      max-width: 800px;
+      margin: 40px 0 80px;
     }
   }
 
@@ -37,6 +70,7 @@
 
     @include mobile {
       margin-top: 0;
+      width: fit-content;
     }
   }
 
@@ -49,12 +83,25 @@
       width: 100px;
       height: 100px;
       z-index: 100;
-      transition: transform var(--animation);
+      transition: var(--animation);
 
       @include mobile {
         width: 140px;
         height: 140px;
         bottom: -70px;
+      }
+
+      @include tablet {
+        bottom: 80px;
+      }
+
+      @include desktop {
+        width: 181px;
+        height: 181px;
+        bottom: 120px;
+        transform: none;
+        right: calc((100vw - 1290px) / 2);
+        left: auto;
       }
     }
   }

@@ -1,41 +1,68 @@
 <footer class="footer">
-  <div>
-    <svg
-      class="waves"
-      xmlns="http://www.w3.org/2000/svg"
-      xmlns:xlink="http://www.w3.org/1999/xlink"
-      viewBox="0 24 150 28"
-      preserveAspectRatio="none"
-      shape-rendering="auto"
-    >
-      <defs>
-        <path
-          id="gentle-wave"
-          d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z"
-        />
-      </defs>
-      <g class="parallax">
-        <use
-          xlink:href="#gentle-wave"
-          x="48"
-          y="0"
-          fill="rgba(255,255,255,0.7"
-        />
-        <use
-          xlink:href="#gentle-wave"
-          x="48"
-          y="3"
-          fill="rgba(255,255,255,0.5)"
-        />
-        <use
-          xlink:href="#gentle-wave"
-          x="48"
-          y="5"
-          fill="rgba(255,255,255,0.3)"
-        />
-        <use xlink:href="#gentle-wave" x="48" y="7" fill="#fff" />
-      </g>
-    </svg>
-  </div>
   <div class="container"></div>
 </footer>
+<div class="mobile-menu" id="mobMenu">
+  <div class="nav">
+    <ul class="nav__list">
+      <li class="nav__item">
+        <a href="#" class="nav__link">Home</a>
+      </li>
+      <li class="nav__item">
+        <a href="#" class="nav__link">Portfolio</a>
+      </li>
+      <li class="nav__item">
+        <a href="#" class="nav__link">Services</a>
+      </li>
+      <li class="nav__item">
+        <a href="#" class="nav__link">About Us</a>
+      </li>
+    </ul>
+    <ul class="btn__list">
+      <li class="btn__item">
+        <a href="#" class="btn btn_primary">
+          <span class="btn__text">Contact Us</span>
+          <span class="btn__icon btn__icon-arrow"></span>
+        </a>
+      </li>
+      <li class="btn__item">
+        <a href="#" class="btn btn_secondary">
+          <span class="btn__icon btn__icon-calendar"></span>
+          <span class="btn__text">Schedule a Meeting</span>
+        </a>
+      </li>
+    </ul>
+  </div>
+</div>
+<div class="waves-anim">
+  <svg
+    class="waves"
+    xmlns="http://www.w3.org/2000/svg"
+    xmlns:xlink="http://www.w3.org/1999/xlink"
+    viewBox="0 24 150 28"
+    preserveAspectRatio="none"
+    shape-rendering="auto"
+  >
+    <defs>
+      <path
+        id="gentle-wave"
+        d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z"
+      />
+    </defs>
+    <g class="parallax">
+      <use xlink:href="#gentle-wave" x="48" y="0" fill="rgba(255,255,255,0.7" />
+      <use
+        xlink:href="#gentle-wave"
+        x="48"
+        y="3"
+        fill="rgba(255,255,255,0.5)"
+      />
+      <use
+        xlink:href="#gentle-wave"
+        x="48"
+        y="5"
+        fill="rgba(255,255,255,0.3)"
+      />
+      <use xlink:href="#gentle-wave" x="48" y="7" fill="#fff" />
+    </g>
+  </svg>
+</div>

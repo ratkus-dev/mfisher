@@ -8,7 +8,11 @@
   width: 100%;
   z-index: 900;
   padding: 10px 0;
-  transition: transform var(--animation);
+  transition: ease-out 0.4s;
+
+  @include desktop {
+    padding: 14px 0;
+  }
 
   &__content {
     display: flex;
@@ -81,25 +85,100 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    gap: 60px;
     transition: color var(--animation);
+    width: 100%;
 
     &__logo {
       color: var(--white);
+      line-height: 1;
+    }
+
+    &__logo_mob {
+      @include desktop {
+        display: none;
+      }
+
+      svg {
+        height: 40px;
+        width: auto;
+      }
+    }
+
+    &__logo_desk {
+      display: none;
+
+      @include desktop {
+        display: block;
+      }
+
+      svg {
+        height: 60px;
+        width: auto;
+      }
+    }
+
+    &__list {
+      display: none;
+      justify-content: center;
+      align-items: center;
+      gap: 60px;
+
+      @include desktop {
+        display: flex;
+      }
+    }
+
+    &__link {
+      position: relative;
+      display: flex;
+      color: var(--white);
+
+      &.is-active {
+        color: var(--main-green);
+
+        &::before {
+          position: absolute;
+          content: "";
+          width: calc(100% + 10px);
+          height: 2px;
+          border-radius: 4px;
+          background-color: var(--main-green);
+          left: -5px;
+          bottom: -28px;
+        }
+      }
     }
 
     &__list,
     &__btn {
       display: none;
+
+      @include desktop {
+        display: flex;
+      }
     }
   }
 
   &.scroll {
     background-color: var(--white);
+    box-shadow: 0 4px 24px 0 rgba(33, 22, 39, 0.12);
 
     .nav {
-      &__logo {
+      &__logo,
+      &__link {
         color: var(--dark-black);
+      }
+
+      &__btn {
+        border-color: var(--dark-black);
+        color: var(--dark-black);
+
+        .btn {
+          &__icon {
+            background: url("../../assets/icons/arrow-right-black.svg")
+              no-repeat 50% 50% / contain;
+          }
+        }
       }
     }
 
@@ -160,7 +239,7 @@
       gap: 16px;
 
       .btn {
-        display: block;
+        display: flex;
         width: 100%;
       }
     }

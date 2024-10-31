@@ -1,3 +1,10 @@
+"use strict";
+
+import ".././styles/pages/index.scss";
+import "jquery/dist/jquery.js";
+import $ from "jquery";
+import "slick-carousel/slick/slick.js";
+
 const toggleBtn = document.querySelector(".header__toggle-btn");
 const mobMenu = document.querySelector(".mobile-menu");
 
@@ -10,10 +17,22 @@ toggleBtn.addEventListener("click", function () {
 document.querySelectorAll(".accordion__header").forEach((button) => {
   button.addEventListener("click", () => {
     const expanded = button.getAttribute("aria-expanded") === "true";
-    button.setAttribute("aria-expanded", !expanded);
 
-    const content = button.nextElementSibling;
-    content.style.display = expanded ? "none" : "block";
+    document.querySelectorAll(".accordion__header").forEach((btn) => {
+      btn.setAttribute("aria-expanded", "false");
+      const content = btn.nextElementSibling;
+      if (content) {
+        content.style.maxHeight = null;
+      }
+    });
+
+    if (!expanded) {
+      button.setAttribute("aria-expanded", "true");
+      const content = button.nextElementSibling;
+      if (content) {
+        content.style.maxHeight = content.scrollHeight + "px";
+      }
+    }
   });
 });
 
@@ -34,4 +53,11 @@ window.addEventListener("scroll", () => {
   }
 
   lastScrollY = window.scrollY;
+});
+
+$(".team__list").slick({
+  dots: true,
+  infinite: true,
+  speed: 500,
+  cssEase: "linear",
 });
