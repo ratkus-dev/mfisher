@@ -351,6 +351,13 @@
   &__item-img {
     max-width: 469px;
   }
+
+  &__item-skills {
+    img {
+      width: 24px;
+      height: 24px;
+    }
+  }
 }
 
 .team__list-skills {
