@@ -2,7 +2,7 @@
 @import "media";
 
 .btn {
-  font-family: var(--font-family);
+  font-family: var(--font-family), sans-serif;
   font-weight: 600;
   font-size: 14px;
   line-height: 1.14;
@@ -14,6 +14,7 @@
   gap: 10px;
   align-items: center;
   justify-content: center;
+  cursor: pointer;
 
   @include mobile {
     line-height: 1.29;
@@ -49,5 +50,9 @@
   &__icon-arrow {
     background: url("../assets/icons/arrow-right.svg") no-repeat 50% 50% /
       contain;
+  }
+
+  &__icon-calendar {
+    background: url("../assets/icons/calendar.svg") no-repeat 50% 50% / contain;
   }
 }

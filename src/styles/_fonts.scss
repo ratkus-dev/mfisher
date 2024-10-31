@@ -5,13 +5,15 @@ h1,
 h2,
 h3,
 h4,
-h5 {
+h5,
+.h5 {
   font-family: var(--second-family), sans-serif;
+  margin: 0;
 }
 
 h1 {
   font-size: 34px;
-  line-height: 48px;
+  line-height: 1.41;
   font-weight: 500;
 
   @include mobile {
@@ -25,8 +27,8 @@ h1 {
   }
 
   @include desktop {
-    font-size: 90px;
-    line-height: 110px;
+    font-size: 84px;
+    line-height: 1.26;
     font-weight: 700;
   }
 }
@@ -48,7 +50,7 @@ h2 {
 
   @include desktop {
     font-size: 60px;
-    line-height: 78px;
+    line-height: 74px;
     font-weight: 600;
   }
 }
@@ -99,7 +101,6 @@ h5,
 .h5 {
   font-size: 17px;
   line-height: 24px;
-  font-weight: 500;
 
   @include mobile {
     line-height: 1.44;
@@ -123,7 +124,7 @@ h5,
 
   @include desktop {
     font-size: 18px;
-    line-height: 32px;
+    line-height: 1.78;
   }
 }
 
@@ -134,7 +135,7 @@ h5,
 
   @include desktop {
     font-size: 16px;
-    line-height: 26px;
+    line-height: 1.62;
   }
 }
 

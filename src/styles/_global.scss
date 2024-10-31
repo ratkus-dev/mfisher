@@ -11,9 +11,11 @@ body {
   color: var(--main-text-color);
   font-size: 16px;
   line-height: 1.5;
+  background: linear-gradient(141deg, #313131 0%, #000 100%);
 }
 
-.img {
+.img,
+img {
   max-width: 100%;
   width: 100%;
   height: auto;
@@ -31,6 +33,17 @@ body {
 mark {
   background-color: var(--main-green-50);
   padding: 0 2px;
+}
+
+a {
+  cursor: pointer;
+}
+
+input,
+textarea,
+button,
+select {
+  outline: none;
 }
 
 .elem-action {
@@ -55,16 +68,14 @@ mark {
   width: 100%;
   margin: 0 auto;
   padding: 0 16px;
-}
 
-.title {
-  font-size: 4rem;
+  @include tablet {
+    max-width: 750px;
+    padding: 0 15px;
+  }
 
-  span {
-    font-size: 5rem;
-    text-transform: uppercase;
-    font-weight: 700;
-    @include text-gradient;
+  @include desktop {
+    max-width: 1290px;
   }
 }
 
