@@ -2,11 +2,6 @@
 @import "buttons";
 @import "vars";
 
-html {
-  background: linear-gradient(141deg, #313131 0%, #000 100%) no-repeat 50% 50% /
-    cover;
-}
-
 body {
   font-family: var(--font-family), sans-serif;
   background: var(--main-color);

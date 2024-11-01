@@ -6,7 +6,8 @@ h2,
 h3,
 h4,
 h5,
-.h5 {
+.h5,
+blockquote {
   font-family: var(--second-family), sans-serif;
   margin: 0;
 }
@@ -55,24 +56,25 @@ h2 {
   }
 }
 
-h3 {
+h3,
+blockquote {
   font-size: 24px;
-  line-height: 40px;
+  line-height: 1.67;
   font-weight: 500;
 
   @include mobile {
-    font-size: 24px;
-    line-height: 1.75;
+    font-size: 28px;
+    line-height: 1.64;
   }
 
   @include tablet {
     font-size: 38px;
-    line-height: 62px;
+    line-height: 1.63;
   }
 
   @include desktop {
-    font-size: 46px;
-    line-height: 56px;
+    font-size: 55px;
+    line-height: 1.49;
   }
 }
 
