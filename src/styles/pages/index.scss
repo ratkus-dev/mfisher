@@ -2,11 +2,19 @@
 @import "../buttons";
 
 .principles {
-  padding-top: 80px;
+  padding: 80px 0 60px;
   background-color: var(--white);
 
   @include mobile {
-    padding-top: 120px;
+    padding: 120px 0 90px;
+  }
+
+  @include tablet {
+    padding: 90px 0;
+  }
+
+  @include desktop {
+    padding: 160px 0;
   }
 
   &__title {
@@ -22,7 +30,7 @@
     margin-top: 40px;
 
     @include mobile {
-      gap: 40px;
+      gap: 60px;
       margin-top: 60px;
     }
 
@@ -32,6 +40,7 @@
     }
 
     @include desktop {
+      margin-top: 90px;
       flex-wrap: nowrap;
     }
   }
@@ -86,6 +95,7 @@
 }
 
 .services {
+  padding: 120px 0;
   color: var(--white);
 
   &__title {
@@ -106,6 +116,7 @@
       position: relative;
       max-width: none;
       margin: 90px 0;
+      gap: 5px;
     }
 
     &__header {
@@ -127,6 +138,8 @@
       @include desktop {
         max-width: 510px;
         height: 90px;
+        padding: 26px 30px;
+        gap: 30px;
       }
     }
 
@@ -198,7 +211,7 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      width: 100%;
+      width: fit-content;
 
       .btn__icon-arrow {
         background: none;
@@ -230,6 +243,7 @@
 
       @include desktop {
         top: 33px;
+        right: 28px;
       }
     }
 
