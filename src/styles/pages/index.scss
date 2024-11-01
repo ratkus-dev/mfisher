@@ -85,6 +85,14 @@
 .services {
   color: var(--white);
 
+  .section {
+    &__title {
+      @include desktop {
+        text-align: center;
+      }
+    }
+  }
+
   .accordion {
     max-width: 720px;
     overflow: hidden;
@@ -175,13 +183,9 @@
 
     &__btn {
       display: flex;
-      width: 100%;
       align-items: center;
       justify-content: center;
-
-      @include tablet {
-        width: fit-content;
-      }
+      width: fit-content;
 
       .btn__icon-arrow {
         background: none;
@@ -264,6 +268,13 @@
     .btn_secondary-black {
       width: 100%;
       text-align: center;
+    }
+  }
+
+  .elem-action {
+    @include desktop {
+      display: flex;
+      justify-content: center;
     }
   }
 }
