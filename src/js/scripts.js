@@ -14,9 +14,21 @@ toggleBtn.addEventListener("click", function () {
   document.documentElement.classList.toggle("no-scroll");
 });
 
-document.querySelectorAll(".accordion__header").forEach((button) => {
+document.querySelectorAll(".accordion__header").forEach((button, index) => {
+  const isSmallScreen = window.matchMedia("(max-width: 1279px)").matches;
+
+  if (!isSmallScreen && index === 0) {
+    button.setAttribute("aria-expanded", "true");
+    const content = button.nextElementSibling;
+    if (content) {
+      content.style.maxHeight = content.scrollHeight + "px";
+    }
+  }
+
   button.addEventListener("click", () => {
     const expanded = button.getAttribute("aria-expanded") === "true";
+
+    if (!isSmallScreen && expanded) return;
 
     document.querySelectorAll(".accordion__header").forEach((btn) => {
       btn.setAttribute("aria-expanded", "false");
@@ -30,7 +42,9 @@ document.querySelectorAll(".accordion__header").forEach((button) => {
       button.setAttribute("aria-expanded", "true");
       const content = button.nextElementSibling;
       if (content) {
-        content.style.maxHeight = content.scrollHeight + "px";
+        content.style.maxHeight = isSmallScreen
+          ? content.scrollHeight + "px"
+          : "none";
       }
     }
   });

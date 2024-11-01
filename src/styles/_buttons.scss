@@ -48,8 +48,11 @@
   }
 
   &__icon-arrow {
-    background: url("../assets/icons/arrow-right.svg") no-repeat 50% 50% /
-      contain;
+    width: 20px;
+    height: 20px;
+    color: var(--white);
+    fill: var(--white);
+    stroke: var(--white);
   }
 
   &__icon-calendar {

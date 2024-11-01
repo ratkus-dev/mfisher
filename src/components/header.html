@@ -20,11 +20,7 @@
             />
           </svg>
         </a>
-        <a
-          class="nav__logo nav__logo_desk"
-          href="./index.html"
-          aria-label="Site logo"
-        >
+        <a class="nav__logo nav__logo_desk">
           <svg
             width="355"
             height="121"
@@ -122,25 +118,27 @@
         </a>
         <ul class="nav__list">
           <li class="nav__item">
-            <a class="p-1 nav__link is-active" href="../index.html">Home</a>
+            <a class="p-1 nav__link {=$highlight-home}" href="../index.html"
+              >Home</a
+            >
           </li>
           <li class="nav__item">
             <a
-              class="p-1 nav__link {=$highlight-act}"
+              class="p-1 nav__link {=$highlight-portfolio}"
               href="../pages/portfolio.html"
               >Portfolio</a
             >
           </li>
           <li class="nav__item">
             <a
-              class="p-1 nav__link {=$highlight-act}"
+              class="p-1 nav__link {=$highlight-services}"
               href="../pages/service.html"
               >Services</a
             >
           </li>
           <li class="nav__item">
             <a
-              class="p-1 nav__link {=$highlight-act}"
+              class="p-1 nav__link {=$highlight-about}"
               href="../pages/about.html"
               >About Us</a
             >
@@ -148,7 +146,7 @@
         </ul>
         <button class="nav__btn btn btn_secondary">
           <span class="btn__text">Let’s Talk!</span>
-          <span class="btn__icon btn__icon-arrow"></span>
+          <span class="btn__icon icon-arrow-right"></span>
         </button>
       </nav>
       <div class="header__toggle-btn" id="menuBtn">
