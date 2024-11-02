@@ -1,5 +1,4 @@
 @import "normalize.css";
-@import "slick-carousel/slick/slick.css";
 @import "./../assets/fonts/icons/icons";
 @import "fonts";
 @import "reset";
@@ -8,5 +7,7 @@
 @import "media";
 @import "base";
 @import "global";
+@import "components/cta";
+@import "components/testimonials";
 @import "components/header";
 @import "components/footer";
