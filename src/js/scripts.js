@@ -95,7 +95,6 @@ let swiper = new Swiper(".testimonials__list", {
 });
 
 let expertSwiper = new Swiper(".team__list", {
-  // cssMode: true,
   navigation: {
     nextEl: ".swiper-button-next",
     prevEl: ".swiper-button-prev",
@@ -105,6 +104,7 @@ let expertSwiper = new Swiper(".team__list", {
   },
   mousewheel: true,
   keyboard: true,
+  loop: true,
 });
 
 // $(".testimonials__list").slick({
