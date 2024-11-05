@@ -1,10 +1,8 @@
-"use strict";
-
 import ".././styles/pages/index.scss";
 import "jquery/dist/jquery.js";
 import $ from "jquery";
 import Swiper from "swiper";
-import "swiper/css";
+import { Navigation, Pagination } from "swiper/modules";
 
 const toggleBtn = document.querySelector(".header__toggle-btn");
 const mobMenu = document.querySelector(".mobile-menu");
@@ -43,9 +41,7 @@ document.querySelectorAll(".accordion__header").forEach((button, index) => {
       button.setAttribute("aria-expanded", "true");
       const content = button.nextElementSibling;
       if (content) {
-        content.style.maxHeight = isSmallScreen
-          ? content.scrollHeight + "px"
-          : "none";
+        content.style.maxHeight = isSmallScreen ? content.scrollHeight + "px" : "none";
       }
     }
   });
@@ -71,30 +67,34 @@ window.addEventListener("scroll", () => {
 });
 
 let swiper = new Swiper(".testimonials__list", {
-  slidesPerView: 2,
-  centeredSlides: true,
+  modules: [Navigation, Pagination],
+  // centeredSlides: true,
+  slidesPerView: "auto",
   spaceBetween: 20,
   loop: true,
   pagination: {
     el: ".swiper-pagination",
-    type: "progressbar",
     clickable: true,
   },
+  watchOverflow: true,
   navigation: {
-    nextEl: ".swiper-button-next",
-    prevEl: ".swiper-button-prev",
+    nextEl: ".swiper__button-next",
+    prevEl: ".swiper__button-prev",
   },
-  breakpoints: {
-    768: {
-      slidesPerView: 1,
-    },
-    1279: {
-      slidesPerView: 2,
-    },
-  },
+  // breakpoints: {
+  //   768: {
+  //     // centeredSlides: false,
+  //     spaceBetween: 0,
+  //     slidesPerView: 2,
+  //   },
+  //   1279: {
+  //     slidesPerView: 3,
+  //   },
+  // },
 });
 
 let expertSwiper = new Swiper(".team__list", {
+  modules: [Navigation, Pagination],
   navigation: {
     nextEl: ".swiper-button-next",
     prevEl: ".swiper-button-prev",
@@ -107,28 +107,26 @@ let expertSwiper = new Swiper(".team__list", {
   loop: true,
 });
 
-// $(".testimonials__list").slick({
-//   dots: true,
-//   infinite: true,
-//   speed: 300,
-//   centerMode: true,
-//   variableWidth: true,
-//   slidesToShow: 3,
-//   slidesToScroll: 1,
-//   responsive: [
-//     {
-//       breakpoint: 1279,
-//       settings: {
-//         slidesToShow: 2,
-//         slidesToScroll: 1,
-//       },
-//     },
-//     {
-//       breakpoint: 767,
-//       settings: {
-//         slidesToShow: 1,
-//         slidesToScroll: 1,
-//       },
-//     },
-//   ],
-// });
+function addEllipsisToText(selector, maxLines) {
+  document.querySelectorAll(selector).forEach((el) => {
+    const lineHeight = parseFloat(getComputedStyle(el).lineHeight); // Высота строки
+    const maxHeight = lineHeight * maxLines;
+
+    if (el.scrollHeight > maxHeight) {
+      let text = el.textContent;
+      while (el.scrollHeight > maxHeight) {
+        text = text.slice(0, -1);
+        el.textContent = text + "...";
+      }
+    }
+  });
+}
+
+addEllipsisToText(".testimonials__item-text", 5);
+
+function handleResize() {
+  console.log("Размер экрана изменился:", window.innerWidth, window.innerHeight);
+  addEllipsisToText(".testimonials__item-text", 5);
+}
+
+window.addEventListener("resize", handleResize);
