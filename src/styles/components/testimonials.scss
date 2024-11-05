@@ -1,6 +1,8 @@
+@import "../media";
+@import "node_modules/swiper/swiper.scss";
+
 .testimonials {
-  background: var(--light-grey) url("../assets/img/fish.svg") no-repeat 50% 100% /
-    contain;
+  background: var(--light-grey) url("../assets/img/fish.svg") no-repeat -15% 100% / contain;
   padding: 60px 0;
 
   @include tablet {
@@ -14,42 +16,54 @@
   &__title {
     max-width: 85%;
     width: 100%;
+    margin-bottom: 30px;
+
+    @include mobile {
+      margin-bottom: 60px;
+    }
 
     @include desktop {
       text-align: center;
+      margin-bottom: 90px;
     }
   }
 
   &__list {
-    margin: 30px 0;
     background-color: transparent;
 
     @include mobile {
-      margin: 60px 0;
     }
 
     @include desktop {
-      margin: 90px 0;
     }
   }
 
   &__item {
-    background-color: var(--white);
-    padding: 24px;
-    display: flex;
-    flex-direction: column;
-    max-width: 288px;
-    width: 100%;
-    justify-content: space-between;
-    min-height: 320px;
+    &.swiper-slide {
+      background-color: var(--white);
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      justify-content: space-between;
+      min-height: 320px;
 
-    @include mobile {
-      margin-right: 20px;
-      max-width: 360px;
-    }
+      @include mobile {
+        width: 100%;
+      }
 
-    @include tablet {
-      max-width: 520px;
+      @include media-custom(420px) {
+        width: 85%;
+      }
+
+      @include tablet {
+        min-height: 340px;
+        width: 70%;
+      }
+
+      @include desktop {
+        width: 40%;
+      }
     }
   }
 
@@ -66,7 +80,9 @@
 
   &__item-text {
     color: var(--dark-black);
+    overflow: hidden;
     //margin-bottom: 60px;
+    line-height: 1.78;
   }
 
   &__item-footer {
@@ -75,6 +91,7 @@
     align-items: center;
     gap: 12px;
   }
+
   .testimonials__item {
     display: flex;
     justify-content: space-between;
@@ -109,4 +126,68 @@
       line-height: 1.57;
     }
   }
+
+  .swiper {
+    &__nav {
+      display: none;
+      justify-content: flex-end;
+      align-items: center;
+      gap: 60px;
+
+      @include desktop {
+        display: flex;
+        margin-top: 90px;
+      }
+    }
+
+    &__button-next,
+    &__button-prev {
+      width: 24px;
+      height: 24px;
+      flex-shrink: 0;
+      cursor: pointer;
+      font-size: 24px;
+      line-height: 24px;
+    }
+
+    &__button-prev {
+      transform: rotate(180deg);
+    }
+  }
+}
+
+.swiper-pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 0;
+  margin-top: 30px;
+
+  @include mobile {
+    margin-top: 60px;
+  }
+
+  @include tablet {
+    margin-top: 70px;
+  }
+
+  @include desktop {
+    display: none;
+  }
+}
+
+.swiper-pagination-bullet {
+  width: 10px;
+  height: 2px;
+  border-radius: 1px;
+  background-color: var(--grey);
+  transition:
+    background-color ease-in-out 0.4s,
+    width ease-in-out 0.4s;
+}
+
+.swiper-pagination-bullet-active {
+  width: 20px;
+  background-color: var(--main-green);
 }

@@ -2,6 +2,12 @@
 @import "buttons";
 @import "vars";
 
+html,
+body {
+  min-height: 100%;
+  overflow-x: hidden;
+}
+
 body {
   font-family: var(--font-family), sans-serif;
   background: var(--main-color);
@@ -10,6 +16,8 @@ body {
   line-height: 1.5;
   display: flex;
   min-height: 100vh;
+  min-width: 320px;
+  overflow-x: hidden;
   flex-direction: column;
 }
 
@@ -50,7 +58,7 @@ select {
 
 .elem-action {
   a {
-    display: inline-block;
+    display: inline-flex;
   }
 }
 

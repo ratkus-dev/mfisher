@@ -22,8 +22,15 @@
     background: url("../../assets/img/hero-bg-lg.jpg") no-repeat 50% 50% / cover;
   }
 
-  .container {
-    height: 100%;
+  &__wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+
+    @include tablet {
+      height: auto;
+    }
   }
 
   &__content {
@@ -71,6 +78,25 @@
     @include mobile {
       margin-top: 0;
       width: fit-content;
+    }
+  }
+
+  &__btn-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 12px;
+    margin-top: 22px;
+
+    @include tablet {
+      flex-wrap: nowrap;
+      margin-top: 0;
+      gap: 24px;
+    }
+
+    @include desktop {
+      gap: 40px;
     }
   }
 

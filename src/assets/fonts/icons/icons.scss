@@ -2,8 +2,7 @@
   font-family: "icomoon";
   src: url("./icomoon.eot?qb8xg7");
   src:
-    url("../assets/fonts/icons/icomoon.eot?qb8xg7#iefix")
-      format("embedded-opentype"),
+    url("../assets/fonts/icons/icomoon.eot?qb8xg7#iefix") format("embedded-opentype"),
     url("../assets/fonts/icons/icomoon.ttf?qb8xg7") format("truetype"),
     url("../assets/fonts/icons/icomoon.woff?qb8xg7") format("woff"),
     url("../assets/fonts/icons/icomoon.svg?qb8xg7#icomoon") format("svg");
@@ -26,6 +25,10 @@
   /* Better Font Rendering =========== */
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-copy:before {
+  content: "\e90e";
 }
 
 .icon-coffee:before {

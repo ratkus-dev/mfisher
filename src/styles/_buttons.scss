@@ -51,17 +51,16 @@
     justify-content: center;
     width: 20px;
     height: 20px;
+    font-size: 20px;
+    line-height: 20px;
   }
 
   &__icon-arrow {
     width: 20px;
     height: 20px;
     color: var(--white);
-    fill: var(--white);
-    stroke: var(--white);
   }
 
   &__icon-calendar {
-    background: url("../assets/icons/calendar.svg") no-repeat 50% 50% / contain;
   }
 }
