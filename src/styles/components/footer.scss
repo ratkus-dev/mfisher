@@ -8,12 +8,15 @@
 
   &__content {
     display: flex;
+    flex-direction: column;
     justify-content: space-between;
     align-items: flex-start;
-    flex-wrap: wrap;
+    gap: 60px;
   }
 
-  ul {
+  &__text,
+  &__menu,
+  &__contacts {
     display: flex;
     flex-direction: column;
     gap: 20px;
@@ -37,13 +40,82 @@
     }
   }
 
+  &__text {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    gap: 19px;
+  }
+
+  //&:first-chiild {
+  //}
+
+  &__text-description {
+    color: var(--grey);
+  }
+
+  &__contacts {
+    order: 3;
+  }
+
+  &__btn {
+    order: 5;
+  }
+
   &__contacts-item {
     display: flex;
     justify-content: flex-start;
     align-items: center;
 
-    &:last-child {
-      margin-top: 30px;
+    .p-2 {
+      margin: 0 16px;
+    }
+  }
+
+  &__social {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 30px;
+    flex-direction: row;
+    order: 4;
+
+    @include tablet {
+      flex-direction: column;
+    }
+
+    li:first-child {
+      display: none;
+      margin-bottom: 30px;
+      color: var(--grey);
+
+      @include tablet {
+        display: block;
+      }
+    }
+  }
+
+  &__social-item {
+    &:first-child {
+      display: none;
+    }
+  }
+
+  &__social-icon {
+    font-size: 24px;
+    line-height: 24px;
+    color: var(--grey);
+
+    @include tablet {
+      display: none;
+    }
+  }
+
+  &__social-text {
+    display: none;
+
+    @include tablet {
+      display: block;
     }
   }
 }
