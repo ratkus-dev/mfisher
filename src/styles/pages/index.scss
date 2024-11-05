@@ -256,10 +256,6 @@
 
       img {
         display: block;
-
-        @include desktop {
-          transform: scale(1.1);
-        }
       }
     }
 
