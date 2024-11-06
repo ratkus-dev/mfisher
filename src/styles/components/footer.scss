@@ -69,6 +69,10 @@
   &__contacts {
     order: 3;
 
+    .icon {
+      color: var(--grey);
+    }
+
     @include tablet {
       order: 4;
     }
@@ -82,14 +86,12 @@
         display: none;
 
         @include tablet {
-          display: block;
-        }
-      }
-    }
+          display: flex;
 
-    &.footer {
-      &__btn-mob {
-        display: flex;
+          .margin-bottom {
+            margin-top: 50px;
+          }
+        }
       }
     }
   }
@@ -101,6 +103,12 @@
 
     .p-2 {
       margin: 0 16px;
+    }
+
+    &:last-child {
+      @include tablet {
+        margin-top: 50px;
+      }
     }
   }
 
@@ -151,6 +159,14 @@
       display: flex;
     }
   }
+
+  .footer__btn.footer__btn-mob {
+    display: flex;
+
+    @include tablet {
+      display: none;
+    }
+  }
 }
 
 .footer-bottom {
@@ -171,4 +187,7 @@
       color: #828282;
     }
   }
+}
+
+.footer {
 }
