@@ -12,6 +12,11 @@
     justify-content: space-between;
     align-items: flex-start;
     gap: 60px;
+
+    @include tablet {
+      flex-wrap: wrap;
+      flex-direction: row;
+    }
   }
 
   &__text,
@@ -26,12 +31,6 @@
       width: auto;
     }
 
-    &:first-child {
-      @include desktop {
-        max-width: 446px;
-      }
-    }
-
     &:not(:first-child) {
       li:first-child {
         color: var(--grey);
@@ -40,15 +39,28 @@
     }
   }
 
+  &__menu,
+  &__social,
+  &__contacts {
+    @include tablet {
+      width: fit-content;
+    }
+  }
+
   &__text {
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
     gap: 19px;
-  }
 
-  //&:first-chiild {
-  //}
+    @include tablet {
+      width: 100%;
+    }
+
+    @include desktop {
+      max-width: 446px;
+    }
+  }
 
   &__text-description {
     color: var(--grey);
@@ -56,10 +68,30 @@
 
   &__contacts {
     order: 3;
+
+    @include tablet {
+      order: 4;
+    }
   }
 
   &__btn {
     order: 5;
+
+    &.footer {
+      &__btn-desk {
+        display: none;
+
+        @include tablet {
+          display: block;
+        }
+      }
+    }
+
+    &.footer {
+      &__btn-mob {
+        display: flex;
+      }
+    }
   }
 
   &__contacts-item {
@@ -82,6 +114,7 @@
 
     @include tablet {
       flex-direction: column;
+      order: 3;
     }
 
     li:first-child {
@@ -115,7 +148,7 @@
     display: none;
 
     @include tablet {
-      display: block;
+      display: flex;
     }
   }
 }
