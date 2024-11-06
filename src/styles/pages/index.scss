@@ -453,7 +453,7 @@
   }
 
   &__item-info {
-    //position: absolute;
+    position: absolute;
     left: 0;
     bottom: 0;
     width: 100%;
@@ -489,7 +489,7 @@
         gap: 8px;
       }
     }
-    q &__item {
+    &__item {
       padding: 0 8px;
       border: 1px solid rgba(255, 255, 255, 0.24);
       border-radius: 40px;
