@@ -68,7 +68,6 @@ window.addEventListener("scroll", () => {
 
 let swiper = new Swiper(".testimonials__list", {
   modules: [Navigation, Pagination],
-  // centeredSlides: true,
   slidesPerView: "auto",
   spaceBetween: 20,
   loop: true,
@@ -81,16 +80,6 @@ let swiper = new Swiper(".testimonials__list", {
     nextEl: ".swiper__button-next",
     prevEl: ".swiper__button-prev",
   },
-  // breakpoints: {
-  //   768: {
-  //     // centeredSlides: false,
-  //     spaceBetween: 0,
-  //     slidesPerView: 2,
-  //   },
-  //   1279: {
-  //     slidesPerView: 3,
-  //   },
-  // },
 });
 
 let expertSwiper = new Swiper(".team__list", {
@@ -130,3 +119,30 @@ function handleResize() {
 }
 
 window.addEventListener("resize", handleResize);
+
+// function copyToClipboard(text) {
+//   navigator.clipboard
+//     .writeText(text)
+//     .then(() => {
+//       const message = document.getElementById("copy-message");
+//       message.style.display = "inline";
+//
+//       setTimeout(() => {
+//         message.style.display = "none";
+//       }, 2000);
+//     })
+//     .catch((err) => {
+//       console.error("Не удалось скопировать: ", err);
+//     });
+// }
+//
+// document.getElementById("copy-email").addEventListener("click", () => {
+//   console.log("jdvnbfnvuurn");
+//   const email = document.getElementById("email-address").textContent;
+//   copyToClipboard(email);
+// });
+//
+// document.getElementById("copy-phone").addEventListener("click", () => {
+//   const phone = document.getElementById("phone-number").textContent;
+//   copyToClipboard(phone);
+// });
