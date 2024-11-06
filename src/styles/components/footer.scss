@@ -1,6 +1,19 @@
 .footer {
+  position: relative;
   background-color: var(--dark-black);
   color: var(--white);
+  overflow: hidden;
+
+  &::before {
+    position: absolute;
+    content: "";
+    background: url("../../assets/img/footer-fish.svg") no-repeat 100% 100% / contain;
+    width: 524px;
+    height: 472px;
+    top: -88px;
+    left: -28px;
+    opacity: 0.2;
+  }
 
   @include desktop {
     padding: 65px 0 141px;
@@ -11,11 +24,14 @@
     flex-direction: column;
     justify-content: space-between;
     align-items: flex-start;
-    gap: 60px;
 
     @include tablet {
       flex-wrap: wrap;
       flex-direction: row;
+    }
+
+    @include desktop {
+      padding-right: 48px;
     }
   }
 
@@ -52,14 +68,15 @@
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
-    gap: 19px;
+    gap: 14px;
 
     @include tablet {
       width: 100%;
     }
 
     @include desktop {
-      max-width: 446px;
+      max-width: 419px;
+      margin-top: 93px;
     }
   }
 
@@ -112,16 +129,20 @@
 
     &:last-child {
       @include tablet {
-        margin-top: 50px;
+        margin-top: 28px;
       }
     }
+  }
+
+  &__menu li {
+    line-height: 1;
   }
 
   &__social {
     display: flex;
     justify-content: flex-start;
     align-items: center;
-    gap: 30px;
+    gap: 23px;
     flex-direction: row;
     order: 4;
 
@@ -133,7 +154,6 @@
 
     li:first-child {
       display: none;
-      margin-bottom: 30px;
       color: var(--grey);
 
       @include tablet {
