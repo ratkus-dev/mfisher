@@ -1,7 +1,6 @@
 .cta {
   padding: 58px 0;
-  background: #6d45ff
-    linear-gradient(174deg, rgba(0, 0, 0, 0.4) 0%, rgba(0, 0, 0, 0.4) 100%);
+  background: #6d45ff linear-gradient(174deg, rgba(0, 0, 0, 0.4) 0%, rgba(0, 0, 0, 0.4) 100%);
 
   @include desktop {
     padding: 120px 0;
@@ -33,6 +32,11 @@
   &__title {
     max-width: 85%;
     margin-bottom: 10px;
+
+    @include desktop {
+      max-width: 60%;
+      margin-bottom: 30px;
+    }
   }
 
   &__action {
