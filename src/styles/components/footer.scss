@@ -34,7 +34,7 @@
     &:not(:first-child) {
       li:first-child {
         color: var(--grey);
-        margin-bottom: 30px;
+        margin-bottom: 10px;
       }
     }
   }
@@ -100,6 +100,10 @@
     display: flex;
     justify-content: flex-start;
     align-items: center;
+
+    a.p-2 {
+      text-decoration: underline;
+    }
 
     .p-2 {
       margin: 0 16px;
@@ -187,6 +191,11 @@
       color: #828282;
     }
   }
+}
+
+.icon-copy,
+.message-copy {
+  cursor: pointer;
 }
 
 .footer {
