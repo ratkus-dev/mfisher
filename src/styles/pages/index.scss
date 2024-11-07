@@ -584,14 +584,22 @@
     padding: 120px 0;
   }
 
+  &__content {
+    & > .team__btn {
+      @include desktop {
+        display: none;
+      }
+    }
+  }
+
   &__list {
     position: relative;
     .swiper {
       &__nav {
         position: absolute;
         top: 50px;
-        right: 50px;
-        width: 110px;
+        right: 0;
+        width: 78px;
         height: 24px;
         font-size: 24px;
         line-height: 24px;
@@ -599,27 +607,46 @@
         justify-content: space-between;
         align-items: center;
         z-index: 900;
+        cursor: pointer;
+
+        @include desktop {
+          width: 110px;
+          right: 60px;
+        }
       }
 
       &__button-prev {
         transform: rotate(-180deg);
+        transition: opacity var(--animation);
       }
 
       &__button-next {
-        margin-top: 3px;
+        margin-top: 6px;
+        transition: opacity var(--animation);
       }
     }
-    @include desktop {
+
+    .swiper-pagination {
+      margin: 30px 0;
     }
   }
 
   &__item-img {
-    //position: absolute;
-    //bottom: -75px;
+    position: relative;
     width: 100%;
-    //right: -17px;
     height: 100%;
-    max-width: 467px;
+    max-width: 360px;
+    margin: 150px auto 0;
+
+    &::before {
+      content: "";
+      position: absolute;
+      background: url("../../assets/img/team/team-img.svg") no-repeat 50% 50% / contain;
+      width: 302px;
+      height: 521px;
+      top: -50%;
+      left: 0;
+    }
 
     img {
       object-fit: cover;
@@ -627,12 +654,11 @@
     }
 
     @include tablet {
-      position: absolute;
+      margin: 200px 0 0 auto;
     }
 
     @include desktop {
-      bottom: -66px;
-      right: -24px;
+      margin: 110px 0 0 auto;
       max-width: 510px;
     }
   }
@@ -646,6 +672,9 @@
   }
 
   &__title-mob {
+    max-width: 75%;
+    width: 100%;
+
     @include desktop {
       display: none;
     }
@@ -681,9 +710,9 @@
     flex-direction: column;
     justify-content: space-between;
     align-items: flex-start;
+    width: 100%;
 
     @include tablet {
-      width: 100%;
     }
 
     @include desktop {
@@ -707,16 +736,16 @@
   }
 
   &__item-skills {
-    //position: absolute;
-    //bottom: 0;
     display: flex;
     flex-direction: column;
     gap: 16px;
+    margin: 30px 0 0 0;
 
     @include tablet {
-      bottom: auto;
-      top: 35%;
-      right: 0;
+      position: absolute;
+      top: 0;
+      right: auto;
+      left: 0;
       margin: 230px 0 200px;
     }
 

@@ -70,7 +70,6 @@ let swiper = new Swiper(".testimonials__list", {
   modules: [Navigation, Pagination],
   slidesPerView: "auto",
   spaceBetween: 20,
-  loop: true,
   pagination: {
     el: ".swiper-pagination",
     clickable: true,
@@ -93,12 +92,11 @@ let expertSwiper = new Swiper(".team__list", {
   },
   mousewheel: true,
   keyboard: true,
-  loop: true,
 });
 
 function addEllipsisToText(selector, maxLines) {
   document.querySelectorAll(selector).forEach((el) => {
-    const lineHeight = parseFloat(getComputedStyle(el).lineHeight); // Высота строки
+    const lineHeight = parseFloat(getComputedStyle(el).lineHeight);
     const maxHeight = lineHeight * maxLines;
 
     if (el.scrollHeight > maxHeight) {
@@ -119,6 +117,8 @@ function handleResize() {
 }
 
 window.addEventListener("resize", handleResize);
+
+// Функция для обновления состояния кнопок
 
 // function copyToClipboard(text) {
 //   navigator.clipboard

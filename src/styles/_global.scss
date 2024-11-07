@@ -40,6 +40,10 @@ img {
   color: var(--main-green);
 }
 
+.swiper-button-disabled {
+  opacity: 0.2;
+}
+
 mark {
   background-color: var(--main-green-50);
   padding: 0 2px;
