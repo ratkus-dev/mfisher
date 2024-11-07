@@ -7,12 +7,20 @@
   &::before {
     position: absolute;
     content: "";
-    background: url("../../assets/img/footer-fish.svg") no-repeat 100% 100% / contain;
+    background: url(../../assets/img/footer-fish.svg) no-repeat 100% 100% / contain;
     width: 524px;
     height: 472px;
-    top: -88px;
-    left: -28px;
+    top: -143px;
+    left: 0;
     opacity: 0.2;
+    transform: rotate(-90deg);
+
+    @include desktop {
+      top: -88px;
+      left: -28px;
+      opacity: 0.2;
+      transform: none;
+    }
   }
 
   @include desktop {
