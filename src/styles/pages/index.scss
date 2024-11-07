@@ -98,12 +98,15 @@
     height: 50%;
     background: url("../../assets/img/lines.svg") no-repeat 50% 50% / cover;
     transform: scale(1, -1);
+    z-index: 1;
   }
 }
 
 .services {
+  position: relative;
   padding: 60px 0;
   color: var(--white);
+  z-index: 2;
 
   @include desktop {
     padding: 120px 0;
@@ -386,7 +389,9 @@
 }
 
 .cases {
+  position: relative;
   color: var(--white);
+  z-index: 2;
 
   padding: 60px 0;
 
