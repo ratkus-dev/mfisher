@@ -59,7 +59,7 @@
     &:not(:first-child) {
       li:first-child {
         color: var(--grey);
-        margin-bottom: 10px;
+        margin-bottom: 0;
       }
     }
   }
@@ -168,7 +168,7 @@
     display: flex;
     justify-content: flex-start;
     align-items: center;
-    gap: 23px;
+    gap: 26px;
     flex-direction: row;
     order: 4;
     margin: 60px 0;
