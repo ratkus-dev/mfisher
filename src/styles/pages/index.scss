@@ -72,6 +72,7 @@
     @include desktop {
       flex-direction: column;
       max-width: calc((100% - 141px) / 4);
+      width: 100%;
       gap: 30px;
     }
   }
@@ -663,8 +664,8 @@
     }
 
     @include desktop {
-      margin: 110px 0 0 auto;
-      max-width: 510px;
+      margin: 147px 0 0 auto;
+      max-width: 470px;
     }
   }
 
