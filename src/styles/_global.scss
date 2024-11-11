@@ -66,9 +66,9 @@ select {
   }
 }
 
-.section {
-  padding: 60px 0;
-}
+//.section {
+//  padding: 60px 0;
+//}
 
 .wrapper {
   min-height: 100vh;
@@ -93,16 +93,16 @@ select {
   }
 }
 
-.footer {
-  padding: 3rem 0;
-  font-size: 1.6rem;
-
-  a {
-    text-decoration: none;
-    color: var(--brand-color);
-    transition: 0.2s ease;
-    &:hover {
-      color: var(--brand-light-color);
-    }
-  }
-}
+//.footer {
+//  padding: 3rem 0;
+//  font-size: 1.6rem;
+//
+//  a {
+//    text-decoration: none;
+//    color: var(--brand-color);
+//    transition: 0.2s ease;
+//    &:hover {
+//      color: var(--brand-light-color);
+//    }
+//  }
+//}
