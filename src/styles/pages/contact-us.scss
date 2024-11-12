@@ -80,7 +80,7 @@
     display: none;
 
     @include desktop {
-      display: block;
+      display: flex;
     }
   }
 }
