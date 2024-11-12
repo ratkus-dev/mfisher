@@ -15,7 +15,7 @@ export default defineConfig(({ command }) => {
       emptyOutDir: true,
       sourcemap: true,
       rollupOptions: {
-        input: glob.sync("./src/*.html"), // Ищем все HTML файлы в корне папки src
+        input: glob.sync("./src/*.html"),
         output: {
           manualChunks(id) {
             if (id.includes("node_modules")) {
