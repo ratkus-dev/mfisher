@@ -118,31 +118,11 @@ function handleResize() {
 
 window.addEventListener("resize", handleResize);
 
-// Функция для обновления состояния кнопок
+const options = document.querySelectorAll(".budget-option");
 
-// function copyToClipboard(text) {
-//   navigator.clipboard
-//     .writeText(text)
-//     .then(() => {
-//       const message = document.getElementById("copy-message");
-//       message.style.display = "inline";
-//
-//       setTimeout(() => {
-//         message.style.display = "none";
-//       }, 2000);
-//     })
-//     .catch((err) => {
-//       console.error("Не удалось скопировать: ", err);
-//     });
-// }
-//
-// document.getElementById("copy-email").addEventListener("click", () => {
-//   console.log("jdvnbfnvuurn");
-//   const email = document.getElementById("email-address").textContent;
-//   copyToClipboard(email);
-// });
-//
-// document.getElementById("copy-phone").addEventListener("click", () => {
-//   const phone = document.getElementById("phone-number").textContent;
-//   copyToClipboard(phone);
-// });
+options.forEach((option) => {
+  option.addEventListener("click", () => {
+    options.forEach((opt) => opt.classList.remove("selected"));
+    option.classList.add("selected");
+  });
+});
