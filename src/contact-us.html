@@ -1,0 +1,152 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="#" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contact us</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400..700&family=Unbounded:wght@400..700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./styles/main.scss" />
+    <link rel="stylesheet" href="./styles/pages/contact-us.scss" />
+  </head>
+  <body>
+    <load src="./components/header-wh.html" highlight-contacts="is-active" />
+    <main>
+      <section class="contacts">
+        <div class="container">
+          <div class="contacts__content">
+            <div class="contacts__content-text">
+              <h2 class="contacts__title">
+                Let’s <span class="text-color">Talk!</span> Tell&nbsp;us&nbsp;about your project.
+              </h2>
+              <ul class="contacts__list">
+                <li class="contacts__item">
+                  <span class="icon-sms icon"></span>
+                  <a id="email-address" class="p-1" href="mailto:email@example">email@example</a>
+                  <span class="icon-copy" id="phone-copy"></span>
+                </li>
+                <li class="contacts__item">
+                  <span class="icon icon-call"></span
+                  ><a id="phone-number" class="p-1" href="tel:+123455677">+ 1 234 55 677</a>
+                  <span id="email-copy" class="icon-copy"></span>
+                </li>
+              </ul>
+              <a href="#" class="btn btn_primary-green btn_meeting">
+                <span class="btn__icon btn__icon-calendar">
+                  <span class="icon-calendar"></span>
+                </span>
+                <span class="btn__text">Schedule a Meeting</span>
+              </a>
+
+              <ul class="social__list">
+                <li class="social__item">
+                  <a href="#" class="social__link">
+                    <span class="social__icon icon-dribbble"></span>
+                  </a>
+                </li>
+                <li class="social__item">
+                  <a href="#" class="social__link">
+                    <span class="social__icon icon-behance"></span>
+                  </a>
+                </li>
+                <li class="social__item">
+                  <a href="#" class="social__link">
+                    <span class="social__icon icon-facebook"></span>
+                  </a>
+                </li>
+                <li class="social__item">
+                  <a href="#" class="social__link">
+                    <span class="social__icon icon-linkedin"></span>
+                  </a>
+                </li>
+              </ul>
+            </div>
+            <div class="contacts__content-form">
+              <h5>Send us a message</h5>
+              <form name="order-form" class="form order-form" autocomplete="off" novalidate>
+                <div class="input-field">
+                  <input class="form-input" name="user-name" type="text" id="user-name" placeholder="Your Name*" />
+                  <span class="icon-sms icon"></span>
+                </div>
+                <div class="input-group">
+                  <div class="input-field">
+                    <input class="form-input" name="user-email" type="email" id="user-email" placeholder="Email*" />
+                    <span class="icon-sms icon"></span>
+                  </div>
+                  <div class="input-field">
+                    <input class="form-input" name="user-phone" type="text" id="user-phone" placeholder="Phone" />
+                    <span class="icon-call icon"></span>
+                  </div>
+                </div>
+                <div class="input-field">
+                  <textarea
+                    class="user-comment"
+                    name="user-comment"
+                    rows="4"
+                    id="user-comment"
+                    placeholder="Describe your industry and IT project*"
+                  ></textarea>
+                </div>
+                <div class="input-field">
+                  <label for="budget">Project budget:</label>
+                  <div class="budget-container" id="budget">
+                    <div class="budget-option p-2" data-value="not-sure">Not Sure</div>
+                    <div class="budget-option p-2 selected" data-value="<5k">&lt;$5K</div>
+                    <div class="budget-option p-2" data-value="5k-15k">$5K-$15K</div>
+                    <div class="budget-option p-2" data-value="15k-25k">$15K-$25</div>
+                    <div class="budget-option p-2" data-value=">30k">&gt;$30K</div>
+                  </div>
+                </div>
+                <div class="accept-box">
+                  <input class="input-nda visually-hidden" type="checkbox" id="user-nda" name="user-nda" value="true" />
+                  <label class="label-accept" for="user-nda">
+                    <span class="label-accept-span"> </span>
+                    <span> I want to protect my data by signing an NDA. <span class="icon-info-circle"></span></span>
+                  </label>
+                </div>
+                <div class="form__footer">
+                  <div class="form__footer-action">
+                    <button class="btn_submit btn btn_primary" type="submit">
+                      <span class="btn__text">Send Request</span>
+                      <span class="btn__icon btn__icon-arrow">
+                        <span class="icon-arrow-right"></span>
+                      </span>
+                    </button>
+                    <button class="btn_attach btn btn_secondary-black">
+                      <span class="btn__icon">
+                        <span class="icon-attach"></span>
+                      </span>
+                      <span class="btn__text">Attach File</span>
+                    </button>
+                  </div>
+                  <span class="p-4"
+                    >*No more than 3 files may be attached up to 3 MB each. Formats doc, docx, pdf, ppt, pptx .</span
+                  >
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <section class="map">
+      <div class="container-fluid">
+        <picture>
+          <source media="(min-width: 1280px)" srcset="./assets/img/map/map-desk.jpg" />
+          <source media="(min-width: 768px)" srcset="./assets/img/map/map-tablet.jpg" />
+          <source media="(min-width: 320px)" srcset="./assets/img/map/map-mob.jpg" />
+          <img src="./assets/img/map/map.jpg" alt="map" />
+        </picture>
+      </div>
+    </section>
+    <load src="./components/footer.html" />
+
+    <script type="module" src="js/main.js"></script>
+  </body>
+</html>

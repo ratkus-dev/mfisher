@@ -251,3 +251,21 @@
     }
   }
 }
+
+.header-white {
+  .nav__logo_desk,
+  .nav__logo,
+  .nav__link,
+  .btn_secondary,
+  .btn__icon-arrow {
+    color: var(--dark-black);
+  }
+
+  .btn_secondary {
+    border: 1px solid var(--dark-black);
+  }
+
+  .header__toggle-btn-icon {
+    background-color: var(--dark-black);
+  }
+}
