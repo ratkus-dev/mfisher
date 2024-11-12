@@ -262,6 +262,10 @@
   &__footer {
     .p-4 {
       color: var(--grey);
+
+      @include desktop {
+        white-space: nowrap;
+      }
     }
   }
 
