@@ -15,10 +15,7 @@ export default defineConfig(({ command }) => {
       emptyOutDir: true,
       sourcemap: true,
       rollupOptions: {
-        input: [
-          ...glob.sync("./src/*.html"),
-          path.resolve(__dirname, "./src/index.html"),
-        ],
+        input: glob.sync("./src/*.html"), // Ищем все HTML файлы в корне папки src
         output: {
           manualChunks(id) {
             if (id.includes("node_modules")) {
@@ -58,13 +55,7 @@ export default defineConfig(({ command }) => {
       FullReload(["./src/**/*.html", "./src/**/*.scss"]),
       ViteImageOptimizer({
         svg: {
-          plugins: [
-            "removeDoctype",
-            "removeXMLProcInst",
-            "minifyStyles",
-            "sortAttrs",
-            "sortDefsChildren",
-          ],
+          plugins: ["removeDoctype", "removeXMLProcInst", "minifyStyles", "sortAttrs", "sortDefsChildren"],
         },
         png: {
           quality: 85,
