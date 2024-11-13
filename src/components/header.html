@@ -126,10 +126,9 @@
 
 <script>
   const url = window.location.pathname;
-
   const header = document.querySelector(".header");
   if (header) {
-    if (url === "/contact-us.html" || url === "/about.html" || url === "/portfolio.html") {
+    if (url.startsWith("/contact-us.html") || url.startsWith("/about.html") || url.startsWith("/portfolio.html")) {
       header.classList.add("header-white");
     }
   }
