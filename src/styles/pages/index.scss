@@ -743,9 +743,11 @@
   }
 
   &__item-wrapper {
-    display: flex;
-    justify-content: space-between;
-    align-items: stretch;
+    @include desktop {
+      display: flex;
+      justify-content: space-between;
+      align-items: stretch;
+    }
   }
 
   &__info {
