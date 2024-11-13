@@ -737,13 +737,17 @@
     @include desktop {
       display: flex;
       margin-right: 60px;
+      max-width: 480px;
+      flex-shrink: 0;
     }
   }
 
   &__item-wrapper {
-    display: flex;
-    justify-content: space-between;
-    align-items: stretch;
+    @include desktop {
+      display: flex;
+      justify-content: space-between;
+      align-items: stretch;
+    }
   }
 
   &__info {

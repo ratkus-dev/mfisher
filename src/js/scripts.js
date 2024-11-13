@@ -86,7 +86,7 @@ let swiper = new Swiper(".testimonials__list", {
   },
 });
 
-let expertSwiper = new Swiper(".team__list", {
+let expertSwiper = new Swiper(".team__swiper", {
   modules: [Navigation, Pagination],
   navigation: {
     nextEl: ".swiper__button-next",
