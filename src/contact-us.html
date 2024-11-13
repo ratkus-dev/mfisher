@@ -15,7 +15,7 @@
     <link rel="stylesheet" href="./styles/pages/contact-us.scss" />
   </head>
   <body>
-    <load src="./components/header-wh.html" highlight-contacts="is-active" />
+    <load src="./components/header.html" />
     <main>
       <section class="contacts">
         <div class="container">
@@ -28,12 +28,12 @@
                 <li class="contacts__item">
                   <span class="icon-sms icon"></span>
                   <a id="email-address" class="p-1" href="mailto:hello@mfisher.com">hello@mfisher.com</a>
-                  <span class="icon-copy" id="phone-copy"></span>
+                  <span id="email-copy" class="icon-copy" onclick="copyEmail()"></span>
                 </li>
                 <li class="contacts__item">
                   <span class="icon icon-call"></span
                   ><a id="phone-number" class="p-1" href="tel:+123455677">+ 1 234 55 677</a>
-                  <span id="email-copy" class="icon-copy"></span>
+                  <span id="phone-copy" class="icon-copy" onclick="copyPhoneNumber()"></span>
                 </li>
               </ul>
               <a href="#" class="btn btn_primary-green btn_meeting">
@@ -45,22 +45,22 @@
 
               <ul class="social__list">
                 <li class="social__item">
-                  <a href="#" class="social__link">
+                  <a href="https://dribble.com" class="social__link">
                     <span class="social__icon icon-dribbble"></span>
                   </a>
                 </li>
                 <li class="social__item">
-                  <a href="#" class="social__link">
+                  <a href="https://behance.com" class="social__link">
                     <span class="social__icon icon-behance"></span>
                   </a>
                 </li>
                 <li class="social__item">
-                  <a href="#" class="social__link">
+                  <a href="https://facebook.com" class="social__link">
                     <span class="social__icon icon-facebook"></span>
                   </a>
                 </li>
                 <li class="social__item">
-                  <a href="#" class="social__link">
+                  <a href="https://linkedin.com" class="social__link">
                     <span class="social__icon icon-linkedin"></span>
                   </a>
                 </li>
@@ -68,18 +68,41 @@
             </div>
             <div class="contacts__content-form">
               <h5>Send us a message</h5>
-              <form name="order-form" class="form order-form" autocomplete="off" novalidate>
+              <form name="order-form" class="form order-form" autocomplete="off">
                 <div class="input-field">
-                  <input class="form-input" name="user-name" type="text" id="user-name" placeholder="Your Name*" />
+                  <input
+                    class="form-input"
+                    name="user-name"
+                    type="text"
+                    id="user-name"
+                    placeholder="Your Name*"
+                    pattern="[A-Za-z\s]+"
+                    required
+                  />
                   <span class="icon-sms icon"></span>
                 </div>
                 <div class="input-group">
                   <div class="input-field">
-                    <input class="form-input" name="user-email" type="email" id="user-email" placeholder="Email*" />
+                    <input
+                      class="form-input"
+                      name="user-email"
+                      type="email"
+                      id="user-email"
+                      pattern="([A-z0-9_.-]{1,})@([A-z0-9_.-]{1,}).([A-z]{2,8})"
+                      placeholder="Email*"
+                      required
+                    />
                     <span class="icon-sms icon"></span>
                   </div>
                   <div class="input-field">
-                    <input class="form-input" name="user-phone" type="text" id="user-phone" placeholder="Phone" />
+                    <input
+                      class="form-input"
+                      name="user-phone"
+                      type="text"
+                      id="user-phone"
+                      placeholder="Phone"
+                      pattern="^\+\d{2}-\d{3}-\d{3}-\d{2}-\d{2}$"
+                    />
                     <span class="icon-call icon"></span>
                   </div>
                 </div>
@@ -88,8 +111,10 @@
                     class="user-comment"
                     name="user-comment"
                     rows="4"
+                    minlength="10"
                     id="user-comment"
                     placeholder="Describe your industry and IT project*"
+                    required
                   ></textarea>
                 </div>
                 <div class="input-field">
@@ -102,6 +127,7 @@
                     <div class="budget-option p-2" data-value=">30k">&gt;$30K</div>
                   </div>
                 </div>
+                <ul id="file-list" class="file__list"></ul>
                 <div class="accept-box">
                   <input class="input-nda visually-hidden" type="checkbox" id="user-nda" name="user-nda" value="true" />
                   <label class="label-accept" for="user-nda">
@@ -117,12 +143,19 @@
                         <span class="icon-arrow-right"></span>
                       </span>
                     </button>
-                    <button class="btn_attach btn btn_secondary-black">
+                    <label for="file-upload" class="btn_attach btn btn_secondary-black">
                       <span class="btn__icon">
                         <span class="icon-attach"></span>
                       </span>
                       <span class="btn__text">Attach File</span>
-                    </button>
+                    </label>
+                    <input
+                      type="file"
+                      id="file-upload"
+                      style="display: none"
+                      multiple
+                      onchange="handleFileUpload(event)"
+                    />
                   </div>
                   <span class="p-4"
                     >*No more than 3 files may be attached up to 3 MB each. Formats doc, docx, pdf, ppt, pptx .</span
@@ -146,6 +179,43 @@
       </div>
     </section>
     <load src="./components/footer.html" />
+
+    <script>
+      let uploadedFiles = [];
+
+      function handleFileUpload(event) {
+        const fileList = event.target.files;
+        const fileListContainer = document.getElementById("file-list");
+        fileListContainer.innerHTML = "";
+
+        for (let i = 0; i < fileList.length; i++) {
+          uploadedFiles.push(fileList[i]);
+        }
+
+        uploadedFiles.forEach((file, index) => {
+          const listItem = document.createElement("li");
+          listItem.classList.add("file__item", "p-2");
+
+          const fileName = document.createElement("span");
+          fileName.textContent = file.name;
+
+          const deleteButton = document.createElement("button");
+          deleteButton.innerHTML = '<span class="icon icon-close-square"></span>';
+          deleteButton.classList.add("btn-del");
+          deleteButton.onclick = () => removeFile(index);
+
+          listItem.appendChild(fileName);
+          listItem.appendChild(deleteButton);
+          fileListContainer.appendChild(listItem);
+        });
+      }
+
+      function removeFile(index) {
+        uploadedFiles.splice(index, 1);
+
+        handleFileUpload({ target: { files: [] } });
+      }
+    </script>
 
     <script type="module" src="js/main.js"></script>
   </body>

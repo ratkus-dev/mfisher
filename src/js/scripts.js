@@ -14,35 +14,40 @@ toggleBtn.addEventListener("click", function () {
 });
 
 document.querySelectorAll(".accordion__header").forEach((button, index) => {
-  const isSmallScreen = window.matchMedia("(max-width: 1279px)").matches;
+  // Функция для обновления состояния аккордеонов
+  const updateAccordion = (clickedButton) => {
+    document.querySelectorAll(".accordion__header").forEach((btn) => {
+      const content = btn.nextElementSibling;
+      const isSmallScreen = window.matchMedia("(max-width: 1279px)").matches;
 
-  if (!isSmallScreen && index === 0) {
+      // Проверка, какой из элементов открыт
+      const shouldExpand = btn === clickedButton;
+      btn.setAttribute("aria-expanded", shouldExpand);
+
+      if (content) {
+        if (shouldExpand) {
+          content.style.maxHeight = isSmallScreen ? content.scrollHeight + "px" : "none";
+        } else {
+          content.style.maxHeight = null;
+        }
+      }
+    });
+  };
+
+  // Установка первого аккордеона как открытого по умолчанию
+  if (index === 0) {
     button.setAttribute("aria-expanded", "true");
     const content = button.nextElementSibling;
     if (content) {
-      content.style.maxHeight = content.scrollHeight + "px";
+      content.style.maxHeight = window.matchMedia("(max-width: 1279px)").matches ? content.scrollHeight + "px" : "none";
     }
   }
 
+  // Добавление обработчика события "click"
   button.addEventListener("click", () => {
-    const expanded = button.getAttribute("aria-expanded") === "true";
-
-    if (!isSmallScreen && expanded) return;
-
-    document.querySelectorAll(".accordion__header").forEach((btn) => {
-      btn.setAttribute("aria-expanded", "false");
-      const content = btn.nextElementSibling;
-      if (content) {
-        content.style.maxHeight = null;
-      }
-    });
-
-    if (!expanded) {
-      button.setAttribute("aria-expanded", "true");
-      const content = button.nextElementSibling;
-      if (content) {
-        content.style.maxHeight = isSmallScreen ? content.scrollHeight + "px" : "none";
-      }
+    const isExpanded = button.getAttribute("aria-expanded") === "true";
+    if (!isExpanded) {
+      updateAccordion(button);
     }
   });
 });

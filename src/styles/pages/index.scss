@@ -227,7 +227,7 @@
     }
 
     &__content {
-      padding: 8px 16px 12px;
+      padding: 8px 16px 24px;
 
       @include desktop {
         padding: 0;
@@ -241,7 +241,7 @@
 
     &__content-box {
       @include desktop {
-        padding: 0 24px;
+        padding: 0 24px 24px;
         flex: 1 0 auto;
         display: flex;
         flex-direction: column;
@@ -295,6 +295,13 @@
         justify-content: space-between;
         align-items: center;
       }
+
+      .accordion__btn {
+        width: 100%;
+        @include media-custom(450px) {
+          width: fit-content;
+        }
+      }
     }
 
     &__icon {
@@ -321,10 +328,16 @@
 
     &__price {
       display: flex;
-      flex-direction: column;
+      width: 100%;
+      justify-content: space-between;
       gap: 5px;
-      margin-top: 20px;
-      margin-bottom: 20px;
+      margin-top: 8px;
+      //margin-bottom: 20px;
+
+      @include media-custom(450px) {
+        flex-direction: column;
+        width: auto;
+      }
     }
 
     &__price-label {
@@ -439,6 +452,8 @@
   &__item {
     position: relative;
     width: 100%;
+    overflow: hidden;
+    cursor: pointer;
 
     &:not(:last-child) {
       @include tablet {
@@ -447,6 +462,12 @@
 
       @include desktop {
         max-width: calc((100% - 30px) / 2);
+      }
+    }
+
+    &:hover {
+      .cases__item-info {
+        transform: translateY(0);
       }
     }
   }
@@ -460,6 +481,7 @@
 
   &__item-info {
     position: absolute;
+    transform: translateY(105%);
     left: 0;
     bottom: 0;
     width: 100%;
@@ -472,6 +494,7 @@
       rgba(26, 26, 37, 0) 100%
     );
     padding: 16px 9px;
+    transition: transform ease-in-out 0.4s;
 
     @include tablet {
       padding: 22px 12px;
@@ -633,7 +656,15 @@
     }
 
     .swiper-pagination {
-      margin: 30px 0;
+      margin: 24px 0 40px;
+
+      @include tablet {
+        margin: 40px 0;
+      }
+
+      @include tablet {
+        margin: 70px 0;
+      }
     }
   }
 
@@ -652,6 +683,7 @@
       height: 521px;
       top: -50%;
       left: 0;
+      z-index: -1;
     }
 
     img {
@@ -664,13 +696,17 @@
     }
 
     @include desktop {
-      margin: 147px 0 0 auto;
+      margin: 98px 0 0 auto;
       max-width: 470px;
     }
   }
 
   &__btn {
     display: flex;
+
+    @include tablet {
+      margin: 0 auto;
+    }
 
     @include desktop {
       display: none;
