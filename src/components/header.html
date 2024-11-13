@@ -125,10 +125,11 @@
 </header>
 
 <script>
-  const url = window.location.pathname;
+  const url = window.location.href;
+
   const header = document.querySelector(".header");
   if (header) {
-    if (url.startsWith("/contact-us.html") || url.startsWith("/about.html") || url.startsWith("/portfolio.html")) {
+    if (url.includes("/contact-us.html") || url.includes("/about.html") || url.includes("/portfolio.html")) {
       header.classList.add("header-white");
     }
   }
