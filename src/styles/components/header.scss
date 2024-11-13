@@ -202,11 +202,11 @@
   will-change: transform;
   backface-visibility: hidden;
   transition: transform var(--animation);
-  opacity: 0;
+  //opacity: 0;
 
   &.is-open {
     transform: translateX(0);
-    opacity: 1;
+    //opacity: 1;
   }
 
   .nav {

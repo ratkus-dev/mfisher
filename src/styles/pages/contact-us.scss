@@ -36,6 +36,10 @@
     background-color: #f6f6f6;
     padding: 30px 0;
 
+    @include tablet {
+      padding: 40px 24px;
+    }
+
     @include desktop {
       padding: 60px 90px;
     }
@@ -290,4 +294,28 @@
       }
     }
   }
+}
+
+.file {
+  &__list {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 30px;
+  }
+
+  &__item {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    color: var(--dark-black);
+    gap: 8px;
+  }
+}
+
+.btn-del {
+  font-size: 20px;
+  line-height: 20px;
+  color: #ee3c3c;
+  cursor: pointer;
 }

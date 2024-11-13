@@ -10,7 +10,7 @@
             />
           </svg>
         </a>
-        <a class="nav__logo nav__logo_desk">
+        <a class="nav__logo nav__logo_desk" href="./index.html">
           <svg width="355" height="121" viewBox="0 0 355 121" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path
               d="M154.357 59.1826V27.6826H160.387L173.797 49.9126H170.602L183.787 27.6826H189.772L189.862 59.1826H183.022L182.977 38.1676H184.237L173.707 55.8526H170.422L159.667 38.1676H161.197V59.1826H154.357Z"
@@ -104,13 +104,13 @@
             <a class="p-1 nav__link {=$highlight-portfolio}" href="./portfolio.html">Portfolio</a>
           </li>
           <li class="nav__item">
-            <a class="p-1 nav__link {=$highlight-services}" href="./service.html">Services</a>
+            <a class="p-1 nav__link {=$highlight-services}" href="./services.html">Services</a>
           </li>
           <li class="nav__item">
             <a class="p-1 nav__link {=$highlight-about}" href="./about.html">About Us</a>
           </li>
         </ul>
-        <a href="./contact-us.html" class="nav__btn btn btn_secondary secretar">
+        <a href="./contact-us.html" class="nav__btn btn btn_secondary">
           <span class="btn__text">Contact Us</span>
           <span class="btn__icon btn__icon-arrow"><span class="icon-arrow-right"></span></span>
         </a>
@@ -123,3 +123,14 @@
     </div>
   </div>
 </header>
+
+<script>
+  const url = window.location.pathname;
+
+  const header = document.querySelector(".header");
+  if (header) {
+    if (url === "/contact-us.html" || url === "/about.html" || url === "/portfolio.html") {
+      header.classList.add("header-white");
+    }
+  }
+</script>
