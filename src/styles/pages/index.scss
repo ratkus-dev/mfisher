@@ -737,6 +737,8 @@
     @include desktop {
       display: flex;
       margin-right: 60px;
+      max-width: 480px;
+      flex-shrink: 0;
     }
   }
 
