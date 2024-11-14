@@ -131,3 +131,21 @@ options.forEach((option) => {
     option.classList.add("selected");
   });
 });
+
+document.querySelector(".hero__btn").addEventListener("click", function () {
+  document.getElementById("popup").classList.add("is-open");
+  document.querySelector("html").classList.add("no-scroll");
+});
+
+document.getElementById("closePopup").addEventListener("click", function () {
+  document.getElementById("popup").classList.remove("is-open");
+  document.querySelector("html").classList.remove("no-scroll");
+});
+
+window.addEventListener("click", function (event) {
+  const popup = document.getElementById("popup");
+  if (event.target === popup) {
+    popup.classList.remove("is-open");
+    document.querySelector("html").classList.remove("no-scroll");
+  }
+});
