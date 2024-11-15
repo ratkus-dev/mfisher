@@ -29,6 +29,10 @@
     @include desktop {
       padding: 90px 90px 90px 0;
     }
+
+    .social__icon {
+      color: var(--medium-grey);
+    }
   }
 
   &__content-form {
