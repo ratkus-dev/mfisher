@@ -1,6 +1,5 @@
 import ".././styles/pages/index.scss";
 import "jquery/dist/jquery.js";
-import $ from "jquery";
 import Swiper from "swiper";
 import { Navigation, Pagination } from "swiper/modules";
 
@@ -14,13 +13,11 @@ toggleBtn.addEventListener("click", function () {
 });
 
 document.querySelectorAll(".accordion__header").forEach((button, index) => {
-  // Функция для обновления состояния аккордеонов
   const updateAccordion = (clickedButton) => {
     document.querySelectorAll(".accordion__header").forEach((btn) => {
       const content = btn.nextElementSibling;
       const isSmallScreen = window.matchMedia("(max-width: 1279px)").matches;
 
-      // Проверка, какой из элементов открыт
       const shouldExpand = btn === clickedButton;
       btn.setAttribute("aria-expanded", shouldExpand);
 
@@ -34,16 +31,16 @@ document.querySelectorAll(".accordion__header").forEach((button, index) => {
     });
   };
 
-  // Установка первого аккордеона как открытого по умолчанию
   if (index === 0) {
     button.setAttribute("aria-expanded", "true");
     const content = button.nextElementSibling;
     if (content) {
-      content.style.maxHeight = window.matchMedia("(max-width: 1279px)").matches ? content.scrollHeight + "px" : "none";
+      content.style.maxHeight = window.matchMedia("(max-width: 1279px)").matches
+        ? content.scrollHeight + 32 + "px"
+        : "none";
     }
   }
 
-  // Добавление обработчика события "click"
   button.addEventListener("click", () => {
     const isExpanded = button.getAttribute("aria-expanded") === "true";
     if (!isExpanded) {
