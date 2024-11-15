@@ -227,7 +227,7 @@
     }
 
     &__content {
-      padding: 8px 16px 24px;
+      padding: 8px 0 24px;
 
       @include desktop {
         padding: 0;
@@ -240,6 +240,8 @@
     }
 
     &__content-box {
+      padding: 0 16px;
+
       @include desktop {
         padding: 0 24px 24px;
         flex: 1 0 auto;
@@ -260,6 +262,7 @@
 
       img {
         display: block;
+        width: 100%;
       }
     }
 
@@ -313,7 +316,7 @@
       transition: transform var(--animation);
 
       @include desktop {
-        top: 33px;
+        top: 41px;
         right: 28px;
       }
     }
