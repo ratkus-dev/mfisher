@@ -110,12 +110,11 @@
   display: inline-flex;
   justify-content: center;
   align-items: center;
-  width: 16px;
-  height: 16px;
+  width: 22px;
+  height: 22px;
   border: 1px solid var(--dark-black);
-  border-radius: 2px;
   margin-right: 8px;
-  fill: transparent;
+  color: transparent;
   flex-shrink: 0;
   transition:
     background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
@@ -123,18 +122,25 @@
     fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.input-accept:checked + .label-accept .label-accept-span {
-  background-color: transparent;
+.input-nda:checked + .label-accept .label-accept-span {
+  background-color: var(--main-green);
   border: none;
-  fill: var(--main-green);
-}
-
-.input-accept:focus + .label-accept .label-accept-span {
-  border-color: var(--main-green);
+  color: var(--dark-black);
 }
 
 .accept-box {
   margin-bottom: 24px;
+
+  .icon-info {
+    font-size: 20px;
+    line-height: 20px;
+  }
+
+  .p-2 {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+  }
 }
 
 .form {
