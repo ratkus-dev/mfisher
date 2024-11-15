@@ -81,31 +81,31 @@
                   />
                   <span class="icon-sms icon"></span>
                 </div>
-                <div class="input-group">
-                  <div class="input-field">
-                    <input
-                      class="form-input"
-                      name="user-email"
-                      type="email"
-                      id="user-email"
-                      pattern="([A-z0-9_.-]{1,})@([A-z0-9_.-]{1,}).([A-z]{2,8})"
-                      placeholder="Email*"
-                      required
-                    />
-                    <span class="icon-sms icon"></span>
-                  </div>
-                  <div class="input-field">
-                    <input
-                      class="form-input"
-                      name="user-phone"
-                      type="text"
-                      id="user-phone"
-                      placeholder="Phone"
-                      pattern="^\+\d{2}-\d{3}-\d{3}-\d{2}-\d{2}$"
-                    />
-                    <span class="icon-call icon"></span>
-                  </div>
+
+                <div class="input-field">
+                  <input
+                    class="form-input"
+                    name="user-email"
+                    type="email"
+                    id="user-email"
+                    pattern="([A-z0-9_.-]{1,})@([A-z0-9_.-]{1,}).([A-z]{2,8})"
+                    placeholder="Email*"
+                    required
+                  />
+                  <span class="icon-sms icon"></span>
                 </div>
+                <div class="input-field">
+                  <input
+                    class="form-input"
+                    name="user-phone"
+                    type="text"
+                    id="user-phone"
+                    placeholder="Phone"
+                    pattern="^\+\d{2}\d{3}\d{3}\d{2}\d{2}$"
+                  />
+                  <span class="icon-call icon"></span>
+                </div>
+
                 <div class="input-field">
                   <textarea
                     class="user-comment"
@@ -131,8 +131,10 @@
                 <div class="accept-box">
                   <input class="input-nda visually-hidden" type="checkbox" id="user-nda" name="user-nda" value="true" />
                   <label class="label-accept" for="user-nda">
-                    <span class="label-accept-span"> </span>
-                    <span> I want to protect my data by signing an NDA. <span class="icon-info-circle"></span></span>
+                    <span class="label-accept-span icon icon-accept"> </span>
+                    <span class="p-2">
+                      I want to protect my data by signing an NDA. <span class="icon-info"></span
+                    ></span>
                   </label>
                 </div>
                 <div class="form__footer">
