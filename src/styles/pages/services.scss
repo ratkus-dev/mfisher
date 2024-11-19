@@ -2,6 +2,14 @@
 //@import "../buttons";
 
 .hero {
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+
+  @include tablet {
+    padding-top: 260px !important;
+    padding-bottom: 340px !important;
+  }
+
   &__title {
     //hyphens: auto;
     //word-wrap: break-word;
@@ -9,6 +17,16 @@
 
     @include desktop {
       max-width: 1174px;
+    }
+  }
+
+  &__btn-list {
+    .btn {
+      width: 100%;
+
+      @include tablet {
+        width: fit-content;
+      }
     }
   }
 }
