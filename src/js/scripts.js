@@ -129,20 +129,27 @@ options.forEach((option) => {
   });
 });
 
-document.querySelector(".hero__btn").addEventListener("click", function () {
-  document.getElementById("popup").classList.add("is-open");
-  document.querySelector("html").classList.add("no-scroll");
-});
-
-document.getElementById("closePopup").addEventListener("click", function () {
-  document.getElementById("popup").classList.remove("is-open");
-  document.querySelector("html").classList.remove("no-scroll");
-});
-
-window.addEventListener("click", function (event) {
+document.addEventListener("DOMContentLoaded", () => {
+  const buttons = document.querySelectorAll(".hero__btn, .team__btn, .cta__btn, .accordion__btn, .process__btn");
   const popup = document.getElementById("popup");
-  if (event.target === popup) {
+  const closePopup = popup.querySelector(".popup__close");
+
+  buttons.forEach((button) => {
+    button.addEventListener("click", () => {
+      popup.classList.add("is-open");
+      document.querySelector("html").classList.add("no-scroll");
+    });
+  });
+
+  closePopup.addEventListener("click", () => {
     popup.classList.remove("is-open");
     document.querySelector("html").classList.remove("no-scroll");
-  }
+  });
+
+  popup.addEventListener("click", (event) => {
+    if (event.target === popup) {
+      popup.classList.remove("is-open");
+      document.querySelector("html").classList.remove("no-scroll");
+    }
+  });
 });
