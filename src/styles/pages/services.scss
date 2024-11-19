@@ -42,6 +42,14 @@
     padding: 100px 0;
   }
 
+  &__content {
+    @include desktop {
+      display: flex;
+      align-items: center;
+      gap: 70px;
+    }
+  }
+
   &__title {
     display: none;
 
@@ -52,12 +60,19 @@
       max-width: 520px;
       width: 100%;
     }
+
+    @include desktop {
+      text-align: left;
+      max-width: 380px;
+      margin: 0;
+    }
   }
 
   &__list {
     display: flex;
     flex-direction: column;
     gap: 10px;
+    width: 100%;
 
     @include media-custom(660px) {
       flex-direction: row;
@@ -76,6 +91,10 @@
 
     @include media-custom(660px) {
       padding: 30px 36px;
+    }
+
+    @include desktop {
+      max-width: 260px;
     }
   }
 }
