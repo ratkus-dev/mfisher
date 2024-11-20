@@ -14,7 +14,7 @@
     <link rel="stylesheet" href="styles/main.scss" />
     <link rel="stylesheet" href="styles/pages/services.scss" />
   </head>
-  <body>
+  <body class="services-page">
     <load src="./components/header.html" highlight-services="is-active" />
     <main>
       <section class="hero">
@@ -28,13 +28,13 @@
               behavior.
             </p>
             <div class="hero__btn-list">
-              <a href="#" class="btn btn_primary">
+              <button class="btn btn_primary accordion__btn">
                 <span class="btn__text">Get an Estimate</span>
                 <span class="btn__icon btn__icon-arrow">
                   <span class="icon-arrow-right"></span>
                 </span>
-              </a>
-              <a href="#" class="btn btn_secondary">
+              </button>
+              <a href="portfolio.html" class="btn btn_secondary">
                 <span class="btn__text">Our Projects</span>
                 <span class="btn__icon btn__icon-arrow">
                   <span class="icon-arrow-right"></span>
@@ -101,12 +101,12 @@
                         </li>
                       </ul>
                       <div class="elem-action">
-                        <a href="#" class="btn btn_secondary accordion__btn">
+                        <button class="btn btn_secondary accordion__btn">
                           <span class="btn__text">Let’s Talk</span>
                           <span class="btn__icon btn__icon-arrow">
                             <span class="icon-arrow-right"></span>
                           </span>
-                        </a>
+                        </button>
                       </div>
                     </div>
                   </div>
@@ -145,12 +145,12 @@
                         </li>
                       </ul>
                       <div class="elem-action">
-                        <a href="#" class="btn btn_secondary accordion__btn">
+                        <button class="btn btn_secondary accordion__btn">
                           <span class="btn__text">Let’s Talk</span>
                           <span class="btn__icon btn__icon-arrow">
                             <span class="icon-arrow-right"></span>
                           </span>
-                        </a>
+                        </button>
                       </div>
                     </div>
                   </div>
@@ -187,12 +187,12 @@
                         </li>
                       </ul>
                       <div class="elem-action">
-                        <a href="#" class="btn btn_secondary accordion__btn">
+                        <button class="btn btn_secondary accordion__btn">
                           <span class="btn__text">Let’s Talk</span>
                           <span class="btn__icon btn__icon-arrow">
                             <span class="icon-arrow-right"></span>
                           </span>
-                        </a>
+                        </button>
                       </div>
                     </div>
                   </div>
@@ -232,12 +232,12 @@
                         </li>
                       </ul>
                       <div class="elem-action">
-                        <a href="#" class="btn btn_secondary accordion__btn">
+                        <button class="btn btn_secondary accordion__btn">
                           <span class="btn__text">Let’s Talk</span>
                           <span class="btn__icon btn__icon-arrow">
                             <span class="icon-arrow-right"></span>
                           </span>
-                        </a>
+                        </button>
                       </div>
                     </div>
                   </div>
@@ -337,7 +337,7 @@
               Our team will work closely with you to understand your goals and challenges, offering tailored
               recommendations and solutions to fit your business. Let's explore the possibilities together!
             </p>
-            <button class="btn btn_primary services-grid__btn">
+            <button class="btn btn_primary services-grid__btn accordion__btn">
               <span class="btn__text">Get In Touch</span>
               <span class="btn__icon btn__icon-arrow">
                 <span class="icon icon-arrow-right"></span>
@@ -354,7 +354,7 @@
             <p class="p-1 expertise__text">
               Feel the difference how our UI/UX experts significantly enhance the quality and success of your projects.
             </p>
-            <div class="switcher">
+            <div id="switcher" class="switcher">
               <p class="switcher__text">With UI/UX expert</p>
               <div class="switcher__content">
                 <input type="checkbox" id="switch" />
@@ -363,10 +363,11 @@
               <p class="switcher__text">Without UI/UX expert</p>
             </div>
 
-            <ul class="expertise__list">
+            <ul class="expertise__list expertise__list_blue">
               <li class="expertise__item">
                 <div class="expertise__item-header">
                   <h4>72%</h4>
+                  <span class="item-line"></span>
                   <h4>41%</h4>
                 </div>
                 <div class="expertise__item-body">
@@ -394,6 +395,7 @@
               <li class="expertise__item">
                 <div class="expertise__item-header">
                   <h4>50%</h4>
+                  <span class="item-line"></span>
                   <h4>100%</h4>
                 </div>
                 <div class="expertise__item-body">
@@ -402,6 +404,50 @@
                     Early identification of design and usability issues can reduce development costs by up to 50% and
                     cut down the time to market. Efficient design processes prevent the need for costly iterations and
                     post-launch fixes.
+                  </p>
+                </div>
+              </li>
+            </ul>
+            <ul class="expertise__list expertise__list_red hidden">
+              <li class="expertise__item">
+                <div class="expertise__item-header">
+                  <h4>72%</h4>
+                  <span class="item-line"></span>
+                  <h4>41%</h4>
+                </div>
+                <div class="expertise__item-body">
+                  <h5 class="expertise__item-title">Enhanced User Satisfaction</h5>
+                  <p class="p-2 expertise__item-text">
+                    In the absence of specialized UI/UX input, projects may experience a user satisfaction drop by as
+                    much as 41%, often reflecting through increased complaints and lower usage statistics.
+                  </p>
+                </div>
+              </li>
+              <li class="expertise__item">
+                <div class="expertise__item-header">
+                  <h4>40%</h4>
+                  <span class="item-line"></span>
+                  <h4>25%</h4>
+                </div>
+                <div class="expertise__item-body">
+                  <h5 class="expertise__item-title">Improved Conversion Rates</h5>
+                  <p class="p-2 expertise__item-text">
+                    Projects lacking in targeted UI/UX strategies might see conversion rates falter by 20-30%, as
+                    potential customers could find the process confusing or too time-consuming.
+                  </p>
+                </div>
+              </li>
+              <li class="expertise__item">
+                <div class="expertise__item-header">
+                  <h4>50%</h4>
+                  <h4>100%</h4>
+                </div>
+                <div class="expertise__item-body">
+                  <h5 class="expertise__item-title">Reduced Development Time and Costs</h5>
+                  <p class="p-2 expertise__item-text">
+                    Neglecting early-stage UI/UX evaluation can lead to post-launch redesigns, which can inflate
+                    original project costs by up to 100%, along with extending the timeline significantly due to
+                    necessary corrections.
                   </p>
                 </div>
               </li>
@@ -465,7 +511,7 @@
               </li>
             </ul>
 
-            <button class="btn btn_primary process__btn">
+            <button class="btn btn_primary process__btn accordion__btn">
               <span class="btn__text">Request Consultation</span>
               <span class="btn__icon btn__icon-arrow">
                 <span class="icon icon-arrow-right"></span>
@@ -474,6 +520,20 @@
           </div>
         </div>
       </section>
+      <script>
+        const sweaters = document.querySelectorAll(".expertise__list");
+        const toggleCheckbox = document.getElementById("switch");
+
+        toggleCheckbox.addEventListener("change", () => {
+          if (toggleCheckbox.checked) {
+            sweaters[0].classList.add("hidden");
+            sweaters[1].classList.remove("hidden");
+          } else {
+            sweaters[1].classList.add("hidden");
+            sweaters[0].classList.remove("hidden");
+          }
+        });
+      </script>
 
       <load src="./components/cta.html" />
     </main>

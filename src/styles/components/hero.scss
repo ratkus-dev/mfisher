@@ -3,22 +3,8 @@
 .hero {
   position: relative;
   background: url("../../assets/img/hero-bg.jpg") no-repeat 50% 50% / cover;
-  padding-top: 150px;
-  padding-bottom: 186px;
-
-  @include mobile {
-    padding-top: 200px;
-    padding-bottom: 174px;
-  }
-
-  @include tablet {
-    padding-top: 260px;
-    padding-bottom: 340px;
-  }
 
   @include desktop {
-    padding-top: 224px;
-    padding-bottom: 176px;
     background: url("../../assets/img/hero-bg-lg.jpg") no-repeat 50% 50% / cover;
   }
 
