@@ -130,31 +130,6 @@
 </div>
 
 <script>
-  setTimeout(() => {
-    const loader = document.querySelector(".loader");
-    const preloader = document.querySelector(".preloader");
-
-    if (loader) {
-      loader.style.transition = "opacity 0.5s ease";
-      loader.style.opacity = 0;
-
-      setTimeout(() => {
-        loader.style.display = "none";
-      }, 500);
-    }
-
-    if (preloader) {
-      preloader.style.transition = "opacity 0.5s ease";
-      preloader.style.opacity = 0;
-
-      setTimeout(() => {
-        preloader.style.display = "none";
-      }, 500);
-    }
-  }, 2000);
-</script>
-
-<script>
   function copyToClipboard(elementId, messageType) {
     const element = document.getElementById(elementId);
 

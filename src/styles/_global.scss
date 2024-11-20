@@ -70,6 +70,10 @@ select {
 //  padding: 60px 0;
 //}
 
+.hidden {
+  display: none !important;
+}
+
 .wrapper {
   min-height: 100vh;
   text-align: center;
@@ -89,7 +93,7 @@ select {
   }
 
   @include desktop {
-    max-width: 1290px;
+    max-item-line: 1290px;
   }
 }
 
@@ -120,17 +124,8 @@ select {
     }
   }
 }
-
-//.footer {
-//  padding: 3rem 0;
-//  font-size: 1.6rem;
-//
-//  a {
-//    text-decoration: none;
-//    color: var(--brand-color);
-//    transition: 0.2s ease;
-//    &:hover {
-//      color: var(--brand-light-color);
-//    }
-//  }
-//}
+.item-line {
+  width: 3px;
+  height: 20px;
+  background-color: var(--light-gray);
+}
