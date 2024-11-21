@@ -2,8 +2,39 @@
 //@import "../buttons";
 .services-page {
   .hero {
+    padding: 0;
+    height: 100vh;
+
     @include desktop {
       padding: 205px 0 121px;
+    }
+
+    &__wrapper {
+      height: 100%;
+    }
+
+    &__content {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: center;
+      gap: 40px;
+
+      @include mobile {
+        gap: 0;
+      }
+    }
+
+    &__description {
+      display: none;
+
+      @include mobile {
+        display: block;
+      }
+
+      @include tablet {
+        margin: 40px 0 60px;
+      }
     }
 
     &__title {
@@ -17,6 +48,8 @@
     }
 
     &__btn-list {
+      margin-top: 0;
+
       .btn {
         width: 100%;
 
