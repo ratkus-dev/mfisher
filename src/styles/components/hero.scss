@@ -96,6 +96,9 @@
       height: 100px;
       z-index: 100;
       transition: var(--animation);
+      display: flex;
+      align-items: center;
+      justify-content: center;
 
       @include mobile {
         width: 140px;
@@ -116,5 +119,34 @@
         left: auto;
       }
     }
+  }
+
+  .stamp {
+    animation: rotate-animation 5s linear infinite;
+  }
+
+  .stamp-arr {
+    position: absolute;
+    width: 26px;
+    height: 26px;
+
+    @include mobile {
+      width: 26px;
+      height: 36px;
+    }
+
+    @include desktop {
+      width: 47px;
+      height: 47px;
+    }
+  }
+}
+
+@keyframes rotate-animation {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
   }
 }
