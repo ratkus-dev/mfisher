@@ -1,5 +1,4 @@
 @import "media";
-@import "buttons";
 @import "vars";
 
 html,
@@ -65,10 +64,6 @@ select {
     display: inline-flex;
   }
 }
-
-//.section {
-//  padding: 60px 0;
-//}
 
 .hidden {
   display: none !important;
