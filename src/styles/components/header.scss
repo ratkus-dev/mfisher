@@ -44,6 +44,12 @@
       background-color: var(--white);
     }
 
+    &.white {
+      .header__toggle-btn-icon {
+        background-color: var(--white);
+      }
+    }
+
     &.is-active {
       .header {
         &__toggle-btn-icon {
@@ -96,6 +102,10 @@
     &__logo_mob {
       @include desktop {
         display: none;
+      }
+
+      &.white {
+        color: var(--white);
       }
 
       svg {

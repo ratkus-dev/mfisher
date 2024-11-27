@@ -260,19 +260,19 @@
     gap: 16px;
 
     &:nth-child(1) {
-      background: var(--dark-grey) url("../../assets/img/about/v-decor-1.png") no-repeat 50% 50% / contain;
+      background: var(--dark-grey) url("../../assets/img/about/v-decor-1.png") no-repeat 50% 50% / 100%;
     }
 
     &:nth-child(2) {
-      background: var(--dark-grey) url("../../assets/img/about/v-decor-2.png") no-repeat 50% 50% / contain;
+      background: var(--dark-grey) url("../../assets/img/about/v-decor-2.png") no-repeat 50% 50% / 100%;
     }
 
     &:nth-child(3) {
-      background: var(--dark-grey) url("../../assets/img/about/v-decor-3.png") no-repeat 50% 50% / contain;
+      background: var(--dark-grey) url("../../assets/img/about/v-decor-3.png") no-repeat 50% 50% / 100%;
     }
 
     &:nth-child(4) {
-      background: var(--dark-grey) url("../../assets/img/about/v-decor-4.png") no-repeat 50% 50% / contain;
+      background: var(--dark-grey) url("../../assets/img/about/v-decor-4.png") no-repeat 50% 50% / 100%;
     }
   }
 
@@ -290,14 +290,15 @@
   &__img {
     margin-top: 60px;
 
-    @include desktop {
+    @include tablet {
       margin-top: 0;
     }
 
     img {
       object-fit: cover;
-      height: 100%;
-      width: auto;
+      height: auto;
+      width: 100%;
+      max-width: none;
     }
   }
 }

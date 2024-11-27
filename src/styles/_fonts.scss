@@ -124,7 +124,7 @@ h5,
   line-height: 26px;
   font-weight: 500;
 
-  @include desktop {
+  @include tablet {
     font-size: 18px;
     line-height: 1.78;
   }
@@ -135,7 +135,7 @@ h5,
   line-height: 22px;
   font-weight: 400;
 
-  @include desktop {
+  @include tablet {
     font-size: 16px;
     line-height: 1.62;
   }
@@ -146,7 +146,7 @@ h5,
   line-height: 20px;
   font-weight: 400;
 
-  @include mobile {
+  @include tablet {
     font-size: 14px;
     line-height: 22px;
   }
