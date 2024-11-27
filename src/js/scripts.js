@@ -5,10 +5,19 @@ import { Navigation, Pagination } from "swiper/modules";
 
 const toggleBtn = document.querySelector(".header__toggle-btn");
 const mobMenu = document.querySelector(".mobile-menu");
+const logo = document.querySelector(".nav__logo_mob");
 
 toggleBtn.addEventListener("click", function () {
   this.classList.toggle("is-active");
-  mobMenu.classList.toggle("is-open");
+  const isOpen = mobMenu.classList.toggle("is-open");
+  if (isOpen) {
+    logo.classList.add("white");
+    toggleBtn.classList.add("white");
+  } else {
+    logo.classList.remove("white");
+    toggleBtn.classList.remove("white");
+  }
+
   document.documentElement.classList.toggle("no-scroll");
 });
 
