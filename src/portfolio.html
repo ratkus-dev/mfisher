@@ -26,7 +26,7 @@
               a testament to the dreams we've realized together with our clients. Explore, imagine, and let's create
               your masterpiece.
             </p>
-            <ul class="portfolio__list">
+            <ul id="portfolio__list" class="portfolio__list">
               <li class="portfolio__item">
                 <div class="portfolio__item-img">
                   <picture>
@@ -57,7 +57,6 @@
                 <div class="portfolio__item-content">
                   <div class="portfolio__item-header">
                     <h5 class="portfolio__item-title">Sanodoc</h5>
-                    <span class="icon icon-lock"></span>
                   </div>
                   <div class="portfolio__item-body">
                     <p class="p-2">
@@ -104,7 +103,6 @@
                 <div class="portfolio__item-content">
                   <div class="portfolio__item-header">
                     <h5 class="portfolio__item-title">Tenex</h5>
-                    <span class="icon icon-lock"></span>
                   </div>
                   <div class="portfolio__item-body">
                     <p class="p-2">
@@ -301,10 +299,9 @@
                   <div class="portfolio__item-info">
                     <h5 class="portfolio__item-name">NARLABS</h5>
                     <ul class="tag__list">
-                      <li class="tag__item p-3">80 hours</li>
-                      <li class="tag__item p-3">Healthcare</li>
-                      <li class="tag__item p-3">CRM</li>
-                      <li class="tag__item p-3">Mobile App</li>
+                      <li class="tag__item p-3">25 hours</li>
+                      <li class="tag__item p-3">E-Commerce</li>
+                      <li class="tag__item p-3">Web Design</li>
                     </ul>
                   </div>
                 </div>
@@ -342,10 +339,10 @@
                   <div class="portfolio__item-info">
                     <h5 class="portfolio__item-name">NDA <span class="icon icon-lock"></span></h5>
                     <ul class="tag__list">
-                      <li class="tag__item p-3">80 hours</li>
-                      <li class="tag__item p-3">Healthcare</li>
-                      <li class="tag__item p-3">CRM</li>
-                      <li class="tag__item p-3">Mobile App</li>
+                      <li class="tag__item p-3">120 hours</li>
+                      <li class="tag__item p-3">E-Commerce</li>
+                      <li class="tag__item p-3">Web Design</li>
+                      <li class="tag__item p-3">Redesign</li>
                     </ul>
                   </div>
                 </div>
@@ -392,14 +389,14 @@
                   <div class="portfolio__item-info">
                     <h5 class="portfolio__item-name">NDA <span class="icon icon-lock"></span></h5>
                     <ul class="tag__list">
-                      <li class="tag__item p-3">80 hours</li>
-                      <li class="tag__item p-3">Healthcare</li>
-                      <li class="tag__item p-3">CRM</li>
-                      <li class="tag__item p-3">Mobile App</li>
+                      <li class="tag__item p-3">125 hours</li>
+                      <li class="tag__item p-3">Event Hospitality</li>
+                      <li class="tag__item p-3">Web Design</li>
                     </ul>
                   </div>
                 </div>
               </li>
+
               <li class="portfolio__item">
                 <div class="portfolio__item-img">
                   <picture>
@@ -418,19 +415,18 @@
                     <img src="./assets/img/portfolio/p-t-10.jpg" alt="project" />
                   </picture>
                   <div class="portfolio__item-info">
-                    <h5 class="portfolio__item-name">Sanodoc</h5>
+                    <h5 class="portfolio__item-name">Magro Group</h5>
                     <ul class="tag__list">
-                      <li class="tag__item p-3">80 hours</li>
-                      <li class="tag__item p-3">Healthcare</li>
-                      <li class="tag__item p-3">CRM</li>
-                      <li class="tag__item p-3">Mobile App</li>
+                      <li class="tag__item p-3">55 hours</li>
+                      <li class="tag__item p-3">Agriculture & Food Production</li>
+                      <li class="tag__item p-3">Web Design</li>
+                      <li class="tag__item p-3">Redesign</li>
                     </ul>
                   </div>
                 </div>
                 <div class="portfolio__item-content">
                   <div class="portfolio__item-header">
                     <h5 class="portfolio__item-title">Magro Group</h5>
-                    <span class="icon icon-lock"></span>
                   </div>
                   <div class="portfolio__item-body">
                     <p class="p-2">
@@ -463,9 +459,9 @@
                     <h5 class="portfolio__item-name">NDA</h5>
                     <ul class="tag__list">
                       <li class="tag__item p-3">80 hours</li>
-                      <li class="tag__item p-3">Healthcare</li>
+                      <li class="tag__item p-3">Real Estate</li>
                       <li class="tag__item p-3">CRM</li>
-                      <li class="tag__item p-3">Mobile App</li>
+                      <li class="tag__item p-3">Web Design</li>
                     </ul>
                   </div>
                 </div>
@@ -511,15 +507,17 @@
                   <div class="portfolio__item-info">
                     <h5 class="portfolio__item-name">LiPay</h5>
                     <ul class="tag__list">
-                      <li class="tag__item p-3">80 hours</li>
-                      <li class="tag__item p-3">Healthcare</li>
+                      <li class="tag__item p-3">60 hours</li>
+                      <li class="tag__item p-3">Finance</li>
+                      <li class="tag__item p-3">Crypto</li>
                       <li class="tag__item p-3">CRM</li>
-                      <li class="tag__item p-3">Mobile App</li>
+                      <li class="tag__item p-3">Web Design</li>
                     </ul>
                   </div>
                 </div>
               </li>
             </ul>
+            <div id="loader" style="display: none; text-align: center; margin-top: 10px">Loading...</div>
           </div>
         </div>
       </section>
@@ -527,6 +525,47 @@
     </main>
 
     <load src="./components/footer.html" />
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const items = document.querySelectorAll(".portfolio__item");
+        const loader = document.getElementById("loader");
+
+        let itemsPerBatch = 3;
+        let currentIndex = 0;
+
+        function showItems() {
+          loader.style.display = "none";
+
+          for (let i = currentIndex; i < currentIndex + itemsPerBatch; i++) {
+            console.log("currentIndex", currentIndex);
+            console.log("i", i);
+            if (items[i]) {
+              items[i].style.display = "block";
+            } else {
+              window.removeEventListener("scroll", handleScroll);
+              return;
+            }
+          }
+
+          currentIndex += itemsPerBatch;
+        }
+
+        function handleScroll() {
+          const { scrollTop, scrollHeight, clientHeight } = document.documentElement;
+          console.log(scrollHeight);
+          console.log(clientHeight);
+          console.log(scrollTop);
+          if (scrollTop + clientHeight / 2 >= scrollHeight / 2 - 5) {
+            loader.style.display = "block";
+            setTimeout(showItems, 5000);
+          }
+        }
+
+        showItems();
+
+        window.addEventListener("scroll", handleScroll);
+      });
+    </script>
 
     <script type="module" src="js/main.js"></script>
   </body>
