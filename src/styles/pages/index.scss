@@ -762,8 +762,13 @@
 
       @include desktop {
         display: flex;
+        margin: 0;
       }
     }
+  }
+
+  &__banner-text {
+    color: var(--medium-grey);
   }
 
   &__item-wrapper {

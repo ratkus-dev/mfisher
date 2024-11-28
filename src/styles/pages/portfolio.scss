@@ -74,6 +74,7 @@
   &__item {
     position: relative;
     overflow: hidden;
+    display: none;
 
     &:hover:not(:nth-child(3n)) {
       .portfolio__item-name {
