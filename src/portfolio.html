@@ -537,8 +537,6 @@
           loader.style.display = "none";
 
           for (let i = currentIndex; i < currentIndex + itemsPerBatch; i++) {
-            console.log("currentIndex", currentIndex);
-            console.log("i", i);
             if (items[i]) {
               items[i].style.display = "block";
             } else {
@@ -552,9 +550,6 @@
 
         function handleScroll() {
           const { scrollTop, scrollHeight, clientHeight } = document.documentElement;
-          console.log(scrollHeight);
-          console.log(clientHeight);
-          console.log(scrollTop);
           if (scrollTop + clientHeight / 2 >= scrollHeight / 2 - 5) {
             loader.style.display = "block";
             setTimeout(showItems, 5000);
