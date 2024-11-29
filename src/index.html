@@ -2,6 +2,8 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
+    <!--    <link rel="icon" href="/favicon-light.svg" media="(prefers-color-scheme: light)" />-->
+    <!--    <link rel="icon" href="/favicon-dark.svg" media="(prefers-color-scheme: dark)" />-->
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>M Fisher Design Agency</title>
@@ -11,10 +13,10 @@
       href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400..700&family=Unbounded:wght@400..700&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="../src/styles/pages/index.scss" />
-    <link rel="stylesheet" href="../src/styles/main.scss" />
+    <link rel="stylesheet" href="styles/main.scss" />
+    <link rel="stylesheet" href="styles/pages/index.scss" />
   </head>
-  <body>
+  <body id="content">
     <load src="../src/components/header.html" highlight-home="is-active" />
     <main>
       <section class="hero">
@@ -707,6 +709,28 @@
 
     <load src="./components/popup-mini.html" />
 
+    <!--    <script>-->
+    <!--      document.addEventListener("DOMContentLoaded", () => {-->
+    <!--        const updateFavicon = (theme) => {-->
+    <!--          let favicon = document.querySelector("link[rel='icon']");-->
+
+    <!--          if (!favicon) {-->
+    <!--            favicon = document.createElement("link");-->
+    <!--            favicon.rel = "icon";-->
+    <!--            document.head.appendChild(favicon);-->
+    <!--          }-->
+
+    <!--          favicon.href = theme === "dark" ? "favicon-dark.svg" : "favicon-light.svg";-->
+    <!--        };-->
+
+    <!--        const darkMode = window.matchMedia("(prefers-color-scheme: dark)");-->
+    <!--        updateFavicon(darkMode.matches ? "dark" : "light");-->
+
+    <!--        darkMode.addEventListener("change", (e) => {-->
+    <!--          updateFavicon(e.matches ? "dark" : "light");-->
+    <!--        });-->
+    <!--      });-->
+    <!--    </script>-->
     <script type="module" src="js/main.js"></script>
   </body>
 </html>
