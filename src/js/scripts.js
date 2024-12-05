@@ -138,49 +138,49 @@ options.forEach((option) => {
   });
 });
 
-document.addEventListener("DOMContentLoaded", () => {
-  const buttons = document.querySelectorAll(".hero__btn, .team__btn, .cta__btn, .accordion__btn, .process__btn");
-  const popup = document.getElementById("popup");
-  const closePopup = popup.querySelector(".popup__close");
+// document.addEventListener("DOMContentLoaded", () => {
+//   const buttons = document.querySelectorAll(".hero__btn, .team__btn, .cta__btn, .accordion__btn, .process__btn");
+//   const popup = document.getElementById("popup");
+//   const closePopup = popup.querySelector(".popup__close");
+//
+//   buttons.forEach((button) => {
+//     button.addEventListener("click", () => {
+//       popup.classList.add("is-open");
+//       document.querySelector("html").classList.add("no-scroll");
+//     });
+//   });
+//
+//   closePopup.addEventListener("click", () => {
+//     popup.classList.remove("is-open");
+//     document.querySelector("html").classList.remove("no-scroll");
+//   });
+//
+//   popup.addEventListener("click", (event) => {
+//     if (event.target === popup) {
+//       popup.classList.remove("is-open");
+//       document.querySelector("html").classList.remove("no-scroll");
+//     }
+//   });
+// });
 
-  buttons.forEach((button) => {
-    button.addEventListener("click", () => {
-      popup.classList.add("is-open");
-      document.querySelector("html").classList.add("no-scroll");
-    });
-  });
-
-  closePopup.addEventListener("click", () => {
-    popup.classList.remove("is-open");
-    document.querySelector("html").classList.remove("no-scroll");
-  });
-
-  popup.addEventListener("click", (event) => {
-    if (event.target === popup) {
-      popup.classList.remove("is-open");
-      document.querySelector("html").classList.remove("no-scroll");
-    }
-  });
-});
-
-document.addEventListener('DOMContentLoaded', function () {
+document.addEventListener("DOMContentLoaded", function () {
   const links = document.querySelectorAll('a[href^="#"]');
 
-  links.forEach(link => {
-    link.addEventListener('click', function (event) {
+  links.forEach((link) => {
+    link.addEventListener("click", function (event) {
       event.preventDefault();
 
-      const targetId = this.getAttribute('href').substring(1);
+      const targetId = this.getAttribute("href").substring(1);
       const targetElement = document.getElementById(targetId);
 
       targetElement.scrollIntoView({
-        behavior: 'smooth',
-        block: 'start',
+        behavior: "smooth",
+        block: "start",
       });
 
-      mobMenu.classList.remove('is-open');
-      toggleBtn.classList.remove('is-active');
-      document.documentElement.classList.remove('no-scroll');
+      mobMenu.classList.remove("is-open");
+      toggleBtn.classList.remove("is-active");
+      document.documentElement.classList.remove("no-scroll");
     });
   });
 });
