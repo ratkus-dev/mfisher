@@ -13,8 +13,6 @@
     />
     <link rel="stylesheet" href="./styles/main.scss" />
     <link rel="stylesheet" href="./styles/pages/contact-us.scss" />
-    <!-- Подключение стилей -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/intl-tel-input@18.1.3/build/css/intlTelInput.min.css" />
   </head>
   <body id="content">
     <load src="./components/header.html" />
@@ -213,7 +211,6 @@
     </section>
     <load src="./components/popup-mini.html" />
     <load src="./components/footer.html" />
-    <script src="https://cdn.jsdelivr.net/npm/intl-tel-input@18.1.3/build/js/intlTelInput.min.js"></script>
     <!--    <script>-->
     <!--      let uploadedFiles = [];-->
 
@@ -499,7 +496,7 @@
                   form.reset();
                   fileList.innerHTML = "";
                   budgetOptions.forEach((option) => option.classList.remove("selected"));
-                  uploadedFiles.clear(); // Очистить список добавленных файлов
+                  uploadedFiles.clear();
                 } else {
                   alert("There was an issue submitting the form.");
                 }
@@ -520,24 +517,24 @@
         fileInput.addEventListener("change", validateFiles);
       });
     </script>
-    <script>
-      document.addEventListener("DOMContentLoaded", function () {
-        const phoneInputField = document.querySelector("#user-phone");
-        if (phoneInputField) {
-          window.intlTelInput(phoneInputField, {
-            initialCountry: "auto",
-            geoIpLookup: function (callback) {
-              fetch("https://ipapi.co/json/")
-                .then((response) => response.json())
-                .then((data) => callback(data.country_code))
-                .catch(() => callback("us"));
-            },
-            utilsScript: "https://cdn.jsdelivr.net/npm/intl-tel-input@18.1.3/build/js/utils.js",
-          });
-        } else {
-          console.error("Элемент с id='phone' не найден!");
-        }
-      });
-    </script>
+    <!--    <script>-->
+    <!--      document.addEventListener("DOMContentLoaded", function () {-->
+    <!--        const phoneInputField = document.querySelector("#user-phone");-->
+    <!--        if (phoneInputField) {-->
+    <!--          window.intlTelInput(phoneInputField, {-->
+    <!--            initialCountry: "auto",-->
+    <!--            geoIpLookup: function (callback) {-->
+    <!--              fetch("https://ipapi.co/json/")-->
+    <!--                .then((response) => response.json())-->
+    <!--                .then((data) => callback(data.country_code))-->
+    <!--                .catch(() => callback("us"));-->
+    <!--            },-->
+    <!--            utilsScript: "https://cdn.jsdelivr.net/npm/intl-tel-input@18.1.3/build/js/utils.js",-->
+    <!--          });-->
+    <!--        } else {-->
+    <!--          console.error("Элемент с id='phone' не найден!");-->
+    <!--        }-->
+    <!--      });-->
+    <!--    </script>-->
   </body>
 </html>

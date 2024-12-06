@@ -2,7 +2,8 @@ import ".././styles/pages/index.scss";
 import "jquery/dist/jquery.js";
 import Swiper from "swiper";
 import { Navigation, Pagination } from "swiper/modules";
-import intlTelInput from "intl-tel-input";
+import intlTelInput from "intl-tel-input/intlTelInputWithUtils";
+import "intl-tel-input/build/css/intlTelInput.css";
 
 const toggleBtn = document.querySelector(".header__toggle-btn");
 const mobMenu = document.querySelector(".mobile-menu");
@@ -163,44 +164,16 @@ options.forEach((option) => {
 //     }
 //   });
 // });
-
 document.addEventListener("DOMContentLoaded", function () {
-  const links = document.querySelectorAll('a[href^="#"]');
-
-  links.forEach((link) => {
-    link.addEventListener("click", function (event) {
-      event.preventDefault();
-
-      const targetId = this.getAttribute("href").substring(1);
-      const targetElement = document.getElementById(targetId);
-
-      targetElement.scrollIntoView({
-        behavior: "smooth",
-        block: "start",
-      });
-
-      mobMenu.classList.remove("is-open");
-      toggleBtn.classList.remove("is-active");
-      document.documentElement.classList.remove("no-scroll");
-    });
-  });
-
   const phoneInputField = document.querySelector("#user-phone");
-  window.intlTelInput(phoneInputField, {
-    loadUtils: () => import("/intl-tel-input/js/utils.js?1733490889803");
+  intlTelInput(phoneInputField, {
+    initialCountry: "auto",
+    geoIpLookup: (callback) => {
+      fetch("https://ipapi.co/json")
+        .then((res) => res.json())
+        .then((data) => callback(data.country_code))
+        .catch(() => callback("us"));
+    },
+    // loadUtilsOnInit: () => import("intl-tel-input/utils"),
   });
-  // if (phoneInputField) {
-  //   window.intlTelInput(phoneInputField, {
-  //     initialCountry: "auto",
-  //     geoIpLookup: function (callback) {
-  //       fetch("https://ipapi.co/json/")
-  //         .then((response) => response.json())
-  //         .then((data) => callback(data.country_code))
-  //         .catch(() => callback("us"));
-  //     },
-  //     utilsScript: "https://cdn.jsdelivr.net/npm/intl-tel-input@18.1.3/build/js/utils.js",
-  //   });
-  // } else {
-  //   console.error("Элемент с id='phone' не найден!");
-  // }
 });
