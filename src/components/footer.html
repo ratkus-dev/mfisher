@@ -67,17 +67,13 @@
         <li class="footer__contacts-item">
           <a href="./contact-us.html" class="btn btn_secondary footer__btn footer__btn-desk">
             <span class="btn__text">Contact Us</span>
-            <span class="btn__icon btn__icon-arrow">
-              <span class="icon-arrow-right"></span>
-            </span>
+            <span class="btn__icon icon-arrow-right"> </span>
           </a>
         </li>
       </ul>
       <a href="./contact-us.html" class="btn btn_secondary footer__btn footer__btn-mob">
         <span class="btn__text">Contact Us</span>
-        <span class="btn__icon btn__icon-arrow">
-          <span class="icon-arrow-right"></span>
-        </span>
+        <span class="btn__icon icon-arrow-right"> </span>
       </a>
     </div>
   </div>
@@ -112,16 +108,12 @@
       <li class="btn__item">
         <a href="./contact-us.html" class="btn btn_primary">
           <span class="btn__text">Contact Us</span>
-          <span class="btn__icon btn__icon-arrow">
-            <span class="icon-arrow-right"></span>
-          </span>
+          <span class="btn__icon icon-arrow-right"> </span>
         </a>
       </li>
       <li class="btn__item">
         <a href="#" class="btn btn_secondary" target="_blank">
-          <span class="btn__icon btn__icon-calendar">
-            <span class="icon-calendar"></span>
-          </span>
+          <span class="btn__icon icon-calendar"> </span>
           <span class="btn__text">Schedule a Meeting</span>
         </a>
       </li>
@@ -161,7 +153,6 @@
 <script defer>
   document.addEventListener("DOMContentLoaded", () => {
     const loader = document.getElementById("preloader");
-    // const content = document.getElementById("content");
 
     const pageKey = `hasVisited_${window.location.pathname}`;
 
@@ -170,12 +161,10 @@
     if (isFirstVisitToPage) {
       setTimeout(() => {
         loader.style.display = "none";
-        // content.style.display = "block";
         localStorage.setItem(pageKey, "true");
       }, 2000);
     } else {
       loader.style.display = "none";
-      // content.style.display = "block";
     }
   });
 </script>

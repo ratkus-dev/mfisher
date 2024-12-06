@@ -2,6 +2,8 @@ import ".././styles/pages/index.scss";
 import "jquery/dist/jquery.js";
 import Swiper from "swiper";
 import { Navigation, Pagination } from "swiper/modules";
+import intlTelInput from "intl-tel-input/intlTelInputWithUtils";
+import "intl-tel-input/build/css/intlTelInput.css";
 
 const toggleBtn = document.querySelector(".header__toggle-btn");
 const mobMenu = document.querySelector(".mobile-menu");
@@ -160,5 +162,19 @@ document.addEventListener("DOMContentLoaded", () => {
       popup.classList.remove("is-open");
       document.querySelector("html").classList.remove("no-scroll");
     }
+  });
+});
+
+document.addEventListener("DOMContentLoaded", function () {
+  const phoneInputField = document.querySelector("#user-phone");
+  intlTelInput(phoneInputField, {
+    initialCountry: "auto",
+    geoIpLookup: (callback) => {
+      fetch("https://ipapi.co/json")
+        .then((res) => res.json())
+        .then((data) => callback(data.country_code))
+        .catch(() => callback("us"));
+    },
+    // loadUtilsOnInit: () => import("intl-tel-input/utils"),
   });
 });

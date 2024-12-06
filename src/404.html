@@ -62,6 +62,73 @@
         display: none;
       }
 
+      @media (min-width: 768px) {
+        .e-page__title {
+          position: relative;
+          display: flex;
+          justify-content: center;
+          height: 250px;
+          width: 750px;
+        }
+        .ball {
+          flex-shrink: 0;
+          padding: 20px;
+          border: 1px solid white;
+          border-radius: 50%;
+          width: 250px;
+          height: 250px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        }
+
+        .ball__left {
+          position: absolute;
+          animation: swing-left 2s ease-in-out infinite;
+        }
+
+        .ball__right {
+          position: absolute;
+          animation: swing-right 2s ease-in-out infinite;
+        }
+
+        @keyframes swing-left {
+          0% {
+            transform: translate(-500px, -120px);
+          }
+          25% {
+            transform: translate(-250px, 0px);
+          }
+          50% {
+            transform: translate(-250px, 0px);
+          }
+          75% {
+            transform: translate(-250px, 0px);
+          }
+          100% {
+            transform: translate(-500px, -120px);
+          }
+        }
+
+        @keyframes swing-right {
+          0% {
+            transform: translate(250px, 0px);
+          }
+          25% {
+            transform: translate(250px, 0px);
+          }
+          50% {
+            transform: translate(500px, -120px);
+          }
+          75% {
+            transform: translate(250px, 0px);
+          }
+          100% {
+            transform: translate(250px, 0px);
+          }
+        }
+      }
+
       @media (min-width: 1280px) {
         .e-page__title {
           font-size: 160px;
@@ -84,7 +151,11 @@
       <section class="e-page">
         <div class="container">
           <div class="e-page__content">
-            <div class="e-page__title">404</div>
+            <div class="e-page__title">
+              <span class="ball ball__left">4</span>
+              <span class="ball ball__center">0</span>
+              <span class="ball ball__right">4</span>
+            </div>
             <div class="e-page__description">Oops.. Page not found.</div>
             <a class="btn btn_primary" href="./index.html">
               <span class="btn__text">Go the home page</span>
