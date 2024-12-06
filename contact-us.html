@@ -11,10 +11,11 @@
       href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400..700&family=Unbounded:wght@400..700&display=swap"
       rel="stylesheet"
     />
-    <script type="module" crossorigin src="/mfisher/assets/vendor-CuHjJCZh.js"></script>
-    <script type="module" crossorigin src="/mfisher/assets/main-D1nsrISI.js"></script>
-    <link rel="stylesheet" crossorigin href="/mfisher/assets/main-Cai9s4Pl.css">
-    <link rel="stylesheet" crossorigin href="/mfisher/assets/contact-us-CUxjs2t1.css">
+    <script type="module" crossorigin src="/mfisher/assets/vendor-bnXvNy6W.js"></script>
+    <script type="module" crossorigin src="/mfisher/assets/main-LcvQeev9.js"></script>
+    <link rel="stylesheet" crossorigin href="/mfisher/assets/main-BaOsVkj7.css">
+    <link rel="stylesheet" crossorigin href="/mfisher/assets/vendor--wXQMN-_.css">
+    <link rel="stylesheet" crossorigin href="/mfisher/assets/contact-us-CAKLSpeR.css">
   </head>
   <body id="content">
     <style>
@@ -185,7 +186,7 @@
         </ul>
         <a href="./contact-us.html" class="nav__btn btn btn_secondary">
           <span class="btn__text">Contact Us</span>
-          <span class="btn__icon btn__icon-arrow"><span class="icon-arrow-right"></span></span>
+          <span class="btn__icon icon-arrow-right"></span>
         </a>
       </nav>
       <div class="header__toggle-btn" id="menuBtn">
@@ -229,9 +230,7 @@
                 </li>
               </ul>
               <a href="#" class="btn btn_primary-green btn_meeting">
-                <span class="btn__icon btn__icon-calendar">
-                  <span class="icon-calendar"></span>
-                </span>
+                <span class="btn__icon icon-calendar"> </span>
                 <span class="btn__text">Schedule a Meeting</span>
               </a>
 
@@ -260,42 +259,64 @@
             </div>
             <div class="contacts__content-form">
               <h5>Send us a message</h5>
-              <form name="order-form" class="form order-form" autocomplete="off">
+              <form
+                id="order-form"
+                name="order-form"
+                class="form order-form"
+                method="post"
+                novalidate
+                autocomplete="off"
+              >
                 <div class="input-field">
-                  <input
-                    class="form-input"
-                    name="user-name"
-                    type="text"
-                    id="user-name"
-                    placeholder="Your Name*"
-                    pattern="[A-Za-z\s]+"
-                    required
-                  />
-                  <span class="icon-user-tag icon"></span>
+                  <div class="input-field-box">
+                    <input
+                      class="form-input"
+                      name="user-name"
+                      type="text"
+                      id="user-name"
+                      placeholder="Your Name*"
+                      pattern="^[a-zA-Zа-яА-ЯЁё \-]+$"
+                      data-error-message="error"
+                      aria-describedby="name-error"
+                      required
+                    />
+                    <span class="icon-user-tag icon"></span>
+                  </div>
+                  <span class="form__error name-error" id="user-name-error" aria-live="polite"> </span>
                 </div>
 
                 <div class="input-field">
-                  <input
-                    class="form-input"
-                    name="user-email"
-                    type="email"
-                    id="user-email"
-                    pattern="([A-z0-9_.-]{1,})@([A-z0-9_.-]{1,}).([A-z]{2,8})"
-                    placeholder="Email*"
-                    required
-                  />
-                  <span class="icon-sms icon"></span>
+                  <div class="input-field-box">
+                    <input
+                      class="form-input"
+                      name="user-email"
+                      type="email"
+                      id="user-email"
+                      pattern="[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,8}"
+                      placeholder="Email*"
+                      data-error-message="error"
+                      aria-describedby="email-error"
+                      required
+                    />
+                    <span class="icon-sms icon"></span>
+                  </div>
+                  <span class="form__error email-error" id="user-email-error" aria-live="polite"></span>
                 </div>
+
                 <div class="input-field">
-                  <input
-                    class="form-input"
-                    name="user-phone"
-                    type="text"
-                    id="user-phone"
-                    placeholder="Phone"
-                    pattern="^\+\d{2}\d{3}\d{3}\d{2}\d{2}$"
-                  />
-                  <span class="icon-call icon"></span>
+                  <div class="input-field-box">
+                    <input
+                      class="form-input"
+                      name="user-phone"
+                      type="text"
+                      id="user-phone"
+                      data-error-message="error"
+                      pattern="^\+\d{2}\d{3}\d{3}\d{2}\d{2}$"
+                      aria-describedby="email-error"
+                    />
+                    <!--                  <span class="icon-call icon"></span>-->
+                  </div>
+                  <span class="form__error phone-error" id="user-phone-error" aria-live="polite"></span>
                 </div>
 
                 <div class="input-field">
@@ -306,6 +327,7 @@
                     minlength="10"
                     id="user-comment"
                     placeholder="Describe your industry and IT project*"
+                    data-error-message="error"
                     required
                   ></textarea>
                 </div>
@@ -320,23 +342,31 @@
                   </div>
                 </div>
                 <ul id="file-list" class="file__list"></ul>
+                <span class="form__empty-error" id="empty-error" aria-live="assertive"></span>
                 <div class="accept-box">
-                  <input class="input-nda visually-hidden" type="checkbox" id="user-nda" name="user-nda" value="true" />
+                  <input
+                    class="input-nda visually-hidden"
+                    type="checkbox"
+                    id="user-nda"
+                    name="user-nda"
+                    value="true"
+                    required
+                  />
                   <label class="label-accept" for="user-nda">
                     <span class="label-accept-span icon icon-accept"> </span>
                     <span class="p-2">
                       I want to protect my data by signing an NDA. <span class="icon-info"></span
                     ></span>
                   </label>
+                  <span id="user-nda-error" class="nda-error"></span>
                 </div>
                 <div class="form__footer">
                   <div class="form__footer-action">
                     <button class="btn_submit btn btn_primary" type="submit">
                       <span class="btn__text">Send Request</span>
-                      <span class="btn__icon btn__icon-arrow">
-                        <span class="icon-arrow-right"></span>
-                      </span>
+                      <span class="btn__icon icon-arrow-right"> </span>
                     </button>
+                    <!--                    <span class="form__empty-error" id="empty-error" aria-live="assertive"> </span>-->
                     <label for="file-upload" class="btn_attach btn btn_secondary-black">
                       <span class="btn__icon">
                         <span class="icon-attach"></span>
@@ -352,7 +382,7 @@
                     />
                   </div>
                   <span class="p-4"
-                    >*No more than 3 files may be attached up to 3 MB each. Formats doc, docx, pdf, ppt, pptx .</span
+                    >*No more than 3 files may be attached up to 100 MB each. Formats doc, docx, pdf, ppt, pptx .</span
                   >
                 </div>
               </form>
@@ -462,17 +492,13 @@
         <li class="footer__contacts-item">
           <a href="./contact-us.html" class="btn btn_secondary footer__btn footer__btn-desk">
             <span class="btn__text">Contact Us</span>
-            <span class="btn__icon btn__icon-arrow">
-              <span class="icon-arrow-right"></span>
-            </span>
+            <span class="btn__icon icon-arrow-right"> </span>
           </a>
         </li>
       </ul>
       <a href="./contact-us.html" class="btn btn_secondary footer__btn footer__btn-mob">
         <span class="btn__text">Contact Us</span>
-        <span class="btn__icon btn__icon-arrow">
-          <span class="icon-arrow-right"></span>
-        </span>
+        <span class="btn__icon icon-arrow-right"> </span>
       </a>
     </div>
   </div>
@@ -507,16 +533,12 @@
       <li class="btn__item">
         <a href="./contact-us.html" class="btn btn_primary">
           <span class="btn__text">Contact Us</span>
-          <span class="btn__icon btn__icon-arrow">
-            <span class="icon-arrow-right"></span>
-          </span>
+          <span class="btn__icon icon-arrow-right"> </span>
         </a>
       </li>
       <li class="btn__item">
         <a href="#" class="btn btn_secondary" target="_blank">
-          <span class="btn__icon btn__icon-calendar">
-            <span class="icon-calendar"></span>
-          </span>
+          <span class="btn__icon icon-calendar"> </span>
           <span class="btn__text">Schedule a Meeting</span>
         </a>
       </li>
@@ -556,7 +578,6 @@
 <script defer>
   document.addEventListener("DOMContentLoaded", () => {
     const loader = document.getElementById("preloader");
-    // const content = document.getElementById("content");
 
     const pageKey = `hasVisited_${window.location.pathname}`;
 
@@ -565,52 +586,337 @@
     if (isFirstVisitToPage) {
       setTimeout(() => {
         loader.style.display = "none";
-        // content.style.display = "block";
         localStorage.setItem(pageKey, "true");
       }, 2000);
     } else {
       loader.style.display = "none";
-      // content.style.display = "block";
     }
   });
 </script>
 
+    <!--    <script>-->
+    <!--      let uploadedFiles = [];-->
 
+    <!--      function handleFileUpload(event) {-->
+    <!--        const fileList = event.target.files;-->
+    <!--        const fileListContainer = document.getElementById("file-list");-->
+    <!--        fileListContainer.innerHTML = "";-->
+
+    <!--        for (let i = 0; i < fileList.length; i++) {-->
+    <!--          uploadedFiles.push(fileList[i]);-->
+    <!--        }-->
+
+    <!--        uploadedFiles.forEach((file, index) => {-->
+    <!--          const listItem = document.createElement("li");-->
+    <!--          listItem.classList.add("file__item", "p-2");-->
+
+    <!--          const fileName = document.createElement("span");-->
+    <!--          fileName.textContent = file.name;-->
+
+    <!--          const deleteButton = document.createElement("button");-->
+    <!--          deleteButton.innerHTML = '<span class="icon icon-close"></span>';-->
+    <!--          deleteButton.classList.add("btn-del");-->
+    <!--          deleteButton.onclick = () => removeFile(index);-->
+
+    <!--          listItem.appendChild(fileName);-->
+    <!--          listItem.appendChild(deleteButton);-->
+    <!--          fileListContainer.appendChild(listItem);-->
+    <!--        });-->
+    <!--      }-->
+
+    <!--      function removeFile(index) {-->
+    <!--        uploadedFiles.splice(index, 1);-->
+
+    <!--        handleFileUpload({ target: { files: [] } });-->
+    <!--      }-->
+    <!--    </script>-->
+
+    <!--    <script>-->
+    <!--      document.addEventListener("DOMContentLoaded", () => {-->
+    <!--        const form = document.querySelector(".order-form");-->
+    <!--        const budgetOptions = document.querySelectorAll(".budget-option");-->
+    <!--        const errorContainer = document.getElementById("empty-error");-->
+    <!--        const fileInput = document.getElementById("file-upload");-->
+    <!--        const fileList = document.getElementById("file-list");-->
+
+    <!--        const validateField = (field) => {-->
+    <!--          const errorSpan = document.querySelector(`#${field.id}-error`);-->
+    <!--          if (!field.checkValidity()) {-->
+    <!--            const errorMessage = field.getAttribute("data-error-message") || "Invalid field.";-->
+    <!--            errorSpan.textContent = errorMessage;-->
+    <!--            return false;-->
+    <!--            console.log(errorSpan);-->
+    <!--          } else {-->
+    <!--            errorSpan.textContent = "";-->
+    <!--            return true;-->
+    <!--          }-->
+    <!--        };-->
+
+    <!--        const validateFiles = () => {-->
+    <!--          const files = fileInput.files;-->
+    <!--          const allowedExtensions = ["doc", "docx", "pdf", "ppt", "pptx"];-->
+    <!--          const maxFileSize = 100 * 1024 * 1024; // 100MB-->
+    <!--          const maxFiles = 3;-->
+    <!--          const errorContainer = document.getElementById("empty-error");-->
+
+    <!--          if (!errorContainer) return false;-->
+
+    <!--          fileList.innerHTML = "";-->
+    <!--          if (files.length > maxFiles) {-->
+    <!--            errorContainer.textContent = `You can attach up to ${maxFiles} files.`;-->
+    <!--            return false;-->
+    <!--          }-->
+
+    <!--          for (let file of files) {-->
+    <!--            const extension = file.name.split(".").pop().toLowerCase();-->
+    <!--            if (!allowedExtensions.includes(extension)) {-->
+    <!--              errorContainer.textContent = `Unsupported file format: ${file.name}`;-->
+    <!--              return false;-->
+    <!--            }-->
+    <!--            if (file.size > maxFileSize) {-->
+    <!--              errorContainer.textContent = `File ${file.name} exceeds the 3MB size limit.`;-->
+    <!--              return false;-->
+    <!--            }-->
+
+    <!--            const listItem = document.createElement("li");-->
+    <!--            listItem.textContent = file.name;-->
+    <!--            fileList.appendChild(listItem);-->
+    <!--          }-->
+
+    <!--          errorContainer.textContent = "";-->
+    <!--          return true;-->
+    <!--        };-->
+
+    <!--        const validateForm = () => {-->
+    <!--          let isValid = true;-->
+    <!--          const fields = form.querySelectorAll("[required]");-->
+
+    <!--          fields.forEach((field) => {-->
+    <!--            if (field.id && !validateField(field)) {-->
+    <!--              isValid = false;-->
+    <!--            }-->
+    <!--          });-->
+
+    <!--          if (!validateFiles()) {-->
+    <!--            isValid = false;-->
+    <!--          }-->
+
+    <!--          return isValid;-->
+    <!--        };-->
+
+    <!--        const handleBudgetSelection = (event) => {-->
+    <!--          budgetOptions.forEach((option) => option.classList.remove("selected"));-->
+    <!--          event.target.classList.add("selected");-->
+    <!--        };-->
+
+    <!--        form.addEventListener("submit", (e) => {-->
+    <!--          e.preventDefault();-->
+
+    <!--          if (validateForm()) {-->
+    <!--            errorContainer.textContent = "";-->
+    <!--            const formData = new FormData(form);-->
+
+    <!--            const selectedBudget = document.querySelector(".budget-option.selected");-->
+    <!--            if (selectedBudget) {-->
+    <!--              formData.append("budget", selectedBudget.getAttribute("data-value"));-->
+    <!--            }-->
+
+    <!--            fetch("/order-form", {-->
+    <!--              method: "POST",-->
+    <!--              body: formData,-->
+    <!--            })-->
+    <!--              .then((response) => {-->
+    <!--                if (response.ok) {-->
+    <!--                  alert("Form submitted successfully!");-->
+    <!--                  form.reset();-->
+    <!--                  fileList.innerHTML = "";-->
+    <!--                  budgetOptions.forEach((option) => option.classList.remove("selected"));-->
+    <!--                } else {-->
+    <!--                  alert("There was an issue submitting the form.");-->
+    <!--                }-->
+    <!--              })-->
+    <!--              .catch((error) => {-->
+    <!--                console.error("Error submitting form:", error);-->
+    <!--                alert("There was an error submitting the form.");-->
+    <!--              });-->
+    <!--          } else {-->
+    <!--            errorContainer.textContent = "Please fix the errors above before submitting.";-->
+    <!--          }-->
+    <!--        });-->
+
+    <!--        budgetOptions.forEach((option) => {-->
+    <!--          option.addEventListener("click", handleBudgetSelection);-->
+    <!--        });-->
+
+    <!--        fileInput.addEventListener("change", validateFiles);-->
+    <!--      });-->
+    <!--    </script>-->
     <script>
-      let uploadedFiles = [];
+      document.addEventListener("DOMContentLoaded", () => {
+        const form = document.querySelector(".order-form");
+        const budgetOptions = document.querySelectorAll(".budget-option");
+        const errorContainer = document.getElementById("empty-error");
+        const fileInput = document.getElementById("file-upload");
+        const fileList = document.getElementById("file-list");
 
-      function handleFileUpload(event) {
-        const fileList = event.target.files;
-        const fileListContainer = document.getElementById("file-list");
-        fileListContainer.innerHTML = "";
+        const uploadedFiles = new Set();
 
-        for (let i = 0; i < fileList.length; i++) {
-          uploadedFiles.push(fileList[i]);
-        }
+        const validateField = (field) => {
+          const errorSpan = document.querySelector(`#${field.id}-error`);
+          if (!field.checkValidity()) {
+            const errorMessage = field.getAttribute("data-error-message") || "Invalid field.";
+            errorSpan.textContent = errorMessage;
+            return false;
+          } else {
+            errorSpan.textContent = "";
+            return true;
+          }
+        };
 
-        uploadedFiles.forEach((file, index) => {
-          const listItem = document.createElement("li");
-          listItem.classList.add("file__item", "p-2");
+        const validateFiles = () => {
+          const files = fileInput.files;
+          const allowedExtensions = ["doc", "docx", "pdf", "ppt", "pptx"];
+          const maxFileSize = 100 * 1024 * 1024; // 100MB
+          const maxFiles = 3;
 
-          const fileName = document.createElement("span");
-          fileName.textContent = file.name;
+          if (!errorContainer) return false;
 
-          const deleteButton = document.createElement("button");
-          deleteButton.innerHTML = '<span class="icon icon-close"></span>';
-          deleteButton.classList.add("btn-del");
-          deleteButton.onclick = () => removeFile(index);
+          let newFilesCount = 0;
 
-          listItem.appendChild(fileName);
-          listItem.appendChild(deleteButton);
-          fileListContainer.appendChild(listItem);
+          for (let file of files) {
+            const extension = file.name.split(".").pop().toLowerCase();
+
+            console.log(uploadedFiles.size);
+
+            if (uploadedFiles.has(file.name)) {
+              errorContainer.textContent = `File ${file.name} is already added.`;
+              continue;
+            }
+
+            if (!allowedExtensions.includes(extension)) {
+              errorContainer.textContent = `Unsupported file format: ${file.name}`;
+              return false;
+            }
+
+            if (file.size > maxFileSize) {
+              errorContainer.textContent = `File ${file.name} exceeds the 100MB size limit.`;
+              return false;
+            }
+
+            if (uploadedFiles.size >= maxFiles) {
+              errorContainer.textContent = `You can attach up to ${maxFiles} files.`;
+              return false;
+            }
+
+            const listItem = document.createElement("li");
+            listItem.classList.add("file__item");
+
+            const fileName = document.createElement("span");
+            fileName.textContent = file.name;
+
+            const deleteButton = document.createElement("button");
+            deleteButton.innerHTML = '<span class="icon icon-close"></span>';
+            deleteButton.classList.add("btn-del");
+            deleteButton.addEventListener("click", () => {
+              listItem.remove();
+              uploadedFiles.delete(file.name);
+              errorContainer.textContent = "";
+            });
+
+            listItem.appendChild(fileName);
+            listItem.appendChild(deleteButton);
+            fileList.appendChild(listItem);
+            uploadedFiles.add(file.name);
+            newFilesCount++;
+          }
+
+          errorContainer.textContent = "";
+          return true;
+        };
+
+        const validateForm = () => {
+          let isValid = true;
+          const fields = form.querySelectorAll("[required]");
+
+          fields.forEach((field) => {
+            if (field.id && !validateField(field)) {
+              isValid = false;
+            }
+          });
+
+          if (!validateFiles()) {
+            isValid = false;
+          }
+
+          return isValid;
+        };
+
+        const handleBudgetSelection = (event) => {
+          budgetOptions.forEach((option) => option.classList.remove("selected"));
+          event.target.classList.add("selected");
+        };
+
+        form.addEventListener("submit", (e) => {
+          e.preventDefault();
+
+          if (validateForm()) {
+            errorContainer.textContent = "";
+            const formData = new FormData(form);
+
+            const selectedBudget = document.querySelector(".budget-option.selected");
+            if (selectedBudget) {
+              formData.append("budget", selectedBudget.getAttribute("data-value"));
+            }
+
+            fetch("/order-form", {
+              method: "POST",
+              body: formData,
+            })
+              .then((response) => {
+                if (response.ok) {
+                  alert("Form submitted successfully!");
+                  form.reset();
+                  fileList.innerHTML = "";
+                  budgetOptions.forEach((option) => option.classList.remove("selected"));
+                  uploadedFiles.clear();
+                } else {
+                  alert("There was an issue submitting the form.");
+                }
+              })
+              .catch((error) => {
+                console.error("Error submitting form:", error);
+                alert("There was an error submitting the form.");
+              });
+          } else {
+            errorContainer.textContent = "Please fix the errors above before submitting.";
+          }
         });
-      }
 
-      function removeFile(index) {
-        uploadedFiles.splice(index, 1);
-        handleFileUpload({ target: { files: [] } });
-      }
+        budgetOptions.forEach((option) => {
+          option.addEventListener("click", handleBudgetSelection);
+        });
+
+        fileInput.addEventListener("change", validateFiles);
+      });
     </script>
-
+    <!--    <script>-->
+    <!--      document.addEventListener("DOMContentLoaded", function () {-->
+    <!--        const phoneInputField = document.querySelector("#user-phone");-->
+    <!--        if (phoneInputField) {-->
+    <!--          window.intlTelInput(phoneInputField, {-->
+    <!--            initialCountry: "auto",-->
+    <!--            geoIpLookup: function (callback) {-->
+    <!--              fetch("https://ipapi.co/json/")-->
+    <!--                .then((response) => response.json())-->
+    <!--                .then((data) => callback(data.country_code))-->
+    <!--                .catch(() => callback("us"));-->
+    <!--            },-->
+    <!--            utilsScript: "https://cdn.jsdelivr.net/npm/intl-tel-input@18.1.3/build/js/utils.js",-->
+    <!--          });-->
+    <!--        } else {-->
+    <!--          console.error("Элемент с id='phone' не найден!");-->
+    <!--        }-->
+    <!--      });-->
+    <!--    </script>-->
   </body>
 </html>

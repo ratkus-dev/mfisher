@@ -11,10 +11,11 @@
       href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400..700&family=Unbounded:wght@400..700&display=swap"
       rel="stylesheet"
     />
-    <script type="module" crossorigin src="/mfisher/assets/vendor-CuHjJCZh.js"></script>
-    <script type="module" crossorigin src="/mfisher/assets/main-D1nsrISI.js"></script>
-    <link rel="stylesheet" crossorigin href="/mfisher/assets/main-Cai9s4Pl.css">
-    <link rel="stylesheet" crossorigin href="/mfisher/assets/services-BdxqW5-o.css">
+    <script type="module" crossorigin src="/mfisher/assets/vendor-bnXvNy6W.js"></script>
+    <script type="module" crossorigin src="/mfisher/assets/main-LcvQeev9.js"></script>
+    <link rel="stylesheet" crossorigin href="/mfisher/assets/main-BaOsVkj7.css">
+    <link rel="stylesheet" crossorigin href="/mfisher/assets/vendor--wXQMN-_.css">
+    <link rel="stylesheet" crossorigin href="/mfisher/assets/services-CwL5pXEH.css">
   </head>
   <body id="content" class="services-page">
     <style>
@@ -185,7 +186,7 @@
         </ul>
         <a href="./contact-us.html" class="nav__btn btn btn_secondary">
           <span class="btn__text">Contact Us</span>
-          <span class="btn__icon btn__icon-arrow"><span class="icon-arrow-right"></span></span>
+          <span class="btn__icon icon-arrow-right"></span>
         </a>
       </nav>
       <div class="header__toggle-btn" id="menuBtn">
@@ -736,16 +737,12 @@
       <p class="cta__description p-1">Your Vision, Our Expertise</p>
       <div class="section__action cta__action">
         <a href="#" class="btn btn_primary-green">
-          <span class="btn__icon btn__icon-calendar">
-            <span class="icon-calendar"></span>
-          </span>
+          <span class="btn__icon icon-calendar"></span>
           <span class="btn__text">Schedule a Meeting</span>
         </a>
         <button class="btn btn_secondary cta__btn">
           <span class="btn__text">Request Consultation</span>
-          <span class="btn__icon btn__icon-arrow">
-            <span class="icon icon-arrow-right"></span>
-          </span>
+          <span class="btn__icon icon-arrow-right"> </span>
         </button>
       </div>
     </div>
@@ -823,17 +820,13 @@
         <li class="footer__contacts-item">
           <a href="./contact-us.html" class="btn btn_secondary footer__btn footer__btn-desk">
             <span class="btn__text">Contact Us</span>
-            <span class="btn__icon btn__icon-arrow">
-              <span class="icon-arrow-right"></span>
-            </span>
+            <span class="btn__icon icon-arrow-right"> </span>
           </a>
         </li>
       </ul>
       <a href="./contact-us.html" class="btn btn_secondary footer__btn footer__btn-mob">
         <span class="btn__text">Contact Us</span>
-        <span class="btn__icon btn__icon-arrow">
-          <span class="icon-arrow-right"></span>
-        </span>
+        <span class="btn__icon icon-arrow-right"> </span>
       </a>
     </div>
   </div>
@@ -868,16 +861,12 @@
       <li class="btn__item">
         <a href="./contact-us.html" class="btn btn_primary">
           <span class="btn__text">Contact Us</span>
-          <span class="btn__icon btn__icon-arrow">
-            <span class="icon-arrow-right"></span>
-          </span>
+          <span class="btn__icon icon-arrow-right"> </span>
         </a>
       </li>
       <li class="btn__item">
         <a href="#" class="btn btn_secondary" target="_blank">
-          <span class="btn__icon btn__icon-calendar">
-            <span class="icon-calendar"></span>
-          </span>
+          <span class="btn__icon icon-calendar"> </span>
           <span class="btn__text">Schedule a Meeting</span>
         </a>
       </li>
@@ -917,7 +906,6 @@
 <script defer>
   document.addEventListener("DOMContentLoaded", () => {
     const loader = document.getElementById("preloader");
-    // const content = document.getElementById("content");
 
     const pageKey = `hasVisited_${window.location.pathname}`;
 
@@ -926,12 +914,10 @@
     if (isFirstVisitToPage) {
       setTimeout(() => {
         loader.style.display = "none";
-        // content.style.display = "block";
         localStorage.setItem(pageKey, "true");
       }, 2000);
     } else {
       loader.style.display = "none";
-      // content.style.display = "block";
     }
   });
 </script>
@@ -1031,10 +1017,8 @@
             name="user-phone"
             type="text"
             id="user-phone"
-            placeholder="Phone"
             pattern="^\+\d{2}\d{3}\d{3}\d{2}\d{2}$"
           />
-          <span class="icon-call icon"></span>
         </div>
 
         <div class="input-field">

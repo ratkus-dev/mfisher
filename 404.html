@@ -81,6 +81,211 @@
         display: none;
       }
 
+      @media (min-width: 768px) {
+        .e-page__title {
+          position: relative;
+          display: -webkit-box;
+          display: -webkit-flex;
+          display: -moz-box;
+          display: -ms-flexbox;
+          display: flex;
+          -webkit-box-pack: center;
+          -webkit-justify-content: center;
+             -moz-box-pack: center;
+              -ms-flex-pack: center;
+                  justify-content: center;
+          height: 250px;
+          width: 750px;
+        }
+        .ball {
+          -webkit-flex-shrink: 0;
+              -ms-flex-negative: 0;
+                  flex-shrink: 0;
+          padding: 20px;
+          border: 1px solid white;
+          border-radius: 50%;
+          width: 250px;
+          height: 250px;
+          display: -webkit-box;
+          display: -webkit-flex;
+          display: -moz-box;
+          display: -ms-flexbox;
+          display: flex;
+          -webkit-box-align: center;
+          -webkit-align-items: center;
+             -moz-box-align: center;
+              -ms-flex-align: center;
+                  align-items: center;
+          -webkit-box-pack: center;
+          -webkit-justify-content: center;
+             -moz-box-pack: center;
+              -ms-flex-pack: center;
+                  justify-content: center;
+        }
+
+        .ball__left {
+          position: absolute;
+          -webkit-animation: swing-left 2s ease-in-out infinite;
+             -moz-animation: swing-left 2s ease-in-out infinite;
+                  animation: swing-left 2s ease-in-out infinite;
+        }
+
+        .ball__right {
+          position: absolute;
+          -webkit-animation: swing-right 2s ease-in-out infinite;
+             -moz-animation: swing-right 2s ease-in-out infinite;
+                  animation: swing-right 2s ease-in-out infinite;
+        }
+
+        @-webkit-keyframes swing-left {
+          0% {
+            -webkit-transform: translate(-500px, -120px);
+                    transform: translate(-500px, -120px);
+          }
+          25% {
+            -webkit-transform: translate(-250px, 0px);
+                    transform: translate(-250px, 0px);
+          }
+          50% {
+            -webkit-transform: translate(-250px, 0px);
+                    transform: translate(-250px, 0px);
+          }
+          75% {
+            -webkit-transform: translate(-250px, 0px);
+                    transform: translate(-250px, 0px);
+          }
+          100% {
+            -webkit-transform: translate(-500px, -120px);
+                    transform: translate(-500px, -120px);
+          }
+        }
+
+        @-moz-keyframes swing-left {
+          0% {
+            -moz-transform: translate(-500px, -120px);
+                 transform: translate(-500px, -120px);
+          }
+          25% {
+            -moz-transform: translate(-250px, 0px);
+                 transform: translate(-250px, 0px);
+          }
+          50% {
+            -moz-transform: translate(-250px, 0px);
+                 transform: translate(-250px, 0px);
+          }
+          75% {
+            -moz-transform: translate(-250px, 0px);
+                 transform: translate(-250px, 0px);
+          }
+          100% {
+            -moz-transform: translate(-500px, -120px);
+                 transform: translate(-500px, -120px);
+          }
+        }
+
+        @keyframes swing-left {
+          0% {
+            -webkit-transform: translate(-500px, -120px);
+               -moz-transform: translate(-500px, -120px);
+                    transform: translate(-500px, -120px);
+          }
+          25% {
+            -webkit-transform: translate(-250px, 0px);
+               -moz-transform: translate(-250px, 0px);
+                    transform: translate(-250px, 0px);
+          }
+          50% {
+            -webkit-transform: translate(-250px, 0px);
+               -moz-transform: translate(-250px, 0px);
+                    transform: translate(-250px, 0px);
+          }
+          75% {
+            -webkit-transform: translate(-250px, 0px);
+               -moz-transform: translate(-250px, 0px);
+                    transform: translate(-250px, 0px);
+          }
+          100% {
+            -webkit-transform: translate(-500px, -120px);
+               -moz-transform: translate(-500px, -120px);
+                    transform: translate(-500px, -120px);
+          }
+        }
+
+        @-webkit-keyframes swing-right {
+          0% {
+            -webkit-transform: translate(250px, 0px);
+                    transform: translate(250px, 0px);
+          }
+          25% {
+            -webkit-transform: translate(250px, 0px);
+                    transform: translate(250px, 0px);
+          }
+          50% {
+            -webkit-transform: translate(500px, -120px);
+                    transform: translate(500px, -120px);
+          }
+          75% {
+            -webkit-transform: translate(250px, 0px);
+                    transform: translate(250px, 0px);
+          }
+          100% {
+            -webkit-transform: translate(250px, 0px);
+                    transform: translate(250px, 0px);
+          }
+        }
+
+        @-moz-keyframes swing-right {
+          0% {
+            -moz-transform: translate(250px, 0px);
+                 transform: translate(250px, 0px);
+          }
+          25% {
+            -moz-transform: translate(250px, 0px);
+                 transform: translate(250px, 0px);
+          }
+          50% {
+            -moz-transform: translate(500px, -120px);
+                 transform: translate(500px, -120px);
+          }
+          75% {
+            -moz-transform: translate(250px, 0px);
+                 transform: translate(250px, 0px);
+          }
+          100% {
+            -moz-transform: translate(250px, 0px);
+                 transform: translate(250px, 0px);
+          }
+        }
+
+        @keyframes swing-right {
+          0% {
+            -webkit-transform: translate(250px, 0px);
+               -moz-transform: translate(250px, 0px);
+                    transform: translate(250px, 0px);
+          }
+          25% {
+            -webkit-transform: translate(250px, 0px);
+               -moz-transform: translate(250px, 0px);
+                    transform: translate(250px, 0px);
+          }
+          50% {
+            -webkit-transform: translate(500px, -120px);
+               -moz-transform: translate(500px, -120px);
+                    transform: translate(500px, -120px);
+          }
+          75% {
+            -webkit-transform: translate(250px, 0px);
+               -moz-transform: translate(250px, 0px);
+                    transform: translate(250px, 0px);
+          }
+          100% {
+            -webkit-transform: translate(250px, 0px);
+               -moz-transform: translate(250px, 0px);
+                    transform: translate(250px, 0px);
+          }
+        }
+}
+
       @media (min-width: 1280px) {
         .e-page__title {
           font-size: 160px;
@@ -96,9 +301,10 @@
         }
 }
     </style>
-    <script type="module" crossorigin src="/mfisher/assets/vendor-CuHjJCZh.js"></script>
-    <script type="module" crossorigin src="/mfisher/assets/main-D1nsrISI.js"></script>
-    <link rel="stylesheet" crossorigin href="/mfisher/assets/main-Cai9s4Pl.css">
+    <script type="module" crossorigin src="/mfisher/assets/vendor-bnXvNy6W.js"></script>
+    <script type="module" crossorigin src="/mfisher/assets/main-LcvQeev9.js"></script>
+    <link rel="stylesheet" crossorigin href="/mfisher/assets/vendor--wXQMN-_.css">
+    <link rel="stylesheet" crossorigin href="/mfisher/assets/main-BaOsVkj7.css">
   </head>
   <body id="content">
     <style>
@@ -269,7 +475,7 @@
         </ul>
         <a href="./contact-us.html" class="nav__btn btn btn_secondary">
           <span class="btn__text">Contact Us</span>
-          <span class="btn__icon btn__icon-arrow"><span class="icon-arrow-right"></span></span>
+          <span class="btn__icon icon-arrow-right"></span>
         </a>
       </nav>
       <div class="header__toggle-btn" id="menuBtn">
@@ -296,7 +502,11 @@
       <section class="e-page">
         <div class="container">
           <div class="e-page__content">
-            <div class="e-page__title">404</div>
+            <div class="e-page__title">
+              <span class="ball ball__left">4</span>
+              <span class="ball ball__center">0</span>
+              <span class="ball ball__right">4</span>
+            </div>
             <div class="e-page__description">Oops.. Page not found.</div>
             <a class="btn btn_primary" href="./index.html">
               <span class="btn__text">Go the home page</span>
@@ -375,17 +585,13 @@
         <li class="footer__contacts-item">
           <a href="./contact-us.html" class="btn btn_secondary footer__btn footer__btn-desk">
             <span class="btn__text">Contact Us</span>
-            <span class="btn__icon btn__icon-arrow">
-              <span class="icon-arrow-right"></span>
-            </span>
+            <span class="btn__icon icon-arrow-right"> </span>
           </a>
         </li>
       </ul>
       <a href="./contact-us.html" class="btn btn_secondary footer__btn footer__btn-mob">
         <span class="btn__text">Contact Us</span>
-        <span class="btn__icon btn__icon-arrow">
-          <span class="icon-arrow-right"></span>
-        </span>
+        <span class="btn__icon icon-arrow-right"> </span>
       </a>
     </div>
   </div>
@@ -420,16 +626,12 @@
       <li class="btn__item">
         <a href="./contact-us.html" class="btn btn_primary">
           <span class="btn__text">Contact Us</span>
-          <span class="btn__icon btn__icon-arrow">
-            <span class="icon-arrow-right"></span>
-          </span>
+          <span class="btn__icon icon-arrow-right"> </span>
         </a>
       </li>
       <li class="btn__item">
         <a href="#" class="btn btn_secondary" target="_blank">
-          <span class="btn__icon btn__icon-calendar">
-            <span class="icon-calendar"></span>
-          </span>
+          <span class="btn__icon icon-calendar"> </span>
           <span class="btn__text">Schedule a Meeting</span>
         </a>
       </li>
@@ -469,7 +671,6 @@
 <script defer>
   document.addEventListener("DOMContentLoaded", () => {
     const loader = document.getElementById("preloader");
-    // const content = document.getElementById("content");
 
     const pageKey = `hasVisited_${window.location.pathname}`;
 
@@ -478,12 +679,10 @@
     if (isFirstVisitToPage) {
       setTimeout(() => {
         loader.style.display = "none";
-        // content.style.display = "block";
         localStorage.setItem(pageKey, "true");
       }, 2000);
     } else {
       loader.style.display = "none";
-      // content.style.display = "block";
     }
   });
 </script>
