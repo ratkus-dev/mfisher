@@ -2,6 +2,7 @@ import ".././styles/pages/index.scss";
 import "jquery/dist/jquery.js";
 import Swiper from "swiper";
 import { Navigation, Pagination } from "swiper/modules";
+import intlTelInput from "intl-tel-input";
 
 const toggleBtn = document.querySelector(".header__toggle-btn");
 const mobMenu = document.querySelector(".mobile-menu");
@@ -183,4 +184,23 @@ document.addEventListener("DOMContentLoaded", function () {
       document.documentElement.classList.remove("no-scroll");
     });
   });
+
+  const phoneInputField = document.querySelector("#user-phone");
+  window.intlTelInput(phoneInputField, {
+    loadUtils: () => import("/intl-tel-input/js/utils.js?1733490889803");
+  });
+  // if (phoneInputField) {
+  //   window.intlTelInput(phoneInputField, {
+  //     initialCountry: "auto",
+  //     geoIpLookup: function (callback) {
+  //       fetch("https://ipapi.co/json/")
+  //         .then((response) => response.json())
+  //         .then((data) => callback(data.country_code))
+  //         .catch(() => callback("us"));
+  //     },
+  //     utilsScript: "https://cdn.jsdelivr.net/npm/intl-tel-input@18.1.3/build/js/utils.js",
+  //   });
+  // } else {
+  //   console.error("Элемент с id='phone' не найден!");
+  // }
 });
