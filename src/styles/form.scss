@@ -28,7 +28,7 @@
 }
 
 .input-field input {
-  padding-left: 52px;
+  padding-left: 52px !important;
 }
 
 .input-field .icon {
@@ -253,4 +253,12 @@
 
 #placeholder {
   color: var(--dark-black);
+}
+
+.iti__country-container {
+  left: 10px !important;
+}
+
+.iti__selected-country-primary:hover {
+  background-color: transparent !important;
 }
