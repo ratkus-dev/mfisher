@@ -175,6 +175,6 @@ document.addEventListener("DOMContentLoaded", function () {
         .then((data) => callback(data.country_code))
         .catch(() => callback("us"));
     },
-    // loadUtilsOnInit: () => import("intl-tel-input/utils"),
+    loadUtilsOnInit: () => import("intl-tel-input/utils"),
   });
 });
