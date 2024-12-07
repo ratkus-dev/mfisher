@@ -83,13 +83,13 @@
                       id="user-name"
                       placeholder="Your Name*"
                       pattern="^[a-zA-Zа-яА-ЯЁё \-]+$"
-                      data-error-message="error"
+                      data-error-message="Invalid format"
                       aria-describedby="name-error"
                       required
                     />
                     <span class="icon-user-tag icon"></span>
                   </div>
-                  <span class="form__error name-error" id="user-name-error" aria-live="polite"> </span>
+                  <span class="p-4 form__error name-error" id="user-name-error" aria-live="polite"> </span>
                 </div>
 
                 <div class="input-field">
@@ -101,13 +101,13 @@
                       id="user-email"
                       pattern="[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,8}"
                       placeholder="Email*"
-                      data-error-message="error"
+                      data-error-message="Invalid format"
                       aria-describedby="email-error"
                       required
                     />
                     <span class="icon-sms icon"></span>
                   </div>
-                  <span class="form__error email-error" id="user-email-error" aria-live="polite"></span>
+                  <span class="p-4 form__error email-error" id="user-email-error" aria-live="polite"></span>
                 </div>
 
                 <div class="input-field">
@@ -117,13 +117,13 @@
                       name="user-phone"
                       type="text"
                       id="user-phone"
-                      data-error-message="error"
+                      data-error-message="Invalid format"
                       pattern="^\+\d{2}\d{3}\d{3}\d{2}\d{2}$"
                       aria-describedby="email-error"
                     />
                     <!--                  <span class="icon-call icon"></span>-->
                   </div>
-                  <span class="form__error phone-error" id="user-phone-error" aria-live="polite"></span>
+                  <span class="p-4 form__error phone-error" id="user-phone-error" aria-live="polite"></span>
                 </div>
 
                 <div class="input-field">
@@ -131,10 +131,10 @@
                     class="user-comment"
                     name="user-comment"
                     rows="4"
-                    minlength="10"
+                    minlength="50"
                     id="user-comment"
                     placeholder="Describe your industry and IT project*"
-                    data-error-message="error"
+                    data-error-message="Invalid format"
                     required
                   ></textarea>
                 </div>
@@ -149,7 +149,7 @@
                   </div>
                 </div>
                 <ul id="file-list" class="file__list"></ul>
-                <span class="form__empty-error" id="empty-error" aria-live="assertive"></span>
+                <span class="p-4 form__empty-error" id="empty-error" aria-live="assertive"></span>
                 <div class="accept-box">
                   <input
                     class="input-nda visually-hidden"
@@ -165,7 +165,7 @@
                       I want to protect my data by signing an NDA. <span class="icon-info"></span
                     ></span>
                   </label>
-                  <span id="user-nda-error" class="nda-error"></span>
+                  <span id="user-nda-error" class="p-4 nda-error"></span>
                 </div>
                 <div class="form__footer">
                   <div class="form__footer-action">

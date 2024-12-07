@@ -243,12 +243,14 @@
 
 .form__error {
   position: absolute;
-  top: 40px;
-  color: red;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 10px;
+  color: #ee3c3c;
 }
 
 .form__empty-error {
-  color: red;
+  color: #ee3c3c;
 }
 
 #placeholder {
