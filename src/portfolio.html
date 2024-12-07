@@ -548,6 +548,11 @@
     </main>
 
     <load src="./components/footer.html" />
+
+    <load src="./components/request_popup.html" />
+
+    <load src="./components/popup-mini.html" />
+
     <script type="module">
       document.addEventListener("DOMContentLoaded", () => {
         const items = document.querySelectorAll(".portfolio__item");
@@ -575,7 +580,7 @@
           const { scrollTop, scrollHeight, clientHeight } = document.documentElement;
           if (scrollTop + clientHeight / 2 >= scrollHeight / 2 - 5) {
             loader.style.display = "block";
-            setTimeout(showItems, 5000);
+            setTimeout(showItems, 2000);
           }
         }
 
