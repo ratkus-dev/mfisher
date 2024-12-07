@@ -73,7 +73,9 @@
   font-size: 16px;
   text-align: center;
   color: var(--dark-black);
+  background-color: var(--white);
   width: 100%;
+  white-space: nowrap;
 
   &:first-child,
   &:nth-child(2),
