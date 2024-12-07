@@ -36,13 +36,38 @@
   }
 
   &__content-form {
-    max-width: 685px;
+    position: relative;
+    //max-width: 685px;
     width: 100%;
-    background-color: #f6f6f6;
+    background-color: var(--light-grey);
     padding: 30px 0;
+
+    &::before,
+    &::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      height: 100%;
+      width: 24px;
+      background-color: var(--light-grey);
+      z-index: -1;
+    }
+
+    &::before {
+      left: -24px;
+    }
+
+    &::after {
+      right: -24px;
+    }
 
     @include tablet {
       padding: 40px 24px;
+
+      &::before,
+      &::after {
+        content: none;
+      }
     }
 
     @include desktop {

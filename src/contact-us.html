@@ -77,7 +77,7 @@
                 <div class="input-field">
                   <div class="input-field-box">
                     <input
-                      class="form-input"
+                      class="form-input validate"
                       name="user-name"
                       type="text"
                       id="user-name"
@@ -95,11 +95,10 @@
                 <div class="input-field">
                   <div class="input-field-box">
                     <input
-                      class="form-input"
+                      class="form-input validate"
                       name="user-email"
                       type="email"
                       id="user-email"
-                      pattern="[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,8}"
                       placeholder="Email*"
                       data-error-message="Invalid format"
                       aria-describedby="email-error"
@@ -113,7 +112,7 @@
                 <div class="input-field">
                   <div class="input-field-box">
                     <input
-                      class="form-input"
+                      class="form-input validate"
                       name="user-phone"
                       type="text"
                       id="user-phone"
@@ -128,7 +127,7 @@
 
                 <div class="input-field">
                   <textarea
-                    class="user-comment"
+                    class="user-comment validate"
                     name="user-comment"
                     rows="4"
                     minlength="50"
@@ -137,6 +136,7 @@
                     data-error-message="Invalid format"
                     required
                   ></textarea>
+                  <span class="p-4 form__error comment-error" id="user-comment-error" aria-live="polite"></span>
                 </div>
                 <div class="input-field">
                   <label for="budget">Project budget:</label>
@@ -208,6 +208,7 @@
         </picture>
       </div>
     </section>
+    <load src="./components/request_popup.html" />
     <load src="./components/popup-mini.html" />
     <load src="./components/footer.html" />
     <!--    <script>-->
@@ -453,7 +454,7 @@
 
         const validateForm = () => {
           let isValid = true;
-          const fields = form.querySelectorAll("[required]");
+          const fields = form.querySelectorAll(".validate");
 
           fields.forEach((field) => {
             if (field.id && !validateField(field)) {
@@ -485,7 +486,7 @@
               formData.append("budget", selectedBudget.getAttribute("data-value"));
             }
 
-            fetch("/order-form", {
+            fetch("http://localhost:3001", {
               method: "POST",
               body: formData,
             })
