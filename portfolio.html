@@ -11,7 +11,7 @@
       href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400..700&family=Unbounded:wght@400..700&display=swap"
       rel="stylesheet"
     />
-    <script type="module" crossorigin src="/mfisher/assets/portfolio-BhAj1t0Y.js"></script>
+    <script type="module" crossorigin src="/mfisher/assets/portfolio-CF-fEW9p.js"></script>
     <link rel="modulepreload" crossorigin href="/mfisher/assets/vendor-bnXvNy6W.js">
     <link rel="modulepreload" crossorigin href="/mfisher/assets/main-LcvQeev9.js">
     <link rel="stylesheet" crossorigin href="/mfisher/assets/main-BaOsVkj7.css">
@@ -929,6 +929,219 @@
     }
   });
 </script>
+
+
+    <div class="popup" id="popup">
+  <div class="popup__content">
+    <button id="closePopup" class="popup__close-btn popup__close"><span class="icon icon-close-lg"></span></button>
+    <div class="popup__content-text">
+      <h4 class="popup__title">Contact us</h4>
+      <p class="p-1">
+        Reaching out to us for a free consultation and let our creative experts bring your vision to life.
+      </p>
+
+      <div class="divider"></div>
+
+      <ul class="contacts__list">
+        <li class="contacts__item">
+          <p class="p-3 contacts__label">Drop us a line</p>
+          <div class="contacts__item-content">
+            <span class="icon-sms icon"></span>
+            <a id="email-address" class="p-1" href="mailto:hello@mfisher.com">hello@mfisher.com</a>
+            <span id="email-copy" class="icon icon-copy" onclick="copyEmail()"></span>
+          </div>
+        </li>
+        <li class="contacts__item">
+          <p class="p-3 contacts__label">Let’s have a quick call</p>
+          <div class="contacts__item-content">
+            <span class="icon icon-call"></span>
+            <a id="phone-number" class="p-1" href="tel:+123455677">+ 1 234 55 677</a>
+            <span id="phone-copy" class="icon icon-copy" onclick="copyPhoneNumber()"></span>
+          </div>
+        </li>
+        <li class="contacts__item">
+          <p class="p-3 contacts__label">Meetup for a coffee</p>
+          <div class="contacts__item-content">
+            <span class="icon icon-location"></span>
+            <p class="p-1">Warsaw, Poland</p>
+          </div>
+        </li>
+      </ul>
+
+      <ul class="social__list">
+        <li class="social__item">
+          <a href="https://dribble.com" class="social__link">
+            <span class="social__icon icon-dribbble"></span>
+          </a>
+        </li>
+        <li class="social__item">
+          <a href="https://behance.com" class="social__link">
+            <span class="social__icon icon-behance"></span>
+          </a>
+        </li>
+        <li class="social__item">
+          <a href="https://facebook.com" class="social__link">
+            <span class="social__icon icon-facebook"></span>
+          </a>
+        </li>
+        <li class="social__item">
+          <a href="https://linkedin.com" class="social__link">
+            <span class="social__icon icon-linkedin"></span>
+          </a>
+        </li>
+      </ul>
+    </div>
+    <div class="popup__content-form">
+      <h4>Request Free Consultation</h4>
+      <form name="order-form" class="form order-form" autocomplete="off">
+        <div class="input-field">
+          <input
+            class="form-input"
+            name="user-name"
+            type="text"
+            id="user-name"
+            placeholder="Your Name*"
+            pattern="[A-Za-z\s]+"
+            required
+          />
+          <span class="icon-user-tag icon"></span>
+        </div>
+
+        <div class="input-field">
+          <input
+            class="form-input"
+            name="user-email"
+            type="email"
+            id="user-email"
+            pattern="([A-z0-9_.-]{1,})@([A-z0-9_.-]{1,}).([A-z]{2,8})"
+            placeholder="Email*"
+            required
+          />
+          <span class="icon-sms icon"></span>
+        </div>
+        <div class="input-field">
+          <input
+            class="form-input"
+            name="user-phone"
+            type="text"
+            id="user-phone"
+            pattern="^\+\d{2}\d{3}\d{3}\d{2}\d{2}$"
+          />
+        </div>
+
+        <div class="input-field">
+          <textarea
+            class="user-comment"
+            name="user-comment"
+            rows="4"
+            minlength="10"
+            id="user-comment"
+            placeholder="Describe your industry and IT project*"
+            required
+          ></textarea>
+        </div>
+        <div class="input-field">
+          <label for="budget">Project budget:</label>
+          <div class="budget-container" id="budget">
+            <div class="budget-option p-2" data-value="not-sure">Not Sure</div>
+            <div class="budget-option p-2 selected" data-value="<5k">&lt;$5K</div>
+            <div class="budget-option p-2" data-value="5k-15k">$5K-$15K</div>
+            <div class="budget-option p-2" data-value="15k-25k">$15K-$25</div>
+            <div class="budget-option p-2" data-value=">30k">&gt;$30K</div>
+          </div>
+        </div>
+        <ul id="file-list" class="file__list"></ul>
+        <div class="accept-box">
+          <input class="input-nda visually-hidden" type="checkbox" id="user-nda" name="user-nda" value="true" />
+          <label class="label-accept" for="user-nda">
+            <span class="label-accept-span icon icon-accept"> </span>
+            <span class="p-2"> I want to protect my data by signing an NDA. <span class="icon-info"></span></span>
+          </label>
+        </div>
+        <div class="form__footer">
+          <div class="form__footer-action">
+            <button class="btn_submit btn btn_primary" type="submit">
+              <span class="btn__text">Send Request</span>
+              <span class="btn__icon btn__icon-arrow">
+                <span class="icon-arrow-right"></span>
+              </span>
+            </button>
+            <label for="file-upload" class="btn_attach btn btn_secondary-black">
+              <span class="btn__icon">
+                <span class="icon-attach"></span>
+              </span>
+              <span class="btn__text">Attach File</span>
+            </label>
+            <input type="file" id="file-upload" style="display: none" multiple onchange="handleFileUpload(event)" />
+          </div>
+          <span class="p-4"
+            >*No more than 3 files may be attached up to 3 MB each. Formats doc, docx, pdf, ppt, pptx .</span
+          >
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<script>
+  let uploadedFiles = [];
+
+  function handleFileUpload(event) {
+    const fileList = event.target.files;
+    const fileListContainer = document.getElementById("file-list");
+    fileListContainer.innerHTML = "";
+
+    for (let i = 0; i < fileList.length; i++) {
+      uploadedFiles.push(fileList[i]);
+    }
+
+    uploadedFiles.forEach((file, index) => {
+      const listItem = document.createElement("li");
+      listItem.classList.add("file__item", "p-2");
+
+      const fileName = document.createElement("span");
+      fileName.textContent = file.name;
+
+      const deleteButton = document.createElement("button");
+      deleteButton.innerHTML = '<span class="icon icon-close"></span>';
+      deleteButton.classList.add("btn-del");
+      deleteButton.onclick = () => removeFile(index);
+
+      listItem.appendChild(fileName);
+      listItem.appendChild(deleteButton);
+      fileListContainer.appendChild(listItem);
+    });
+  }
+
+  function removeFile(index) {
+    uploadedFiles.splice(index, 1);
+
+    handleFileUpload({ target: { files: [] } });
+  }
+</script>
+
+
+    <div class="popup popup-mini" id="popup-mini">
+  <div class="popup-mini__content">
+    <div class="popup-mini__header">
+      <button id="closePopup" class="popup-mini__close-btn popup__close">
+        <span class="icon icon-close-lg"></span>
+      </button>
+      <img src="data:image/svg+xml,%3csvg%20width='50'%20height='51'%20viewBox='0%200%2050%2051'%20fill='none'%20xmlns='http://www.w3.org/2000/svg'%3e%3cpath%20d='M11.1053%2032.4157L49%201M11.1053%2032.4157L5.84211%2030.0595L2.10161%2028.1989C0.723124%2027.5133%200.603847%2025.5924%201.88692%2024.7415L2.15789%2024.5618L49%201M11.1053%2032.4157L15.8421%2045.5056L17.4211%2049.1707M49%201L19.5263%2036.0809M49%201L39%2039.746L38.5868%2040.7051C37.9396%2042.2074%2036.2082%2042.9143%2034.6944%2042.2943L31.3684%2040.9318L25.3158%2038.4524M19.5263%2036.0809L25.3158%2038.4524M19.5263%2036.0809L17.9474%2046.0292L17.4211%2049.1707M17.4211%2049.1707L19.5263%2046.0292L25.3158%2038.4524'%20stroke='white'/%3e%3c/svg%3e" alt="icon" />
+    </div>
+    <div class="popup-mini__body">
+      <h5 class="popup-mini__title">Thank you for reaching&nbsp;out!</h5>
+      <p class="p-2 popup-mini__text">We've received your request and will get back to you shortly.</p>
+      <a href="./index.html" class="btn btn_primary">
+        <span class="btn__text">Go to Home Page</span>
+        <span class="btn__icon btn__icon-arrow">
+          <span class="icon-arrow-right"></span>
+        </span>
+      </a>
+    </div>
+  </div>
+</div>
+
 
 
   </body>
