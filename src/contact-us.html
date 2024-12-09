@@ -459,6 +459,9 @@
           fields.forEach((field) => {
             if (field.id && !validateField(field)) {
               isValid = false;
+              field.classList.add("field-error");
+            } else {
+              field.classList.remove("field-error");
             }
           });
 
