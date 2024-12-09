@@ -125,7 +125,7 @@
                     minlength="50"
                     id="user-comment"
                     placeholder="Describe your industry and IT project*"
-                    data-error-message="Invalid format"
+                    data-error-message="min 50 characters"
                     required
                   ></textarea>
                   <span class="p-4 form__error comment-error" id="user-comment-error" aria-live="polite"></span>
@@ -500,12 +500,12 @@
               .send("service_d3x1f1d", "template_9nakrge", data)
               .then(() => {
                 const popup = document.getElementById("popup-mini");
-                popup.classList.remove("hidden");
-                popup.classList.add("visible");
+                popup.classList.remove("hide");
+                popup.classList.add("is-open");
 
                 popup.querySelector(".popup-mini__close-btn").addEventListener("click", () => {
-                  popup.classList.remove("visible");
-                  popup.classList.add("hidden");
+                  popup.classList.remove("is-open");
+                  popup.classList.add("hide");
                 });
                 form.reset();
                 fileList.innerHTML = "";

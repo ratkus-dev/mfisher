@@ -69,6 +69,14 @@ select {
   display: none !important;
 }
 
+.hide {
+  display: none !important;
+}
+
+.show {
+  display: flex !important;
+}
+
 .wrapper {
   min-height: 100vh;
   text-align: center;
