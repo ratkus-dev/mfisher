@@ -138,11 +138,16 @@
 }
 
 .accept-box {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 5px;
   margin-bottom: 24px;
 
   .icon-info {
     font-size: 20px;
-    line-height: 20px;
+    line-height: 1;
+    cursor: pointer;
   }
 
   .p-2 {
@@ -245,8 +250,7 @@
 
 .form__error {
   position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
+  top: 16px;
   right: 10px;
   color: #ee3c3c;
 }

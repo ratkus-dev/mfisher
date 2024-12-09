@@ -76,6 +76,18 @@ select {
   flex-flow: column;
 }
 
+.section {
+  padding: 60px 0;
+
+  @include mobile {
+    padding: 90px 0;
+  }
+
+  @include desktop {
+    padding: 120px 0;
+  }
+}
+
 .container {
   min-width: 320px;
   width: 100%;

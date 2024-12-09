@@ -2,18 +2,20 @@
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Получаем данные из формы
     $name = htmlspecialchars($_POST["name"]);
+    $email = htmlspecialchars($_POST["email"]);
     $phone = htmlspecialchars($_POST["phone"]);
     $message = htmlspecialchars($_POST["message"]);
 
     // Проверка наличия данных
-    if (!empty($name) && !empty($phone) && !empty($message)) {
+    if (!empty($name) && !empty($phone) && !empty($email) && !empty($message)) {
         // Дополнительная проверка формата телефона (пример)
         if (preg_match('/^\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,9}$/', $phone)) {
 
             // Отправка данных на почту
             $to = "vitaly@ratkus.com.ua";
-            $subject = "Нове повідомлення із сайту parkhouse.kyiv.ua";
+            $subject = "Нове повідомлення із сайту mfisher";
             $body = "Ім'я: $name\n";
+            $body .= "Email: $email\n";
             $body .= "Телефон: $phone\n";
             $body .= "Повідомлення:\n$message";
             mail($to, $subject, $body);

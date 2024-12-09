@@ -66,14 +66,7 @@
             </div>
             <div class="contacts__content-form">
               <h5>Send us a message</h5>
-              <form
-                id="order-form"
-                name="order-form"
-                class="form order-form"
-                method="post"
-                novalidate
-                autocomplete="off"
-              >
+              <form id="order-form" name="order-form" class="form order-form" novalidate autocomplete="off">
                 <div class="input-field">
                   <div class="input-field-box">
                     <input
@@ -117,8 +110,7 @@
                       type="text"
                       id="user-phone"
                       data-error-message="Invalid format"
-                      pattern="^\+\d{2}\d{3}\d{3}\d{2}\d{2}$"
-                      aria-describedby="email-error"
+                      aria-describedby="phone-error"
                     />
                     <!--                  <span class="icon-call icon"></span>-->
                   </div>
@@ -141,8 +133,8 @@
                 <div class="input-field">
                   <label for="budget">Project budget:</label>
                   <div class="budget-container" id="budget">
-                    <div class="budget-option p-2" data-value="not-sure">Not Sure</div>
-                    <div class="budget-option p-2 selected" data-value="<5k">&lt;$5K</div>
+                    <div class="budget-option p-2 selected" data-value="not-sure">Not Sure</div>
+                    <div class="budget-option p-2" data-value="<5k">&lt;$5K</div>
                     <div class="budget-option p-2" data-value="5k-15k">$5K-$15K</div>
                     <div class="budget-option p-2" data-value="15k-25k">$15K-$25</div>
                     <div class="budget-option p-2" data-value=">30k">&gt;$30K</div>
@@ -151,21 +143,12 @@
                 <ul id="file-list" class="file__list"></ul>
                 <span class="p-4 form__empty-error" id="empty-error" aria-live="assertive"></span>
                 <div class="accept-box">
-                  <input
-                    class="input-nda visually-hidden"
-                    type="checkbox"
-                    id="user-nda"
-                    name="user-nda"
-                    value="true"
-                    required
-                  />
+                  <input class="input-nda visually-hidden" type="checkbox" id="user-nda" name="user-nda" value="true" />
                   <label class="label-accept" for="user-nda">
                     <span class="label-accept-span icon icon-accept"> </span>
-                    <span class="p-2">
-                      I want to protect my data by signing an NDA. <span class="icon-info"></span
-                    ></span>
+                    <span class="p-2">I want to protect my data by signing an NDA.</span>
                   </label>
-                  <span id="user-nda-error" class="p-4 nda-error"></span>
+                  <span class="icon-info"></span>
                 </div>
                 <div class="form__footer">
                   <div class="form__footer-action">
@@ -179,13 +162,7 @@
                       </span>
                       <span class="btn__text">Attach File</span>
                     </label>
-                    <input
-                      type="file"
-                      id="file-upload"
-                      style="display: none"
-                      multiple
-                      onchange="handleFileUpload(event)"
-                    />
+                    <input type="file" id="file-upload" name="files" style="display: none" multiple />
                   </div>
                   <span class="p-4"
                     >*No more than 3 files may be attached up to 100 MB each. Formats doc, docx, pdf, ppt, pptx .</span
@@ -211,42 +188,6 @@
     <load src="./components/request_popup.html" />
     <load src="./components/popup-mini.html" />
     <load src="./components/footer.html" />
-    <!--    <script>-->
-    <!--      let uploadedFiles = [];-->
-
-    <!--      function handleFileUpload(event) {-->
-    <!--        const fileList = event.target.files;-->
-    <!--        const fileListContainer = document.getElementById("file-list");-->
-    <!--        fileListContainer.innerHTML = "";-->
-
-    <!--        for (let i = 0; i < fileList.length; i++) {-->
-    <!--          uploadedFiles.push(fileList[i]);-->
-    <!--        }-->
-
-    <!--        uploadedFiles.forEach((file, index) => {-->
-    <!--          const listItem = document.createElement("li");-->
-    <!--          listItem.classList.add("file__item", "p-2");-->
-
-    <!--          const fileName = document.createElement("span");-->
-    <!--          fileName.textContent = file.name;-->
-
-    <!--          const deleteButton = document.createElement("button");-->
-    <!--          deleteButton.innerHTML = '<span class="icon icon-close"></span>';-->
-    <!--          deleteButton.classList.add("btn-del");-->
-    <!--          deleteButton.onclick = () => removeFile(index);-->
-
-    <!--          listItem.appendChild(fileName);-->
-    <!--          listItem.appendChild(deleteButton);-->
-    <!--          fileListContainer.appendChild(listItem);-->
-    <!--        });-->
-    <!--      }-->
-
-    <!--      function removeFile(index) {-->
-    <!--        uploadedFiles.splice(index, 1);-->
-
-    <!--        handleFileUpload({ target: { files: [] } });-->
-    <!--      }-->
-    <!--    </script>-->
 
     <script type="module" src="js/main.js"></script>
     <!--    <script>-->
@@ -257,13 +198,14 @@
     <!--        const fileInput = document.getElementById("file-upload");-->
     <!--        const fileList = document.getElementById("file-list");-->
 
+    <!--        const uploadedFiles = new Set();-->
+
     <!--        const validateField = (field) => {-->
     <!--          const errorSpan = document.querySelector(`#${field.id}-error`);-->
     <!--          if (!field.checkValidity()) {-->
     <!--            const errorMessage = field.getAttribute("data-error-message") || "Invalid field.";-->
     <!--            errorSpan.textContent = errorMessage;-->
     <!--            return false;-->
-    <!--            console.log(errorSpan);-->
     <!--          } else {-->
     <!--            errorSpan.textContent = "";-->
     <!--            return true;-->
@@ -275,30 +217,59 @@
     <!--          const allowedExtensions = ["doc", "docx", "pdf", "ppt", "pptx"];-->
     <!--          const maxFileSize = 100 * 1024 * 1024; // 100MB-->
     <!--          const maxFiles = 3;-->
-    <!--          const errorContainer = document.getElementById("empty-error");-->
 
     <!--          if (!errorContainer) return false;-->
 
-    <!--          fileList.innerHTML = "";-->
-    <!--          if (files.length > maxFiles) {-->
-    <!--            errorContainer.textContent = `You can attach up to ${maxFiles} files.`;-->
-    <!--            return false;-->
-    <!--          }-->
+    <!--          let newFilesCount = 0;-->
 
     <!--          for (let file of files) {-->
     <!--            const extension = file.name.split(".").pop().toLowerCase();-->
+
+    <!--            console.log(uploadedFiles.size);-->
+
+    <!--            if (uploadedFiles.has(file.name)) {-->
+    <!--              errorContainer.textContent = `File ${file.name} is already added.`;-->
+    <!--              continue;-->
+    <!--            }-->
+
     <!--            if (!allowedExtensions.includes(extension)) {-->
     <!--              errorContainer.textContent = `Unsupported file format: ${file.name}`;-->
     <!--              return false;-->
     <!--            }-->
+
     <!--            if (file.size > maxFileSize) {-->
-    <!--              errorContainer.textContent = `File ${file.name} exceeds the 3MB size limit.`;-->
+    <!--              errorContainer.textContent = `File ${file.name} exceeds the 100MB size limit.`;-->
+    <!--              return false;-->
+    <!--            }-->
+
+    <!--            if (uploadedFiles.size >= maxFiles) {-->
+    <!--              errorContainer.textContent = `You can attach up to ${maxFiles} files.`;-->
     <!--              return false;-->
     <!--            }-->
 
     <!--            const listItem = document.createElement("li");-->
-    <!--            listItem.textContent = file.name;-->
+    <!--            listItem.classList.add("file__item");-->
+
+    <!--            const fileName = document.createElement("span");-->
+    <!--            fileName.textContent = file.name;-->
+
+    <!--            const deleteButton = document.createElement("button");-->
+    <!--            deleteButton.innerHTML = '<span class="icon icon-close"></span>';-->
+    <!--            deleteButton.classList.add("btn-del");-->
+    <!--            deleteButton.addEventListener("click", () => {-->
+    <!--              listItem.remove();-->
+    <!--              uploadedFiles.delete(file.name);-->
+    <!--              errorContainer.textContent = "";-->
+    <!--              newFilesCount&#45;&#45;;-->
+    <!--              console.log(newFilesCount);-->
+    <!--            });-->
+
+    <!--            listItem.appendChild(fileName);-->
+    <!--            listItem.appendChild(deleteButton);-->
     <!--            fileList.appendChild(listItem);-->
+    <!--            uploadedFiles.add(file.name);-->
+    <!--            newFilesCount++;-->
+    <!--            console.log(newFilesCount);-->
     <!--          }-->
 
     <!--          errorContainer.textContent = "";-->
@@ -307,7 +278,7 @@
 
     <!--        const validateForm = () => {-->
     <!--          let isValid = true;-->
-    <!--          const fields = form.querySelectorAll("[required]");-->
+    <!--          const fields = form.querySelectorAll(".validate");-->
 
     <!--          fields.forEach((field) => {-->
     <!--            if (field.id && !validateField(field)) {-->
@@ -339,7 +310,7 @@
     <!--              formData.append("budget", selectedBudget.getAttribute("data-value"));-->
     <!--            }-->
 
-    <!--            fetch("/order-form", {-->
+    <!--            fetch("http://localhost:3010", {-->
     <!--              method: "POST",-->
     <!--              body: formData,-->
     <!--            })-->
@@ -349,6 +320,7 @@
     <!--                  form.reset();-->
     <!--                  fileList.innerHTML = "";-->
     <!--                  budgetOptions.forEach((option) => option.classList.remove("selected"));-->
+    <!--                  uploadedFiles.clear();-->
     <!--                } else {-->
     <!--                  alert("There was an issue submitting the form.");-->
     <!--                }-->
@@ -369,7 +341,36 @@
     <!--        fileInput.addEventListener("change", validateFiles);-->
     <!--      });-->
     <!--    </script>-->
-    <script>
+    -->
+    <!--    <script type="module">-->
+    <!--      import axios from "axios";-->
+
+    <!--      function submitForm() {-->
+    <!--        let name = document.getElementById("user-name").value;-->
+    <!--        let email = document.getElementById("user-email").value;-->
+    <!--        let phone = document.getElementById("user-phone").value;-->
+    <!--        let message = document.getElementById("message").value;-->
+    <!--        let formData = new FormData();-->
+    <!--        formData.append("name", name);-->
+    <!--        formData.append("email", email);-->
+    <!--        formData.append("phone", phone);-->
+    <!--        formData.append("message", message);-->
+    <!--        axios-->
+    <!--          .post(form.php", formData)-->
+    <!--          .then(function (response) {-->
+    <!--            console.log(response.data);-->
+    <!--            alert("Дані успішно надіслані!");-->
+    <!--            document.getElementById("order-form").reset();-->
+    <!--          })-->
+    <!--          .catch(function (error) {-->
+    <!--            console.error(error);-->
+    <!--            alert("Сталася помилка під час надсилання даних.");-->
+    <!--          });-->
+    <!--      }-->
+    <!--    </script>-->
+    <script type="module">
+      import emailjs from "@emailjs/browser";
+
       document.addEventListener("DOMContentLoaded", () => {
         const form = document.querySelector(".order-form");
         const budgetOptions = document.querySelectorAll(".budget-option");
@@ -404,8 +405,6 @@
           for (let file of files) {
             const extension = file.name.split(".").pop().toLowerCase();
 
-            console.log(uploadedFiles.size);
-
             if (uploadedFiles.has(file.name)) {
               errorContainer.textContent = `File ${file.name} is already added.`;
               continue;
@@ -439,6 +438,7 @@
               listItem.remove();
               uploadedFiles.delete(file.name);
               errorContainer.textContent = "";
+              newFilesCount--;
             });
 
             listItem.appendChild(fileName);
@@ -481,25 +481,33 @@
             errorContainer.textContent = "";
             const formData = new FormData(form);
 
-            const selectedBudget = document.querySelector(".budget-option.selected");
-            if (selectedBudget) {
-              formData.append("budget", selectedBudget.getAttribute("data-value"));
-            }
+            emailjs.init("lLSKvVcx1LQ3lQ7Qy");
 
-            fetch("http://localhost:3001", {
-              method: "POST",
-              body: formData,
-            })
-              .then((response) => {
-                if (response.ok) {
-                  alert("Form submitted successfully!");
-                  form.reset();
-                  fileList.innerHTML = "";
-                  budgetOptions.forEach((option) => option.classList.remove("selected"));
-                  uploadedFiles.clear();
-                } else {
-                  alert("There was an issue submitting the form.");
-                }
+            const data = {
+              user_name: formData.get("user-name"),
+              user_email: formData.get("user-email"),
+              user_phone: formData.get("user-phone"),
+              user_comment: formData.get("user-comment"),
+              project_budget:
+                document.querySelector(".budget-option.selected")?.getAttribute("data-value") || "Not specified",
+              user_nda: formData.get("user-nda") ? "Yes" : "No",
+            };
+
+            emailjs
+              .send("service_d3x1f1d", "template_9nakrge", data)
+              .then(() => {
+                const popup = document.getElementById("popup-mini");
+                popup.classList.remove("hidden");
+                popup.classList.add("visible");
+
+                popup.querySelector(".popup-mini__close-btn").addEventListener("click", () => {
+                  popup.classList.remove("visible");
+                  popup.classList.add("hidden");
+                });
+                form.reset();
+                fileList.innerHTML = "";
+                budgetOptions.forEach((option) => option.classList.remove("selected"));
+                uploadedFiles.clear();
               })
               .catch((error) => {
                 console.error("Error submitting form:", error);
@@ -518,22 +526,148 @@
       });
     </script>
     <!--    <script>-->
-    <!--      document.addEventListener("DOMContentLoaded", function () {-->
-    <!--        const phoneInputField = document.querySelector("#user-phone");-->
-    <!--        if (phoneInputField) {-->
-    <!--          window.intlTelInput(phoneInputField, {-->
-    <!--            initialCountry: "auto",-->
-    <!--            geoIpLookup: function (callback) {-->
-    <!--              fetch("https://ipapi.co/json/")-->
-    <!--                .then((response) => response.json())-->
-    <!--                .then((data) => callback(data.country_code))-->
-    <!--                .catch(() => callback("us"));-->
-    <!--            },-->
-    <!--            utilsScript: "https://cdn.jsdelivr.net/npm/intl-tel-input@18.1.3/build/js/utils.js",-->
+    <!--      document.addEventListener("DOMContentLoaded", () => {-->
+    <!--        const form = document.getElementById("order-form");-->
+    <!--        const errorContainer = document.getElementById("empty-error");-->
+    <!--        const fileInput = document.getElementById("file-upload");-->
+    <!--        const fileList = document.getElementById("file-list");-->
+
+    <!--        const uploadedFiles = new Set();-->
+
+    <!--        const validateField = (field) => {-->
+    <!--          const errorSpan = document.querySelector(`#${field.id}-error`);-->
+    <!--          if (!field.checkValidity()) {-->
+    <!--            const errorMessage = field.getAttribute("data-error-message") || "Invalid field.";-->
+    <!--            errorSpan.textContent = errorMessage;-->
+    <!--            return false;-->
+    <!--          } else {-->
+    <!--            errorSpan.textContent = "";-->
+    <!--            return true;-->
+    <!--          }-->
+    <!--        };-->
+
+    <!--        const validateFiles = () => {-->
+    <!--          const files = fileInput.files;-->
+    <!--          const allowedExtensions = ["doc", "docx", "pdf", "ppt", "pptx"];-->
+    <!--          const maxFileSize = 100 * 1024 * 1024; // 100MB-->
+    <!--          const maxFiles = 3;-->
+
+    <!--          if (!errorContainer) return false;-->
+
+    <!--          let newFilesCount = 0;-->
+
+    <!--          for (let file of files) {-->
+    <!--            const extension = file.name.split(".").pop().toLowerCase();-->
+
+    <!--            console.log(uploadedFiles.size);-->
+
+    <!--            if (uploadedFiles.has(file.name)) {-->
+    <!--              errorContainer.textContent = `File ${file.name} is already added.`;-->
+    <!--              continue;-->
+    <!--            }-->
+
+    <!--            if (!allowedExtensions.includes(extension)) {-->
+    <!--              errorContainer.textContent = `Unsupported file format: ${file.name}`;-->
+    <!--              return false;-->
+    <!--            }-->
+
+    <!--            if (file.size > maxFileSize) {-->
+    <!--              errorContainer.textContent = `File ${file.name} exceeds the 100MB size limit.`;-->
+    <!--              return false;-->
+    <!--            }-->
+
+    <!--            if (uploadedFiles.size >= maxFiles) {-->
+    <!--              errorContainer.textContent = `You can attach up to ${maxFiles} files.`;-->
+    <!--              return false;-->
+    <!--            }-->
+
+    <!--            const listItem = document.createElement("li");-->
+    <!--            listItem.classList.add("file__item");-->
+
+    <!--            const fileName = document.createElement("span");-->
+    <!--            fileName.textContent = file.name;-->
+
+    <!--            const deleteButton = document.createElement("button");-->
+    <!--            deleteButton.innerHTML = '<span class="icon icon-close"></span>';-->
+    <!--            deleteButton.classList.add("btn-del");-->
+    <!--            deleteButton.addEventListener("click", () => {-->
+    <!--              listItem.remove();-->
+    <!--              uploadedFiles.delete(file.name);-->
+    <!--              errorContainer.textContent = "";-->
+    <!--              newFilesCount&#45;&#45;;-->
+    <!--              console.log(newFilesCount);-->
+    <!--            });-->
+
+    <!--            listItem.appendChild(fileName);-->
+    <!--            listItem.appendChild(deleteButton);-->
+    <!--            fileList.appendChild(listItem);-->
+    <!--            uploadedFiles.add(file.name);-->
+    <!--            newFilesCount++;-->
+    <!--            console.log(newFilesCount);-->
+    <!--          }-->
+
+    <!--          errorContainer.textContent = "";-->
+    <!--          return true;-->
+    <!--        };-->
+
+    <!--        const validateForm = () => {-->
+    <!--          let isValid = true;-->
+    <!--          const fields = form.querySelectorAll(".validate");-->
+
+    <!--          fields.forEach((field) => {-->
+    <!--            if (field.id && !validateField(field)) {-->
+    <!--              isValid = false;-->
+    <!--            }-->
     <!--          });-->
-    <!--        } else {-->
-    <!--          console.error("Элемент с id='phone' не найден!");-->
-    <!--        }-->
+
+    <!--          if (!validateFiles()) {-->
+    <!--            isValid = false;-->
+    <!--          }-->
+
+    <!--          return isValid;-->
+    <!--        };-->
+
+    <!--        form.addEventListener("submit", function (event) {-->
+    <!--          event.preventDefault(); // Предотвращаем стандартное поведение отправки формы-->
+
+    <!--          emailjs.init("lLSKvVcx1LQ3lQ7Qy"); // Замените YOUR_USER_ID на свой User ID из EmailJS-->
+
+    <!--          const serviceID = "service_d3x1f1d"; // ID вашего сервиса из EmailJS-->
+    <!--          const templateID = "template_9nakrge"; // ID вашего шаблона письма из EmailJS-->
+
+    <!--          const form = event.target;-->
+    <!--          const formData = new FormData(form);-->
+
+    <!--          // Собираем данные из формы-->
+    <!--          const data = {-->
+    <!--            user_name: formData.get("user-name"),-->
+    <!--            user_email: formData.get("user-email"),-->
+    <!--            user_phone: formData.get("user-phone"),-->
+    <!--            user_comment: formData.get("user-comment"),-->
+    <!--            project_budget:-->
+    <!--              document.querySelector(".budget-option.selected")?.getAttribute("data-value") || "Not specified",-->
+    <!--            user_nda: formData.get("user-nda") ? "Yes" : "No",-->
+    <!--          };-->
+
+    <!--          // Отправка данных через EmailJS-->
+    <!--          emailjs-->
+    <!--            .sendForm(serviceID, templateID, form)-->
+    <!--            .then(() => {-->
+    <!--              const popup = document.getElementById("popup-mini");-->
+    <!--              popup.classList.remove("hidden");-->
+    <!--              popup.classList.add("visible");-->
+
+    <!--              popup.querySelector(".popup-close").addEventListener("click", () => {-->
+    <!--                popup.classList.remove("visible");-->
+    <!--                popup.classList.add("hidden");-->
+    <!--              });-->
+    <!--              form.reset();-->
+    <!--            })-->
+    <!--            .catch((error) => {-->
+    <!--              console.error("Error:", error);-->
+    <!--              alert("Failed to send your request. Please try again later.");-->
+    <!--            });-->
+    <!--        });-->
     <!--      });-->
     <!--    </script>-->
   </body>
