@@ -93,7 +93,7 @@
                       type="email"
                       id="user-email"
                       placeholder="Email*"
-                      data-error-message="Invalid format"
+                      data-error-message="Invalid E-mail"
                       aria-describedby="email-error"
                       required
                     />
@@ -128,6 +128,7 @@
                     data-error-message="min 50 characters"
                     required
                   ></textarea>
+                  <div class="counter" id="char-counter">0/50</div>
                   <span class="p-4 form__error comment-error" id="user-comment-error" aria-live="polite"></span>
                 </div>
                 <div class="input-field">
@@ -165,7 +166,7 @@
                     <input type="file" id="file-upload" name="files" style="display: none" multiple />
                   </div>
                   <span class="p-4"
-                    >*No more than 3 files may be attached up to 100 MB each. Formats doc, docx, pdf, ppt, pptx .</span
+                    >*No more than 3 files may be attached up to 30 MB each. Formats doc, docx, pdf, ppt, pptx .</span
                   >
                 </div>
               </form>
@@ -391,11 +392,29 @@
             return true;
           }
         };
+        const textarea = document.getElementById("user-comment");
+        const counter = document.getElementById("char-counter");
+        const maxLength = parseInt(textarea.getAttribute("minlength"), 10);
+
+        const updateCounter = () => {
+          const inputValue = textarea.value;
+          const validChars = inputValue.split("");
+          const validLength = validChars.length;
+
+          counter.textContent = `${validLength}/${maxLength}`;
+          if (validLength > maxLength) {
+            counter.classList.add("error");
+          } else {
+            counter.classList.remove("error");
+          }
+        };
+
+        textarea.addEventListener("input", updateCounter);
 
         const validateFiles = () => {
           const files = fileInput.files;
           const allowedExtensions = ["doc", "docx", "pdf", "ppt", "pptx"];
-          const maxFileSize = 100 * 1024 * 1024; // 100MB
+          const maxFileSize = 30 * 1024 * 1024; // 100MB
           const maxFiles = 3;
 
           if (!errorContainer) return false;
@@ -524,7 +543,6 @@
         budgetOptions.forEach((option) => {
           option.addEventListener("click", handleBudgetSelection);
         });
-
         fileInput.addEventListener("change", validateFiles);
       });
     </script>
