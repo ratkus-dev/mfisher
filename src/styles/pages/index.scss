@@ -476,6 +476,32 @@
         transform: translateY(0);
       }
     }
+
+    &:last-child {
+      position: relative;
+
+      .cases__item-text {
+        position: absolute;
+        left: 90px;
+        right: auto;
+        gap: 24px;
+        top: 50%;
+        transform: translateY(-50%);
+        max-width: 338px;
+        width: 100%;
+        z-index: 12;
+        color: var(--white);
+
+        @include desktop {
+          display: flex;
+          flex-direction: column;
+        }
+
+        img {
+          max-width: 200px;
+        }
+      }
+    }
   }
 
   &__item-img {
@@ -634,6 +660,7 @@
 
   &__list {
     position: relative;
+
     .swiper {
       .team__btn {
         @include desktop {
@@ -698,8 +725,8 @@
       background: url("../../assets/img/team/team-img.svg") no-repeat 50% 50% / contain;
       width: 302px;
       height: 521px;
-      top: -50%;
-      left: 0;
+      top: -99px;
+      left: 99px;
       z-index: -1;
     }
 

@@ -103,3 +103,20 @@
     color: currentColor;
   }
 }
+
+.icon_primary,
+.icon_primary-white {
+  transition: ease-in-out 0.4s;
+
+  &:hover {
+    color: var(--blue);
+  }
+}
+
+.popup__content-text .contacts__list .icon-copy.icon_primary-green {
+  transition: ease-in-out 0.4s;
+
+  &:hover {
+    color: var(--hover-green);
+  }
+}

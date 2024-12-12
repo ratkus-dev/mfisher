@@ -1,7 +1,71 @@
 @import "../media";
 
 .portfolio {
-  padding-top: 62px;
+  &__box {
+    margin-top: -500px;
+
+    @include mobile {
+      margin-top: -580px;
+    }
+
+    @include desktop {
+      margin-top: -425px;
+    }
+  }
+
+  .hero {
+    background: url("../../assets/img/portfolio/bg.jpg") no-repeat 50% 50% / cover;
+    padding: 100px 0 490px;
+
+    @include desktop {
+      padding: 205px 0 305px;
+    }
+
+    &__title {
+      max-width: none;
+      margin-bottom: 40px;
+
+      @include mobile {
+        margin-bottom: 30px;
+      }
+
+      @include tablet {
+        margin-bottom: 24px;
+      }
+
+      @include desktop {
+        margin-bottom: 40px;
+      }
+    }
+
+    &__description-list {
+      display: none;
+      justify-content: space-between;
+      align-items: flex-start;
+
+      @include mobile {
+        display: flex;
+        margin-bottom: 90px;
+      }
+
+      @include desktop {
+        gap: 136px;
+        margin-bottom: 100px;
+      }
+    }
+
+    &__description-item {
+      &:last-child {
+        @include mobile {
+          display: none;
+        }
+
+        @include desktop {
+          display: block;
+        }
+      }
+    }
+  }
 
   &__title {
     margin: 40px 0;
@@ -12,7 +76,6 @@
 
     @include tablet {
       margin: 90px 0 24px;
-      text-align: center;
     }
 
     @include desktop {
@@ -20,7 +83,7 @@
     }
   }
 
-  &__description {
+  &__description-list {
     display: none;
 
     @include mobile {
@@ -82,7 +145,13 @@
       }
 
       .portfolio__item-content {
-        transform: translateY(0);
+        transform: scale(1);
+      }
+
+      .portfolio__item-img {
+        img {
+          transform: scale(1.1);
+        }
       }
     }
 
@@ -116,6 +185,10 @@
 
   &__item-img {
     position: relative;
+
+    img {
+      transition: transform ease-in-out 0.4s;
+    }
   }
 
   &__item-text {
@@ -213,7 +286,7 @@
 
   &__item-content {
     position: absolute;
-    transform: translateY(105%);
+    transform: scale(0);
     left: 0;
     top: 0;
     height: 100%;
@@ -231,7 +304,7 @@
       rgba(26, 26, 37, 0.86) 78.5%,
       rgba(26, 26, 37, 0.86) 100%
     );
-    transition: transform ease-in-out 0.4s;
+    transition: transform ease-in 0.4s;
 
     @include desktop {
       display: flex;
