@@ -4,6 +4,7 @@
   .hero {
     padding-top: 134px !important;
     padding-bottom: 0 !important;
+    background: url("../../assets/img/about/bg.jpg") no-repeat 50% 50% / cover;
 
     @include desktop {
       padding-top: 205px !important;
