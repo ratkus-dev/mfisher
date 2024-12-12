@@ -197,7 +197,6 @@
         </picture>
       </div>
     </section>
-    <!--    <load src="./components/request_popup.html" />-->
     <load src="./components/popup-mini.html" />
     <load src="./components/footer.html" />
 
@@ -215,17 +214,35 @@
 
         const uploadedFiles = new Set();
 
+        const validateEmail = (email) => {
+          const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+          if (!emailRegex.test(email)) return false;
+
+          const domain = email.split("@")[1];
+          const domainParts = domain.split(".");
+          if (domainParts.length < 2) return false;
+
+          const tld = domainParts[domainParts.length - 1];
+          return tld.length >= 2;
+        };
+
         const validateField = (field) => {
           const errorSpan = document.querySelector(`#${field.id}-error`);
-          if (!field.checkValidity()) {
+          if (field.type === "email") {
+            if (!validateEmail(field.value)) {
+              errorSpan.textContent = "Invalid E-mail";
+              return false;
+            }
+          } else if (!field.checkValidity()) {
             const errorMessage = field.getAttribute("data-error-message") || "Invalid field.";
             errorSpan.textContent = errorMessage;
             return false;
           } else {
             errorSpan.textContent = "";
-            return true;
           }
+          return true;
         };
+
         const textarea = document.getElementById("user-comment");
         const counter = document.getElementById("char-counter");
         const maxLength = parseInt(textarea.getAttribute("minlength"), 10);
@@ -248,7 +265,7 @@
         const validateFiles = () => {
           const files = fileInput.files;
           const allowedExtensions = ["doc", "docx", "pdf", "ppt", "pptx"];
-          const maxFileSize = 30 * 1024 * 1024; // 100MB
+          const maxFileSize = 30 * 1024 * 1024; // 30MB
           const maxFiles = 3;
 
           if (!errorContainer) return false;
@@ -269,7 +286,7 @@
             }
 
             if (file.size > maxFileSize) {
-              errorContainer.textContent = `File ${file.name} exceeds the 100MB size limit.`;
+              errorContainer.textContent = `File ${file.name} exceeds the 30MB size limit.`;
               return false;
             }
 
@@ -380,150 +397,5 @@
         fileInput.addEventListener("change", validateFiles);
       });
     </script>
-    <!--    <script>-->
-    <!--      document.addEventListener("DOMContentLoaded", () => {-->
-    <!--        const form = document.getElementById("order-form");-->
-    <!--        const errorContainer = document.getElementById("empty-error");-->
-    <!--        const fileInput = document.getElementById("file-upload");-->
-    <!--        const fileList = document.getElementById("file-list");-->
-
-    <!--        const uploadedFiles = new Set();-->
-
-    <!--        const validateField = (field) => {-->
-    <!--          const errorSpan = document.querySelector(`#${field.id}-error`);-->
-    <!--          if (!field.checkValidity()) {-->
-    <!--            const errorMessage = field.getAttribute("data-error-message") || "Invalid field.";-->
-    <!--            errorSpan.textContent = errorMessage;-->
-    <!--            return false;-->
-    <!--          } else {-->
-    <!--            errorSpan.textContent = "";-->
-    <!--            return true;-->
-    <!--          }-->
-    <!--        };-->
-
-    <!--        const validateFiles = () => {-->
-    <!--          const files = fileInput.files;-->
-    <!--          const allowedExtensions = ["doc", "docx", "pdf", "ppt", "pptx"];-->
-    <!--          const maxFileSize = 100 * 1024 * 1024; // 100MB-->
-    <!--          const maxFiles = 3;-->
-
-    <!--          if (!errorContainer) return false;-->
-
-    <!--          let newFilesCount = 0;-->
-
-    <!--          for (let file of files) {-->
-    <!--            const extension = file.name.split(".").pop().toLowerCase();-->
-
-    <!--            console.log(uploadedFiles.size);-->
-
-    <!--            if (uploadedFiles.has(file.name)) {-->
-    <!--              errorContainer.textContent = `File ${file.name} is already added.`;-->
-    <!--              continue;-->
-    <!--            }-->
-
-    <!--            if (!allowedExtensions.includes(extension)) {-->
-    <!--              errorContainer.textContent = `Unsupported file format: ${file.name}`;-->
-    <!--              return false;-->
-    <!--            }-->
-
-    <!--            if (file.size > maxFileSize) {-->
-    <!--              errorContainer.textContent = `File ${file.name} exceeds the 100MB size limit.`;-->
-    <!--              return false;-->
-    <!--            }-->
-
-    <!--            if (uploadedFiles.size >= maxFiles) {-->
-    <!--              errorContainer.textContent = `You can attach up to ${maxFiles} files.`;-->
-    <!--              return false;-->
-    <!--            }-->
-
-    <!--            const listItem = document.createElement("li");-->
-    <!--            listItem.classList.add("file__item");-->
-
-    <!--            const fileName = document.createElement("span");-->
-    <!--            fileName.textContent = file.name;-->
-
-    <!--            const deleteButton = document.createElement("button");-->
-    <!--            deleteButton.innerHTML = '<span class="icon icon-close"></span>';-->
-    <!--            deleteButton.classList.add("btn-del");-->
-    <!--            deleteButton.addEventListener("click", () => {-->
-    <!--              listItem.remove();-->
-    <!--              uploadedFiles.delete(file.name);-->
-    <!--              errorContainer.textContent = "";-->
-    <!--              newFilesCount&#45;&#45;;-->
-    <!--              console.log(newFilesCount);-->
-    <!--            });-->
-
-    <!--            listItem.appendChild(fileName);-->
-    <!--            listItem.appendChild(deleteButton);-->
-    <!--            fileList.appendChild(listItem);-->
-    <!--            uploadedFiles.add(file.name);-->
-    <!--            newFilesCount++;-->
-    <!--            console.log(newFilesCount);-->
-    <!--          }-->
-
-    <!--          errorContainer.textContent = "";-->
-    <!--          return true;-->
-    <!--        };-->
-
-    <!--        const validateForm = () => {-->
-    <!--          let isValid = true;-->
-    <!--          const fields = form.querySelectorAll(".validate");-->
-
-    <!--          fields.forEach((field) => {-->
-    <!--            if (field.id && !validateField(field)) {-->
-    <!--              isValid = false;-->
-    <!--            }-->
-    <!--          });-->
-
-    <!--          if (!validateFiles()) {-->
-    <!--            isValid = false;-->
-    <!--          }-->
-
-    <!--          return isValid;-->
-    <!--        };-->
-
-    <!--        form.addEventListener("submit", function (event) {-->
-    <!--          event.preventDefault(); // Предотвращаем стандартное поведение отправки формы-->
-
-    <!--          emailjs.init("lLSKvVcx1LQ3lQ7Qy"); // Замените YOUR_USER_ID на свой User ID из EmailJS-->
-
-    <!--          const serviceID = "service_d3x1f1d"; // ID вашего сервиса из EmailJS-->
-    <!--          const templateID = "template_9nakrge"; // ID вашего шаблона письма из EmailJS-->
-
-    <!--          const form = event.target;-->
-    <!--          const formData = new FormData(form);-->
-
-    <!--          // Собираем данные из формы-->
-    <!--          const data = {-->
-    <!--            user_name: formData.get("user-name"),-->
-    <!--            user_email: formData.get("user-email"),-->
-    <!--            user_phone: formData.get("user-phone"),-->
-    <!--            user_comment: formData.get("user-comment"),-->
-    <!--            project_budget:-->
-    <!--              document.querySelector(".budget-option.selected")?.getAttribute("data-value") || "Not specified",-->
-    <!--            user_nda: formData.get("user-nda") ? "Yes" : "No",-->
-    <!--          };-->
-
-    <!--          // Отправка данных через EmailJS-->
-    <!--          emailjs-->
-    <!--            .sendForm(serviceID, templateID, form)-->
-    <!--            .then(() => {-->
-    <!--              const popup = document.getElementById("popup-mini");-->
-    <!--              popup.classList.remove("hidden");-->
-    <!--              popup.classList.add("visible");-->
-
-    <!--              popup.querySelector(".popup-close").addEventListener("click", () => {-->
-    <!--                popup.classList.remove("visible");-->
-    <!--                popup.classList.add("hidden");-->
-    <!--              });-->
-    <!--              form.reset();-->
-    <!--            })-->
-    <!--            .catch((error) => {-->
-    <!--              console.error("Error:", error);-->
-    <!--              alert("Failed to send your request. Please try again later.");-->
-    <!--            });-->
-    <!--        });-->
-    <!--      });-->
-    <!--    </script>-->
   </body>
 </html>

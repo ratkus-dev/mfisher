@@ -186,17 +186,35 @@
 
     const uploadedFiles = new Set();
 
+    const validateEmail = (email) => {
+      const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+      if (!emailRegex.test(email)) return false;
+
+      const domain = email.split("@")[1];
+      const domainParts = domain.split(".");
+      if (domainParts.length < 2) return false;
+
+      const tld = domainParts[domainParts.length - 1];
+      return tld.length >= 2;
+    };
+
     const validateField = (field) => {
       const errorSpan = document.querySelector(`#${field.id}-error`);
-      if (!field.checkValidity()) {
+      if (field.type === "email") {
+        if (!validateEmail(field.value)) {
+          errorSpan.textContent = "Invalid E-mail";
+          return false;
+        }
+      } else if (!field.checkValidity()) {
         const errorMessage = field.getAttribute("data-error-message") || "Invalid field.";
         errorSpan.textContent = errorMessage;
         return false;
       } else {
         errorSpan.textContent = "";
-        return true;
       }
+      return true;
     };
+
     const textarea = document.getElementById("user-comment");
     const counter = document.getElementById("char-counter");
     const maxLength = parseInt(textarea.getAttribute("minlength"), 10);
@@ -219,7 +237,7 @@
     const validateFiles = () => {
       const files = fileInput.files;
       const allowedExtensions = ["doc", "docx", "pdf", "ppt", "pptx"];
-      const maxFileSize = 30 * 1024 * 1024; // 100MB
+      const maxFileSize = 30 * 1024 * 1024; // 30MB
       const maxFiles = 3;
 
       if (!errorContainer) return false;
@@ -240,7 +258,7 @@
         }
 
         if (file.size > maxFileSize) {
-          errorContainer.textContent = `File ${file.name} exceeds the 100MB size limit.`;
+          errorContainer.textContent = `File ${file.name} exceeds the 30MB size limit.`;
           return false;
         }
 
