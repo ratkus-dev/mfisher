@@ -11,11 +11,12 @@
       href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400..700&family=Unbounded:wght@400..700&display=swap"
       rel="stylesheet"
     />
-    <script type="module" crossorigin src="/mfisher/assets/vendor-DdEzBdPD.js"></script>
-    <script type="module" crossorigin src="/mfisher/assets/main-CozgSyxo.js"></script>
-    <link rel="stylesheet" crossorigin href="/mfisher/assets/main-ClUBPei8.css">
+    <script type="module" crossorigin src="/mfisher/assets/services-lakFaq2P.js"></script>
+    <link rel="modulepreload" crossorigin href="/mfisher/assets/vendor-DdEzBdPD.js">
+    <link rel="modulepreload" crossorigin href="/mfisher/assets/main-C47weUre.js">
+    <link rel="stylesheet" crossorigin href="/mfisher/assets/main-p0F4wKoa.css">
     <link rel="stylesheet" crossorigin href="/mfisher/assets/vendor--wXQMN-_.css">
-    <link rel="stylesheet" crossorigin href="/mfisher/assets/services-CwL5pXEH.css">
+    <link rel="stylesheet" crossorigin href="/mfisher/assets/services-D3rL-AkA.css">
   </head>
   <body id="content" class="services-page">
     <style>
@@ -203,7 +204,7 @@
 
   const header = document.querySelector(".header");
   if (header) {
-    if (url.includes("/contact-us.html") || url.includes("/portfolio.html")) {
+    if (url.includes("/contact-us.html")) {
       header.classList.add("header-white");
     }
   }
@@ -807,11 +808,11 @@
         <li class="footer__contacts-item">
           <span class="icon-sms icon"></span>
           <a id="email-address" class="p-2" href="mailto:hello@mfisher.com">hello@mfisher.com</a>
-          <span class="icon-copy" id="email-copy" onclick="copyEmail()"></span>
+          <span class="icon-copy icon_primary-white" id="email-copy" onclick="copyEmail()"></span>
         </li>
         <li class="footer__contacts-item">
           <span class="icon icon-call"></span><a id="phone-number" class="p-2" href="tel:+123455677">+ 1 234 55 677</a>
-          <span id="phone-copy" class="icon-copy" onclick="copyPhoneNumber()"></span>
+          <span id="phone-copy" class="icon-copy icon_primary-white" onclick="copyPhoneNumber()"></span>
         </li>
         <li class="footer__contacts-item">
           <span class="icon icon-location"></span>
@@ -927,191 +928,216 @@
     <div class="popup" id="popup">
   <div class="popup__content">
     <button id="closePopup" class="popup__close-btn popup__close"><span class="icon icon-close-lg"></span></button>
-    <div class="popup__content-text">
-      <h4 class="popup__title">Contact us</h4>
-      <p class="p-1">
-        Reaching out to us for a free consultation and let our creative experts bring your vision to life.
-      </p>
+    <div class="popup__wrapper">
+      <div class="popup__content-text">
+        <h4 class="popup__title">Contact us</h4>
+        <p class="p-1">
+          Reaching out to us for a free consultation and let our creative experts bring your vision to life.
+        </p>
 
-      <div class="divider"></div>
+        <div class="divider"></div>
 
-      <ul class="contacts__list">
-        <li class="contacts__item">
-          <p class="p-3 contacts__label">Drop us a line</p>
-          <div class="contacts__item-content">
-            <span class="icon-sms icon"></span>
-            <a id="email-address" class="p-1" href="mailto:hello@mfisher.com">hello@mfisher.com</a>
-            <span id="email-copy" class="icon icon-copy" onclick="copyEmail()"></span>
-          </div>
-        </li>
-        <li class="contacts__item">
-          <p class="p-3 contacts__label">Let’s have a quick call</p>
-          <div class="contacts__item-content">
-            <span class="icon icon-call"></span>
-            <a id="phone-number" class="p-1" href="tel:+123455677">+ 1 234 55 677</a>
-            <span id="phone-copy" class="icon icon-copy" onclick="copyPhoneNumber()"></span>
-          </div>
-        </li>
-        <li class="contacts__item">
-          <p class="p-3 contacts__label">Meetup for a coffee</p>
-          <div class="contacts__item-content">
-            <span class="icon icon-location"></span>
-            <p class="p-1">Warsaw, Poland</p>
-          </div>
-        </li>
-      </ul>
+        <ul class="contacts__list">
+          <li class="contacts__item">
+            <p class="p-3 contacts__label">Drop us a line</p>
+            <div class="contacts__item-content">
+              <span class="icon-sms icon"></span>
+              <a id="email-address" class="p-1" href="mailto:hello@mfisher.com">hello@mfisher.com</a>
+              <span id="email-copy" class="icon icon-copy icon_primary-green" onclick="copyEmail()"></span>
+            </div>
+          </li>
+          <li class="contacts__item">
+            <p class="p-3 contacts__label">Let’s have a quick call</p>
+            <div class="contacts__item-content">
+              <span class="icon icon-call"></span>
+              <a id="phone-number" class="p-1" href="tel:+123455677">+ 1 234 55 677</a>
+              <span id="phone-copy" class="icon icon-copy icon_primary-green" onclick="copyPhoneNumber()"></span>
+            </div>
+          </li>
+          <li class="contacts__item">
+            <p class="p-3 contacts__label">Meetup for a coffee</p>
+            <div class="contacts__item-content">
+              <span class="icon icon-location"></span>
+              <p class="p-1">Warsaw, Poland</p>
+            </div>
+          </li>
+        </ul>
 
-      <ul class="social__list">
-        <li class="social__item">
-          <a href="https://dribble.com" class="social__link" target="_blank">
-            <span class="social__icon icon-dribbble"></span>
-          </a>
-        </li>
-        <li class="social__item">
-          <a href="https://behance.com" class="social__link" target="_blank">
-            <span class="social__icon icon-behance"></span>
-          </a>
-        </li>
-        <li class="social__item">
-          <a href="https://facebook.com" class="social__link" target="_blank">
-            <span class="social__icon icon-facebook"></span>
-          </a>
-        </li>
-        <li class="social__item">
-          <a href="https://linkedin.com" class="social__link" target="_blank">
-            <span class="social__icon icon-linkedin"></span>
-          </a>
-        </li>
-      </ul>
-    </div>
-    <div class="popup__content-form">
-      <h4>Request Free Consultation</h4>
-      <form name="order-form" class="form order-form" autocomplete="off">
-        <div class="input-field">
-          <input
-            class="form-input"
-            name="user-name"
-            type="text"
-            id="user-name"
-            placeholder="Your Name*"
-            pattern="[A-Za-z\s]+"
-            required
-          />
-          <span class="icon-user-tag icon"></span>
-        </div>
-
-        <div class="input-field">
-          <input
-            class="form-input"
-            name="user-email"
-            type="email"
-            id="user-email"
-            pattern="([A-z0-9_.-]{1,})@([A-z0-9_.-]{1,}).([A-z]{2,8})"
-            placeholder="Email*"
-            required
-          />
-          <span class="icon-sms icon"></span>
-        </div>
-        <div class="input-field">
-          <input
-            class="form-input"
-            name="user-phone"
-            type="text"
-            id="user-phone"
-            pattern="^\+\d{2}\d{3}\d{3}\d{2}\d{2}$"
-          />
-        </div>
-
-        <div class="input-field">
-          <textarea
-            class="user-comment"
-            name="user-comment"
-            rows="4"
-            minlength="10"
-            id="user-comment"
-            placeholder="Describe your industry and IT project*"
-            required
-          ></textarea>
-        </div>
-        <div class="input-field">
-          <label for="budget">Project budget:</label>
-          <div class="budget-container" id="budget">
-            <div class="budget-option p-2 selected" data-value="not-sure">Not Sure</div>
-            <div class="budget-option p-2" data-value="<5k">&lt;$5K</div>
-            <div class="budget-option p-2" data-value="5k-15k">$5K-$15K</div>
-            <div class="budget-option p-2" data-value="15k-25k">$15K-$25</div>
-            <div class="budget-option p-2" data-value=">30k">&gt;$30K</div>
+        <ul class="social__list">
+          <li class="social__item">
+            <a href="https://dribble.com" class="social__link" target="_blank">
+              <span class="social__icon icon-dribbble"></span>
+            </a>
+          </li>
+          <li class="social__item">
+            <a href="https://behance.com" class="social__link" target="_blank">
+              <span class="social__icon icon-behance"></span>
+            </a>
+          </li>
+          <li class="social__item">
+            <a href="https://facebook.com" class="social__link" target="_blank">
+              <span class="social__icon icon-facebook"></span>
+            </a>
+          </li>
+          <li class="social__item">
+            <a href="https://linkedin.com" class="social__link" target="_blank">
+              <span class="social__icon icon-linkedin"></span>
+            </a>
+          </li>
+        </ul>
+      </div>
+      <div class="popup__content-form">
+        <h4>Request Free Consultation</h4>
+        <form id="order-form" name="order-form" class="form order-form" novalidate autocomplete="off">
+          <div class="input-field">
+            <div class="input-field-box">
+              <input
+                class="form-input validate"
+                name="user-name"
+                type="text"
+                id="user-name"
+                placeholder="Your Name*"
+                pattern="^[a-zA-Zа-яА-ЯЁё \-]+$"
+                data-error-message="Invalid format"
+                aria-describedby="name-error"
+                required
+              />
+              <span class="icon-user-tag icon"></span>
+            </div>
+            <span class="p-4 form__error name-error" id="user-name-error" aria-live="polite"> </span>
           </div>
-        </div>
-        <ul id="file-list" class="file__list"></ul>
-        <div class="accept-box">
-          <input class="input-nda visually-hidden" type="checkbox" id="user-nda" name="user-nda" value="true" />
-          <label class="label-accept" for="user-nda">
-            <span class="label-accept-span icon icon-accept"> </span>
-            <span class="p-2"> I want to protect my data by signing an NDA. <span class="icon-info"></span></span>
-          </label>
-        </div>
-        <div class="form__footer">
-          <div class="form__footer-action">
-            <button class="btn_submit btn btn_primary" type="submit">
-              <span class="btn__text">Send Request</span>
-              <span class="btn__icon btn__icon-arrow">
-                <span class="icon-arrow-right"></span>
-              </span>
-            </button>
-            <label for="file-upload" class="btn_attach btn btn_secondary-black">
-              <span class="btn__icon">
-                <span class="icon-attach"></span>
-              </span>
-              <span class="btn__text">Attach File</span>
-            </label>
-            <input type="file" id="file-upload" style="display: none" multiple onchange="handleFileUpload(event)" />
+
+          <div class="input-field">
+            <div class="input-field-box">
+              <input
+                class="form-input validate"
+                name="user-email"
+                type="email"
+                id="user-email"
+                placeholder="Email*"
+                data-error-message="Invalid E-mail"
+                aria-describedby="email-error"
+                required
+              />
+              <span class="icon-sms icon"></span>
+            </div>
+            <span class="p-4 form__error email-error" id="user-email-error" aria-live="polite"></span>
           </div>
-          <span class="p-4"
-            >*No more than 3 files may be attached up to 3 MB each. Formats doc, docx, pdf, ppt, pptx .</span
-          >
-        </div>
-      </form>
+
+          <div class="input-field">
+            <div class="input-field-box">
+              <input
+                class="form-input validate"
+                name="user-phone"
+                type="text"
+                id="user-phone"
+                data-error-message="Invalid format"
+                aria-describedby="phone-error"
+              />
+              <!--                  <span class="icon-call icon"></span>-->
+            </div>
+            <span class="p-4 form__error phone-error" id="user-phone-error" aria-live="polite"></span>
+          </div>
+
+          <div class="input-field">
+            <textarea
+              class="user-comment validate"
+              name="user-comment"
+              rows="4"
+              minlength="50"
+              id="user-comment"
+              placeholder="Describe your industry and IT project*"
+              data-error-message="min 50 characters"
+              required
+            ></textarea>
+            <div class="counter" id="char-counter">0/50</div>
+            <span class="p-4 form__error comment-error" id="user-comment-error" aria-live="polite"></span>
+          </div>
+          <div class="input-field">
+            <label for="budget">Project budget:</label>
+            <div class="budget-container" id="budget">
+              <div class="budget-option p-2 selected" data-value="not-sure">Not Sure</div>
+              <div class="budget-option p-2" data-value="<5k">&lt;$5K</div>
+              <div class="budget-option p-2" data-value="5k-15k">$5K-$15K</div>
+              <div class="budget-option p-2" data-value="15k-25k">$15K-$25</div>
+              <div class="budget-option p-2" data-value=">30k">&gt;$30K</div>
+            </div>
+          </div>
+
+          <ul id="file-list" class="file__list"></ul>
+
+          <div class="check-box">
+            <div class="accept-box">
+              <input class="input-nda visually-hidden" type="checkbox" id="user-nda" name="user-nda" value="true" />
+              <label class="label-accept" for="user-nda">
+                <span class="label-accept-span icon icon-accept"> </span>
+                <span class="p-2">I want to protect my data by signing an NDA.</span>
+              </label>
+            </div>
+            <span class="icon-info"></span>
+          </div>
+
+          <span class="p-4 form__empty-error" id="empty-error" aria-live="assertive"></span>
+
+          <div class="form__footer">
+            <div class="form__footer-action">
+              <button class="btn_submit btn btn_primary" type="submit">
+                <span class="btn__text">Send Request</span>
+                <span class="btn__icon icon-arrow-right"> </span>
+              </button>
+              <label for="file-upload" class="btn_attach btn btn_secondary-black">
+                <span class="btn__icon">
+                  <span class="icon-attach"></span>
+                </span>
+                <span class="btn__text">Attach File</span>
+              </label>
+              <input type="file" id="file-upload" name="files" style="display: none" multiple />
+            </div>
+            <span class="p-4"
+              >*No more than 3 files may be attached up to 30 MB each. Formats doc, docx, pdf, ppt, pptx .</span
+            >
+          </div>
+        </form>
+      </div>
     </div>
   </div>
 </div>
+<!--<script>-->
+<!--  let uploadedFiles = [];-->
 
-<script>
-  let uploadedFiles = [];
+<!--  function handleFileUpload(event) {-->
+<!--    const fileList = event.target.files;-->
+<!--    const fileListContainer = document.getElementById("file-list");-->
+<!--    fileListContainer.innerHTML = "";-->
 
-  function handleFileUpload(event) {
-    const fileList = event.target.files;
-    const fileListContainer = document.getElementById("file-list");
-    fileListContainer.innerHTML = "";
+<!--    for (let i = 0; i < fileList.length; i++) {-->
+<!--      uploadedFiles.push(fileList[i]);-->
+<!--    }-->
 
-    for (let i = 0; i < fileList.length; i++) {
-      uploadedFiles.push(fileList[i]);
-    }
+<!--    uploadedFiles.forEach((file, index) => {-->
+<!--      const listItem = document.createElement("li");-->
+<!--      listItem.classList.add("file__item", "p-2");-->
 
-    uploadedFiles.forEach((file, index) => {
-      const listItem = document.createElement("li");
-      listItem.classList.add("file__item", "p-2");
+<!--      const fileName = document.createElement("span");-->
+<!--      fileName.textContent = file.name;-->
 
-      const fileName = document.createElement("span");
-      fileName.textContent = file.name;
+<!--      const deleteButton = document.createElement("button");-->
+<!--      deleteButton.innerHTML = '<span class="icon icon-close"></span>';-->
+<!--      deleteButton.classList.add("btn-del");-->
+<!--      deleteButton.onclick = () => removeFile(index);-->
 
-      const deleteButton = document.createElement("button");
-      deleteButton.innerHTML = '<span class="icon icon-close"></span>';
-      deleteButton.classList.add("btn-del");
-      deleteButton.onclick = () => removeFile(index);
+<!--      listItem.appendChild(fileName);-->
+<!--      listItem.appendChild(deleteButton);-->
+<!--      fileListContainer.appendChild(listItem);-->
+<!--    });-->
+<!--  }-->
 
-      listItem.appendChild(fileName);
-      listItem.appendChild(deleteButton);
-      fileListContainer.appendChild(listItem);
-    });
-  }
+<!--  function removeFile(index) {-->
+<!--    uploadedFiles.splice(index, 1);-->
 
-  function removeFile(index) {
-    uploadedFiles.splice(index, 1);
-
-    handleFileUpload({ target: { files: [] } });
-  }
-</script>
+<!--    handleFileUpload({ target: { files: [] } });-->
+<!--  }-->
+<!--</script>-->
 
 
     <div class="popup-mini hide" id="popup-mini">
