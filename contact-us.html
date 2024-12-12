@@ -11,12 +11,12 @@
       href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400..700&family=Unbounded:wght@400..700&display=swap"
       rel="stylesheet"
     />
-    <script type="module" crossorigin src="/mfisher/assets/contact-us-CnOURYXH.js"></script>
+    <script type="module" crossorigin src="/mfisher/assets/contact-us-C8ItuQqL.js"></script>
     <link rel="modulepreload" crossorigin href="/mfisher/assets/vendor-DdEzBdPD.js">
     <link rel="modulepreload" crossorigin href="/mfisher/assets/main-CURJ1h96.js">
     <link rel="stylesheet" crossorigin href="/mfisher/assets/main-BqgtJPDm.css">
     <link rel="stylesheet" crossorigin href="/mfisher/assets/vendor--wXQMN-_.css">
-    <link rel="stylesheet" crossorigin href="/mfisher/assets/contact-us--7gJ1twg.css">
+    <link rel="stylesheet" crossorigin href="/mfisher/assets/contact-us-DMTNgFLX.css">
   </head>
   <body id="content">
     <style>
@@ -306,7 +306,6 @@
                       data-error-message="Invalid format"
                       aria-describedby="phone-error"
                     />
-                    <!--                  <span class="icon-call icon"></span>-->
                   </div>
                   <span class="p-4 form__error phone-error" id="user-phone-error" aria-live="polite"></span>
                 </div>
@@ -392,7 +391,7 @@
         </picture>
       </div>
     </section>
-    <div class="popup" id="popup">
+    <!--    <div class="popup" id="popup">
   <div class="popup__content">
     <button id="closePopup" class="popup__close-btn popup__close"><span class="icon icon-close-lg"></span></button>
     <div class="popup__wrapper">
@@ -501,7 +500,6 @@
                 data-error-message="Invalid format"
                 aria-describedby="phone-error"
               />
-              <!--                  <span class="icon-call icon"></span>-->
             </div>
             <span class="p-4 form__error phone-error" id="user-phone-error" aria-live="polite"></span>
           </div>
@@ -569,43 +567,184 @@
     </div>
   </div>
 </div>
-<!--<script>-->
-<!--  let uploadedFiles = [];-->
+<script type="module">
+  import emailjs from "@emailjs/browser";
 
-<!--  function handleFileUpload(event) {-->
-<!--    const fileList = event.target.files;-->
-<!--    const fileListContainer = document.getElementById("file-list");-->
-<!--    fileListContainer.innerHTML = "";-->
+  document.addEventListener("DOMContentLoaded", () => {
+    const form = document.querySelector(".order-form");
+    const budgetOptions = document.querySelectorAll(".budget-option");
+    const errorContainer = document.getElementById("empty-error");
+    const fileInput = document.getElementById("file-upload");
+    const fileList = document.getElementById("file-list");
 
-<!--    for (let i = 0; i < fileList.length; i++) {-->
-<!--      uploadedFiles.push(fileList[i]);-->
-<!--    }-->
+    const uploadedFiles = new Set();
 
-<!--    uploadedFiles.forEach((file, index) => {-->
-<!--      const listItem = document.createElement("li");-->
-<!--      listItem.classList.add("file__item", "p-2");-->
+    const validateField = (field) => {
+      const errorSpan = document.querySelector(`#${field.id}-error`);
+      if (!field.checkValidity()) {
+        const errorMessage = field.getAttribute("data-error-message") || "Invalid field.";
+        errorSpan.textContent = errorMessage;
+        return false;
+      } else {
+        errorSpan.textContent = "";
+        return true;
+      }
+    };
+    const textarea = document.getElementById("user-comment");
+    const counter = document.getElementById("char-counter");
+    const maxLength = parseInt(textarea.getAttribute("minlength"), 10);
 
-<!--      const fileName = document.createElement("span");-->
-<!--      fileName.textContent = file.name;-->
+    const updateCounter = () => {
+      const inputValue = textarea.value;
+      const validChars = inputValue.split("");
+      const validLength = validChars.length;
 
-<!--      const deleteButton = document.createElement("button");-->
-<!--      deleteButton.innerHTML = '<span class="icon icon-close"></span>';-->
-<!--      deleteButton.classList.add("btn-del");-->
-<!--      deleteButton.onclick = () => removeFile(index);-->
+      counter.textContent = `${validLength}/${maxLength}`;
+      if (validLength > maxLength) {
+        counter.classList.add("error");
+      } else {
+        counter.classList.remove("error");
+      }
+    };
 
-<!--      listItem.appendChild(fileName);-->
-<!--      listItem.appendChild(deleteButton);-->
-<!--      fileListContainer.appendChild(listItem);-->
-<!--    });-->
-<!--  }-->
+    textarea.addEventListener("input", updateCounter);
 
-<!--  function removeFile(index) {-->
-<!--    uploadedFiles.splice(index, 1);-->
+    const validateFiles = () => {
+      const files = fileInput.files;
+      const allowedExtensions = ["doc", "docx", "pdf", "ppt", "pptx"];
+      const maxFileSize = 30 * 1024 * 1024; // 100MB
+      const maxFiles = 3;
 
-<!--    handleFileUpload({ target: { files: [] } });-->
-<!--  }-->
-<!--</script>-->
+      if (!errorContainer) return false;
 
+      let newFilesCount = 0;
+
+      for (let file of files) {
+        const extension = file.name.split(".").pop().toLowerCase();
+
+        if (uploadedFiles.has(file.name)) {
+          errorContainer.textContent = `File ${file.name} is already added.`;
+          continue;
+        }
+
+        if (!allowedExtensions.includes(extension)) {
+          errorContainer.textContent = `Unsupported file format: ${file.name}`;
+          return false;
+        }
+
+        if (file.size > maxFileSize) {
+          errorContainer.textContent = `File ${file.name} exceeds the 100MB size limit.`;
+          return false;
+        }
+
+        if (uploadedFiles.size >= maxFiles) {
+          errorContainer.textContent = `You can attach up to ${maxFiles} files.`;
+          return false;
+        }
+
+        const listItem = document.createElement("li");
+        listItem.classList.add("file__item");
+
+        const fileName = document.createElement("span");
+        fileName.textContent = file.name;
+
+        const deleteButton = document.createElement("button");
+        deleteButton.innerHTML = '<span class="icon icon-close"></span>';
+        deleteButton.classList.add("btn-del");
+        deleteButton.addEventListener("click", () => {
+          listItem.remove();
+          uploadedFiles.delete(file.name);
+          errorContainer.textContent = "";
+          newFilesCount--;
+        });
+
+        listItem.appendChild(fileName);
+        listItem.appendChild(deleteButton);
+        fileList.appendChild(listItem);
+        uploadedFiles.add(file.name);
+        newFilesCount++;
+      }
+
+      errorContainer.textContent = "";
+      return true;
+    };
+
+    const validateForm = () => {
+      let isValid = true;
+      const fields = form.querySelectorAll(".validate");
+
+      fields.forEach((field) => {
+        if (field.id && !validateField(field)) {
+          isValid = false;
+          field.classList.add("field-error");
+        } else {
+          field.classList.remove("field-error");
+        }
+      });
+
+      if (!validateFiles()) {
+        isValid = false;
+      }
+
+      return isValid;
+    };
+
+    const handleBudgetSelection = (event) => {
+      budgetOptions.forEach((option) => option.classList.remove("selected"));
+      event.target.classList.add("selected");
+    };
+
+    form.addEventListener("submit", (e) => {
+      e.preventDefault();
+
+      if (validateForm()) {
+        errorContainer.textContent = "";
+        const formData = new FormData(form);
+
+        emailjs.init("lLSKvVcx1LQ3lQ7Qy");
+
+        const data = {
+          user_name: formData.get("user-name"),
+          user_email: formData.get("user-email"),
+          user_phone: formData.get("user-phone"),
+          user_comment: formData.get("user-comment"),
+          project_budget:
+            document.querySelector(".budget-option.selected")?.getAttribute("data-value") || "Not specified",
+          user_nda: formData.get("user-nda") ? "Yes" : "No",
+        };
+
+        emailjs
+          .send("service_d3x1f1d", "template_9nakrge", data)
+          .then(() => {
+            const popup = document.getElementById("popup-mini");
+            popup.classList.remove("hide");
+            popup.classList.add("is-open");
+
+            popup.querySelector(".popup-mini__close-btn").addEventListener("click", () => {
+              popup.classList.remove("is-open");
+              popup.classList.add("hide");
+            });
+            form.reset();
+            fileList.innerHTML = "";
+            budgetOptions.forEach((option) => option.classList.remove("selected"));
+            uploadedFiles.clear();
+          })
+          .catch((error) => {
+            console.error("Error submitting form:", error);
+            alert("There was an error submitting the form.");
+          });
+      } else {
+        errorContainer.textContent = "Please fix the errors above before submitting.";
+      }
+    });
+
+    budgetOptions.forEach((option) => {
+      option.addEventListener("click", handleBudgetSelection);
+    });
+    fileInput.addEventListener("change", validateFiles);
+  });
+</script>
+-->
     <div class="popup-mini hide" id="popup-mini">
   <div class="popup-mini__content">
     <div class="popup-mini__header">
