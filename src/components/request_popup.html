@@ -107,7 +107,6 @@
                 data-error-message="Invalid format"
                 aria-describedby="phone-error"
               />
-              <!--                  <span class="icon-call icon"></span>-->
             </div>
             <span class="p-4 form__error phone-error" id="user-phone-error" aria-live="polite"></span>
           </div>
@@ -352,39 +351,3 @@
     fileInput.addEventListener("change", validateFiles);
   });
 </script>
-<!--<script>-->
-<!--  let uploadedFiles = [];-->
-
-<!--  function handleFileUpload(event) {-->
-<!--    const fileList = event.target.files;-->
-<!--    const fileListContainer = document.getElementById("file-list");-->
-<!--    fileListContainer.innerHTML = "";-->
-
-<!--    for (let i = 0; i < fileList.length; i++) {-->
-<!--      uploadedFiles.push(fileList[i]);-->
-<!--    }-->
-
-<!--    uploadedFiles.forEach((file, index) => {-->
-<!--      const listItem = document.createElement("li");-->
-<!--      listItem.classList.add("file__item", "p-2");-->
-
-<!--      const fileName = document.createElement("span");-->
-<!--      fileName.textContent = file.name;-->
-
-<!--      const deleteButton = document.createElement("button");-->
-<!--      deleteButton.innerHTML = '<span class="icon icon-close"></span>';-->
-<!--      deleteButton.classList.add("btn-del");-->
-<!--      deleteButton.onclick = () => removeFile(index);-->
-
-<!--      listItem.appendChild(fileName);-->
-<!--      listItem.appendChild(deleteButton);-->
-<!--      fileListContainer.appendChild(listItem);-->
-<!--    });-->
-<!--  }-->
-
-<!--  function removeFile(index) {-->
-<!--    uploadedFiles.splice(index, 1);-->
-
-<!--    handleFileUpload({ target: { files: [] } });-->
-<!--  }-->
-<!--</script>-->
