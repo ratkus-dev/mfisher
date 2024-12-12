@@ -27,7 +27,7 @@
     width: 100%;
 
     @include desktop {
-      padding: 90px 90px 90px 0;
+      padding: 90px 85px 90px 0;
     }
 
     .social__icon {
@@ -123,27 +123,6 @@
   .input-field .icon {
     color: var(--dark-black);
   }
-}
-
-.counter {
-  position: absolute;
-  right: 5px;
-  bottom: 5px;
-  font-size: 12px;
-  color: var(--medium-grey);
-  z-index: 6;
-}
-
-.form__error.comment-error {
-  top: auto;
-  bottom: 7px;
-  right: 1px;
-  left: 1px;
-  background-color: white;
-  line-height: 1;
-  z-index: 5;
-  text-align: right;
-  padding-right: 50px;
 }
 
 .map {

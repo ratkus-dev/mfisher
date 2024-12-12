@@ -28,12 +28,12 @@
                 <li class="contacts__item">
                   <span class="icon-sms icon"></span>
                   <a id="email-address" class="p-1" href="mailto:hello@mfisher.com">hello@mfisher.com</a>
-                  <span id="email-copy" class="icon-copy" onclick="copyEmail()"></span>
+                  <span id="email-copy" class="icon-copy icon_primary" onclick="copyEmail()"></span>
                 </li>
                 <li class="contacts__item">
                   <span class="icon icon-call"></span>
                   <a id="phone-number" class="p-1" href="tel:+123455677">+ 1 234 55 677</a>
-                  <span id="phone-copy" class="icon-copy" onclick="copyPhoneNumber()"></span>
+                  <span id="phone-copy" class="icon-copy icon_primary" onclick="copyPhoneNumber()"></span>
                 </li>
               </ul>
               <a href="#" class="btn btn_primary-green btn_meeting">
@@ -141,16 +141,28 @@
                     <div class="budget-option p-2" data-value=">30k">&gt;$30K</div>
                   </div>
                 </div>
+
                 <ul id="file-list" class="file__list"></ul>
-                <span class="p-4 form__empty-error" id="empty-error" aria-live="assertive"></span>
-                <div class="accept-box">
-                  <input class="input-nda visually-hidden" type="checkbox" id="user-nda" name="user-nda" value="true" />
-                  <label class="label-accept" for="user-nda">
-                    <span class="label-accept-span icon icon-accept"> </span>
-                    <span class="p-2">I want to protect my data by signing an NDA.</span>
-                  </label>
+
+                <div class="check-box">
+                  <div class="accept-box">
+                    <input
+                      class="input-nda visually-hidden"
+                      type="checkbox"
+                      id="user-nda"
+                      name="user-nda"
+                      value="true"
+                    />
+                    <label class="label-accept" for="user-nda">
+                      <span class="label-accept-span icon icon-accept"> </span>
+                      <span class="p-2">I want to protect my data by signing an NDA.</span>
+                    </label>
+                  </div>
                   <span class="icon-info"></span>
                 </div>
+
+                <span class="p-4 form__empty-error" id="empty-error" aria-live="assertive"></span>
+
                 <div class="form__footer">
                   <div class="form__footer-action">
                     <button class="btn_submit btn btn_primary" type="submit">
@@ -191,184 +203,7 @@
     <load src="./components/footer.html" />
 
     <script type="module" src="js/main.js"></script>
-    <!--    <script>-->
-    <!--      document.addEventListener("DOMContentLoaded", () => {-->
-    <!--        const form = document.querySelector(".order-form");-->
-    <!--        const budgetOptions = document.querySelectorAll(".budget-option");-->
-    <!--        const errorContainer = document.getElementById("empty-error");-->
-    <!--        const fileInput = document.getElementById("file-upload");-->
-    <!--        const fileList = document.getElementById("file-list");-->
 
-    <!--        const uploadedFiles = new Set();-->
-
-    <!--        const validateField = (field) => {-->
-    <!--          const errorSpan = document.querySelector(`#${field.id}-error`);-->
-    <!--          if (!field.checkValidity()) {-->
-    <!--            const errorMessage = field.getAttribute("data-error-message") || "Invalid field.";-->
-    <!--            errorSpan.textContent = errorMessage;-->
-    <!--            return false;-->
-    <!--          } else {-->
-    <!--            errorSpan.textContent = "";-->
-    <!--            return true;-->
-    <!--          }-->
-    <!--        };-->
-
-    <!--        const validateFiles = () => {-->
-    <!--          const files = fileInput.files;-->
-    <!--          const allowedExtensions = ["doc", "docx", "pdf", "ppt", "pptx"];-->
-    <!--          const maxFileSize = 100 * 1024 * 1024; // 100MB-->
-    <!--          const maxFiles = 3;-->
-
-    <!--          if (!errorContainer) return false;-->
-
-    <!--          let newFilesCount = 0;-->
-
-    <!--          for (let file of files) {-->
-    <!--            const extension = file.name.split(".").pop().toLowerCase();-->
-
-    <!--            console.log(uploadedFiles.size);-->
-
-    <!--            if (uploadedFiles.has(file.name)) {-->
-    <!--              errorContainer.textContent = `File ${file.name} is already added.`;-->
-    <!--              continue;-->
-    <!--            }-->
-
-    <!--            if (!allowedExtensions.includes(extension)) {-->
-    <!--              errorContainer.textContent = `Unsupported file format: ${file.name}`;-->
-    <!--              return false;-->
-    <!--            }-->
-
-    <!--            if (file.size > maxFileSize) {-->
-    <!--              errorContainer.textContent = `File ${file.name} exceeds the 100MB size limit.`;-->
-    <!--              return false;-->
-    <!--            }-->
-
-    <!--            if (uploadedFiles.size >= maxFiles) {-->
-    <!--              errorContainer.textContent = `You can attach up to ${maxFiles} files.`;-->
-    <!--              return false;-->
-    <!--            }-->
-
-    <!--            const listItem = document.createElement("li");-->
-    <!--            listItem.classList.add("file__item");-->
-
-    <!--            const fileName = document.createElement("span");-->
-    <!--            fileName.textContent = file.name;-->
-
-    <!--            const deleteButton = document.createElement("button");-->
-    <!--            deleteButton.innerHTML = '<span class="icon icon-close"></span>';-->
-    <!--            deleteButton.classList.add("btn-del");-->
-    <!--            deleteButton.addEventListener("click", () => {-->
-    <!--              listItem.remove();-->
-    <!--              uploadedFiles.delete(file.name);-->
-    <!--              errorContainer.textContent = "";-->
-    <!--              newFilesCount&#45;&#45;;-->
-    <!--              console.log(newFilesCount);-->
-    <!--            });-->
-
-    <!--            listItem.appendChild(fileName);-->
-    <!--            listItem.appendChild(deleteButton);-->
-    <!--            fileList.appendChild(listItem);-->
-    <!--            uploadedFiles.add(file.name);-->
-    <!--            newFilesCount++;-->
-    <!--            console.log(newFilesCount);-->
-    <!--          }-->
-
-    <!--          errorContainer.textContent = "";-->
-    <!--          return true;-->
-    <!--        };-->
-
-    <!--        const validateForm = () => {-->
-    <!--          let isValid = true;-->
-    <!--          const fields = form.querySelectorAll(".validate");-->
-
-    <!--          fields.forEach((field) => {-->
-    <!--            if (field.id && !validateField(field)) {-->
-    <!--              isValid = false;-->
-    <!--            }-->
-    <!--          });-->
-
-    <!--          if (!validateFiles()) {-->
-    <!--            isValid = false;-->
-    <!--          }-->
-
-    <!--          return isValid;-->
-    <!--        };-->
-
-    <!--        const handleBudgetSelection = (event) => {-->
-    <!--          budgetOptions.forEach((option) => option.classList.remove("selected"));-->
-    <!--          event.target.classList.add("selected");-->
-    <!--        };-->
-
-    <!--        form.addEventListener("submit", (e) => {-->
-    <!--          e.preventDefault();-->
-
-    <!--          if (validateForm()) {-->
-    <!--            errorContainer.textContent = "";-->
-    <!--            const formData = new FormData(form);-->
-
-    <!--            const selectedBudget = document.querySelector(".budget-option.selected");-->
-    <!--            if (selectedBudget) {-->
-    <!--              formData.append("budget", selectedBudget.getAttribute("data-value"));-->
-    <!--            }-->
-
-    <!--            fetch("http://localhost:3010", {-->
-    <!--              method: "POST",-->
-    <!--              body: formData,-->
-    <!--            })-->
-    <!--              .then((response) => {-->
-    <!--                if (response.ok) {-->
-    <!--                  alert("Form submitted successfully!");-->
-    <!--                  form.reset();-->
-    <!--                  fileList.innerHTML = "";-->
-    <!--                  budgetOptions.forEach((option) => option.classList.remove("selected"));-->
-    <!--                  uploadedFiles.clear();-->
-    <!--                } else {-->
-    <!--                  alert("There was an issue submitting the form.");-->
-    <!--                }-->
-    <!--              })-->
-    <!--              .catch((error) => {-->
-    <!--                console.error("Error submitting form:", error);-->
-    <!--                alert("There was an error submitting the form.");-->
-    <!--              });-->
-    <!--          } else {-->
-    <!--            errorContainer.textContent = "Please fix the errors above before submitting.";-->
-    <!--          }-->
-    <!--        });-->
-
-    <!--        budgetOptions.forEach((option) => {-->
-    <!--          option.addEventListener("click", handleBudgetSelection);-->
-    <!--        });-->
-
-    <!--        fileInput.addEventListener("change", validateFiles);-->
-    <!--      });-->
-    <!--    </script>-->
-    -->
-    <!--    <script type="module">-->
-    <!--      import axios from "axios";-->
-
-    <!--      function submitForm() {-->
-    <!--        let name = document.getElementById("user-name").value;-->
-    <!--        let email = document.getElementById("user-email").value;-->
-    <!--        let phone = document.getElementById("user-phone").value;-->
-    <!--        let message = document.getElementById("message").value;-->
-    <!--        let formData = new FormData();-->
-    <!--        formData.append("name", name);-->
-    <!--        formData.append("email", email);-->
-    <!--        formData.append("phone", phone);-->
-    <!--        formData.append("message", message);-->
-    <!--        axios-->
-    <!--          .post(form.php", formData)-->
-    <!--          .then(function (response) {-->
-    <!--            console.log(response.data);-->
-    <!--            alert("Дані успішно надіслані!");-->
-    <!--            document.getElementById("order-form").reset();-->
-    <!--          })-->
-    <!--          .catch(function (error) {-->
-    <!--            console.error(error);-->
-    <!--            alert("Сталася помилка під час надсилання даних.");-->
-    <!--          });-->
-    <!--      }-->
-    <!--    </script>-->
     <script type="module">
       import emailjs from "@emailjs/browser";
 

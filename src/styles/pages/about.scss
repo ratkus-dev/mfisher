@@ -210,7 +210,7 @@
 }
 
 .values {
-  background: linear-gradient(141deg, #313131 0%, #222 100%);
+  background: url("../../assets/img/about/value-bg.jpg") no-repeat 50% 50% / cover;
   color: var(--white);
 
   &__title {

@@ -1,7 +1,8 @@
 @import "../components/hero";
-//@import "../buttons";
+
 .services-page {
   .hero {
+    background: url("../../assets/img/services/bg/bg.jpg") no-repeat 50% 50% / cover;
     padding: 0;
     height: 100vh;
 
@@ -134,7 +135,7 @@
 
   .services-grid {
     padding: 60px 0;
-    background: linear-gradient(136deg, #313131 0%, #010101 49.47%, #000 100%);
+    background: url("../../assets/img/services/bg/services-bg.jpg") no-repeat 50% 50% / cover;
 
     @include tablet {
       padding: 90px 0;
@@ -437,7 +438,7 @@
 
   .process {
     position: relative;
-    background-color: var(--dark-black);
+    background: url("../../assets/img/services/process-bg.jpg") no-repeat 0 0 / cover;
     padding: 60px 0;
 
     &::before {

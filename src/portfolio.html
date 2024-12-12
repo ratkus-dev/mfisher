@@ -14,18 +14,31 @@
     <link rel="stylesheet" href="styles/main.scss" />
     <link rel="stylesheet" href="styles/pages/portfolio.scss" />
   </head>
-  <body>
+  <body class="portfolio">
     <load src="./components/header.html" highlight-portfolio="is-active" />
     <main>
-      <section class="portfolio">
+      <section class="hero">
+        <div class="container">
+          <div class="hero__content">
+            <h1 class="hero__title">Our <span class="text-color">Creative</span> Journey</h1>
+            <ul class="hero__description-list">
+              <li class="p-2 hero__description-item">
+                Step into our world of creativity and be part of the stories we've helped bring to life. Our portfolio
+                is a testament to the dreams we've realized together with our clients. Explore, imagine, and let's
+                create your masterpiece.
+              </li>
+              <li class="p-2 hero__description-item">
+                With every project, our focus is on elevating brands through thoughtful design and strategic
+                development. Explore our work to see how we help businesses overcome challenges and achieve their goals
+                through innovation and expertise.
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
+      <section class="portfolio__box">
         <div class="container">
           <div class="portfolio__content">
-            <h2 class="portfolio__title">Our <mark>Creative</mark> Journey</h2>
-            <p class="p-1 portfolio__description">
-              Step into our world of creativity and be part of the stories we've helped bring to life. Our portfolio is
-              a testament to the dreams we've realized together with our clients. Explore, imagine, and let's create
-              your masterpiece.
-            </p>
             <ul id="portfolio__list" class="portfolio__list">
               <li class="portfolio__item">
                 <div class="portfolio__item-img">
@@ -540,7 +553,7 @@
                 </div>
               </li>
             </ul>
-            <div id="loader" style="display: none; text-align: center; margin-top: 10px">Loading...</div>
+            <div class="portfolio__loader" id="loader" style="display: none"></div>
           </div>
         </div>
       </section>
@@ -580,7 +593,7 @@
           const { scrollTop, scrollHeight, clientHeight } = document.documentElement;
           if (scrollTop + clientHeight / 2 >= scrollHeight / 2 - 5) {
             loader.style.display = "block";
-            setTimeout(showItems, 2000);
+            setTimeout(showItems, 500);
           }
         }
 
