@@ -177,7 +177,8 @@
                     <input type="file" id="file-upload" name="files" style="display: none" multiple />
                   </div>
                   <span class="p-4"
-                    >*No more than 3 files may be attached up to 30 MB each. Formats doc, docx, pdf, ppt, pptx .</span
+                    >*No more than 3 files may be attached up to 30 MB each. Formats doc, docx, pdf, ppt, pptx,xlsx
+                    .</span
                   >
                 </div>
               </form>
@@ -203,6 +204,7 @@
     <script type="module" src="js/main.js"></script>
 
     <script type="module">
+      import intlTelInput from "intl-tel-input";
       import emailjs from "@emailjs/browser";
 
       document.addEventListener("DOMContentLoaded", () => {
@@ -264,7 +266,7 @@
 
         const validateFiles = () => {
           const files = fileInput.files;
-          const allowedExtensions = ["doc", "docx", "pdf", "ppt", "pptx"];
+          const allowedExtensions = ["doc", "docx", "pdf", "ppt", "pptx", "xlsx"];
           const maxFileSize = 30 * 1024 * 1024; // 30MB
           const maxFiles = 3;
 

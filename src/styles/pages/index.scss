@@ -129,7 +129,7 @@
   padding: 60px 0;
   color: var(--white);
   z-index: 2;
-  background: url("../../assets/img/services/bg/bg.jpg") no-repeat 50% 50% / cover;
+  background: url("../../assets/img/services/bg/bg-big.jpg") no-repeat 50% 50% / cover;
 
   @include desktop {
     padding: 120px 0;
@@ -413,7 +413,7 @@
   color: var(--white);
   z-index: 2;
   padding: 60px 0;
-  background: url("../../assets/img/portfolio/bg.jpg") no-repeat 50% 50% / cover;
+  background: url("../../assets/img/portfolio/portfolio-home-bg.jpg") no-repeat 50% 50% / cover;
 
   @include tablet {
     padding: 60px 0 90px;
@@ -712,23 +712,32 @@
     }
   }
 
+  &__item {
+    position: relative;
+
+    &::before {
+      content: "";
+      position: absolute;
+      background: url("../../assets/img/team/team-img.svg") no-repeat 50% 50% / contain;
+      width: 403px;
+      height: 697px;
+      top: 50%;
+      left: 0;
+      transform: translateY(-50%);
+
+      @include mobile {
+        right: 0;
+        left: auto;
+      }
+    }
+  }
+
   &__item-img {
     position: relative;
     width: 100%;
     height: 100%;
     max-width: 360px;
     margin: 150px auto 0;
-
-    &::before {
-      content: "";
-      position: absolute;
-      background: url("../../assets/img/team/team-img.svg") no-repeat 50% 50% / contain;
-      width: 302px;
-      height: 521px;
-      top: -99px;
-      left: 99px;
-      z-index: -1;
-    }
 
     img {
       object-fit: cover;
@@ -741,7 +750,7 @@
 
     @include desktop {
       margin: 98px 0 0 auto;
-      max-width: 470px;
+      max-height: 419px;
     }
   }
 

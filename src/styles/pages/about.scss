@@ -30,7 +30,7 @@
     }
 
     &__description-item {
-      color: var(--light-grey);
+      color: var(--medium-grey);
     }
 
     &__img {
@@ -95,7 +95,7 @@
     }
 
     @include desktop {
-      padding: 30px 73px;
+      padding: 30px 63px;
     }
   }
 }
@@ -207,6 +207,11 @@
     display: flex;
     gap: 30px;
     color: var(--medium-grey);
+
+    .icon {
+      font-size: 24px;
+      line-height: 1;
+    }
   }
 }
 
@@ -224,6 +229,7 @@
     text-align: center;
     max-width: 568px;
     display: none;
+    color: var(--medium-grey);
 
     @include tablet {
       display: block;
@@ -261,19 +267,19 @@
     gap: 16px;
 
     &:nth-child(1) {
-      background: var(--dark-grey) url("../../assets/img/about/v-decor-1.png") no-repeat 50% 50% / 100%;
+      background: var(--dark-grey) url("../../assets/img/about/v-decor-1.svg") no-repeat 50% 50% / 100%;
     }
 
     &:nth-child(2) {
-      background: var(--dark-grey) url("../../assets/img/about/v-decor-2.png") no-repeat 50% 50% / 100%;
+      background: var(--dark-grey) url("../../assets/img/about/v-decor-2.svg") no-repeat 50% 50% / 100%;
     }
 
     &:nth-child(3) {
-      background: var(--dark-grey) url("../../assets/img/about/v-decor-3.png") no-repeat 50% 50% / 100%;
+      background: var(--dark-grey) url("../../assets/img/about/v-decor-3.svg") no-repeat 50% 50% / 100%;
     }
 
     &:nth-child(4) {
-      background: var(--dark-grey) url("../../assets/img/about/v-decor-4.png") no-repeat 50% 50% / 100%;
+      background: var(--dark-grey) url("../../assets/img/about/v-decor-4.svg") no-repeat 50% 50% / 100%;
     }
   }
 
