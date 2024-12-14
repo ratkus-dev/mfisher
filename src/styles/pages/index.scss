@@ -124,12 +124,17 @@
 //  }
 //}
 
+.bg-section {
+  z-index: 2;
+  background: url("../../assets/img/2bg.jpg") no-repeat 50% 50% / cover;
+}
+
 .services {
   position: relative;
   padding: 60px 0;
   color: var(--white);
   z-index: 2;
-  background: url("../../assets/img/services/bg/bg-big.jpg") no-repeat 50% 50% / cover;
+  //background: url("../../assets/img/services/bg/bg-big.jpg") no-repeat 50% 50% / cover;
 
   @include desktop {
     padding: 120px 0;
@@ -413,7 +418,7 @@
   color: var(--white);
   z-index: 2;
   padding: 60px 0;
-  background: url("../../assets/img/portfolio/portfolio-home-bg.jpg") no-repeat 50% 50% / cover;
+  //background: url("../../assets/img/portfolio/portfolio-home-bg.jpg") no-repeat 50% 50% / cover;
 
   @include tablet {
     padding: 60px 0 90px;
