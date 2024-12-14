@@ -173,7 +173,7 @@
                 </div>
               </li>
 
-              <li class="portfolio__item">
+              <li class="portfolio__item hide">
                 <div class="portfolio__item-img">
                   <picture>
                     <source
@@ -224,7 +224,7 @@
                   </ul>
                 </div>
               </li>
-              <li class="portfolio__item">
+              <li class="portfolio__item hide">
                 <div class="portfolio__item-img">
                   <picture>
                     <source
@@ -272,7 +272,7 @@
                   </ul>
                 </div>
               </li>
-              <li class="portfolio__item">
+              <li class="portfolio__item hide">
                 <div class="portfolio__item-img">
                   <picture>
                     <source
@@ -307,7 +307,7 @@
                 </div>
               </li>
 
-              <li class="portfolio__item">
+              <li class="portfolio__item hide">
                 <div class="portfolio__item-img">
                   <picture>
                     <source
@@ -349,7 +349,7 @@
                   </ul>
                 </div>
               </li>
-              <li class="portfolio__item">
+              <li class="portfolio__item hide">
                 <div class="portfolio__item-img">
                   <picture>
                     <source
@@ -394,7 +394,7 @@
                   </ul>
                 </div>
               </li>
-              <li class="portfolio__item">
+              <li class="portfolio__item hide">
                 <div class="portfolio__item-text">
                   <h3>NDA <span class="icon icon-lock"></span></h3>
                   <p class="p-1">
@@ -429,7 +429,7 @@
                 </div>
               </li>
 
-              <li class="portfolio__item">
+              <li class="portfolio__item hide">
                 <div class="portfolio__item-img">
                   <picture>
                     <source
@@ -472,7 +472,7 @@
                   </ul>
                 </div>
               </li>
-              <li class="portfolio__item">
+              <li class="portfolio__item hide">
                 <div class="portfolio__item-img">
                   <picture>
                     <source
@@ -516,7 +516,7 @@
                   </ul>
                 </div>
               </li>
-              <li class="portfolio__item">
+              <li class="portfolio__item hide">
                 <div class="portfolio__item-text">
                   <img src="./assets/img/portfolio/logo/logo-12.svg" alt="logo" />
                   <p class="p-1">
@@ -553,7 +553,7 @@
                 </div>
               </li>
             </ul>
-            <div class="portfolio__loader" id="loader" style="display: none"></div>
+            <div class="portfolio__loader hide" id="loader"></div>
           </div>
         </div>
       </section>
@@ -588,43 +588,50 @@
 
     <load src="./components/popup-mini.html" />
 
-    <script type="module">
+    <script>
       document.addEventListener("DOMContentLoaded", () => {
-        const items = document.querySelectorAll(".portfolio__item");
+        const container = document.getElementById("portfolio__list");
         const loader = document.getElementById("loader");
+        const cards = Array.from(container.querySelectorAll(".portfolio__item"));
+        const cardsPerLoad = 3;
+        let visibleCardsCount = 3;
+        let isLoading = false;
 
-        let itemsPerBatch = 3;
-        let currentIndex = 0;
+        const loadMoreCards = () => {
+          loader.classList.remove("hide");
 
-        function showItems() {
-          loader.style.display = "none";
+          setTimeout(() => {
+            const nextCards = cards.slice(visibleCardsCount, visibleCardsCount + cardsPerLoad);
+            nextCards.forEach((card) => card.classList.remove("hide"));
+            visibleCardsCount += cardsPerLoad;
 
-          for (let i = currentIndex; i < currentIndex + itemsPerBatch; i++) {
-            if (items[i]) {
-              items[i].style.display = "block";
-            } else {
+            if (visibleCardsCount >= cards.length) {
               window.removeEventListener("scroll", handleScroll);
-              return;
             }
+
+            loader.classList.add("hide");
+            isLoading = false;
+          }, 2000);
+        };
+
+        const handleScroll = () => {
+          if (isLoading) return;
+
+          const lastVisibleCard = cards[visibleCardsCount - 1];
+          const lastCardBottom = lastVisibleCard.getBoundingClientRect().bottom;
+          const viewportHeight = window.innerHeight;
+
+          const isLastCardAtViewportCenter = lastCardBottom <= viewportHeight / 2;
+
+          if (isLastCardAtViewportCenter) {
+            isLoading = true;
+            loadMoreCards();
           }
-
-          currentIndex += itemsPerBatch;
-        }
-
-        function handleScroll() {
-          const { scrollTop, scrollHeight, clientHeight } = document.documentElement;
-          if (scrollTop + clientHeight / 2 >= scrollHeight / 2 - 5) {
-            loader.style.display = "block";
-            setTimeout(showItems, 500);
-          }
-        }
-
-        showItems();
+        };
 
         window.addEventListener("scroll", handleScroll);
       });
     </script>
-
     <script type="module" src="js/main.js"></script>
   </body>
 </html>
