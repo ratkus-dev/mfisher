@@ -341,4 +341,15 @@
     flex-direction: column;
     gap: 30px;
   }
+
+  .cta {
+    &__title {
+      max-width: 85%;
+      margin-bottom: 10px;
+
+      @include desktop {
+        max-width: 80%;
+      }
+    }
+  }
 }
