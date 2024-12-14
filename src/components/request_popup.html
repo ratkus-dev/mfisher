@@ -166,7 +166,7 @@
               <input type="file" id="file-upload" name="files" style="display: none" multiple />
             </div>
             <span class="p-4"
-              >*No more than 3 files may be attached up to 30 MB each. Formats doc, docx, pdf, ppt, pptx .</span
+              >*No more than 3 files may be attached up to 30 MB each. Formats doc, docx, pdf, ppt, pptx, xlsx.</span
             >
           </div>
         </form>
@@ -174,17 +174,58 @@
     </div>
   </div>
 </div>
+
 <script type="module">
   import emailjs from "@emailjs/browser";
-
   document.addEventListener("DOMContentLoaded", () => {
+    const buttons = document.querySelectorAll(".hero__btn, .team__btn, .cta__btn, .accordion__btn, .process__btn");
+    const popup = document.getElementById("popup");
+    const closePopup = popup.querySelector(".popup__close");
     const form = document.querySelector(".order-form");
     const budgetOptions = document.querySelectorAll(".budget-option");
     const errorContainer = document.getElementById("empty-error");
     const fileInput = document.getElementById("file-upload");
     const fileList = document.getElementById("file-list");
-
     const uploadedFiles = new Set();
+
+    const resetErrors = () => {
+      const fields = form.querySelectorAll(".validate");
+      fields.forEach((field) => {
+        field.classList.remove("field-error");
+        const errorSpan = document.querySelector(`#${field.id}-error`);
+        if (errorSpan) errorSpan.textContent = "";
+      });
+      if (errorContainer) errorContainer.textContent = "";
+    };
+
+    buttons.forEach((button) => {
+      button.addEventListener("click", () => {
+        popup.classList.add("is-open");
+        document.querySelector("html").classList.add("no-scroll");
+      });
+    });
+
+    closePopup.addEventListener("click", () => {
+      form.reset();
+      fileList.innerHTML = "";
+      budgetOptions.forEach((option) => option.classList.remove("selected"));
+      uploadedFiles.clear();
+      popup.classList.remove("is-open");
+      document.querySelector("html").classList.remove("no-scroll");
+      resetErrors(); // Удаляем ошибки при закрытии
+    });
+
+    popup.addEventListener("click", (event) => {
+      if (event.target === popup) {
+        form.reset();
+        fileList.innerHTML = "";
+        budgetOptions.forEach((option) => option.classList.remove("selected"));
+        uploadedFiles.clear();
+        popup.classList.remove("is-open");
+        document.querySelector("html").classList.remove("no-scroll");
+        resetErrors(); // Удаляем ошибки при клике вне формы
+      }
+    });
 
     const validateEmail = (email) => {
       const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
@@ -215,34 +256,13 @@
       return true;
     };
 
-    const textarea = document.getElementById("user-comment");
-    const counter = document.getElementById("char-counter");
-    const maxLength = parseInt(textarea.getAttribute("minlength"), 10);
-
-    const updateCounter = () => {
-      const inputValue = textarea.value;
-      const validChars = inputValue.split("");
-      const validLength = validChars.length;
-
-      counter.textContent = `${validLength}/${maxLength}`;
-      if (validLength > maxLength) {
-        counter.classList.add("error");
-      } else {
-        counter.classList.remove("error");
-      }
-    };
-
-    textarea.addEventListener("input", updateCounter);
-
     const validateFiles = () => {
       const files = fileInput.files;
-      const allowedExtensions = ["doc", "docx", "pdf", "ppt", "pptx"];
+      const allowedExtensions = ["doc", "docx", "pdf", "ppt", "pptx", "xlsx"];
       const maxFileSize = 30 * 1024 * 1024; // 30MB
       const maxFiles = 3;
 
       if (!errorContainer) return false;
-
-      let newFilesCount = 0;
 
       for (let file of files) {
         const extension = file.name.split(".").pop().toLowerCase();
@@ -280,14 +300,12 @@
           listItem.remove();
           uploadedFiles.delete(file.name);
           errorContainer.textContent = "";
-          newFilesCount--;
         });
 
         listItem.appendChild(fileName);
         listItem.appendChild(deleteButton);
         fileList.appendChild(listItem);
         uploadedFiles.add(file.name);
-        newFilesCount++;
       }
 
       errorContainer.textContent = "";
@@ -314,11 +332,6 @@
       return isValid;
     };
 
-    const handleBudgetSelection = (event) => {
-      budgetOptions.forEach((option) => option.classList.remove("selected"));
-      event.target.classList.add("selected");
-    };
-
     form.addEventListener("submit", (e) => {
       e.preventDefault();
 
@@ -341,18 +354,20 @@
         emailjs
           .send("service_d3x1f1d", "template_9nakrge", data)
           .then(() => {
-            const popup = document.getElementById("popup-mini");
-            popup.classList.remove("hide");
-            popup.classList.add("is-open");
+            const popupMini = document.getElementById("popup-mini");
+            popupMini.classList.remove("hide");
+            popupMini.classList.add("is-open");
 
-            popup.querySelector(".popup-mini__close-btn").addEventListener("click", () => {
-              popup.classList.remove("is-open");
-              popup.classList.add("hide");
+            popupMini.querySelector(".popup-mini__close-btn").addEventListener("click", () => {
+              popupMini.classList.remove("is-open");
+              popupMini.classList.add("hide");
+
+              form.reset();
+              fileList.innerHTML = "";
+              budgetOptions.forEach((option) => option.classList.remove("selected"));
+              uploadedFiles.clear();
+              resetErrors(); // Удаляем ошибки после успешной отправки
             });
-            form.reset();
-            fileList.innerHTML = "";
-            budgetOptions.forEach((option) => option.classList.remove("selected"));
-            uploadedFiles.clear();
           })
           .catch((error) => {
             console.error("Error submitting form:", error);
@@ -363,9 +378,6 @@
       }
     });
 
-    budgetOptions.forEach((option) => {
-      option.addEventListener("click", handleBudgetSelection);
-    });
     fileInput.addEventListener("change", validateFiles);
   });
 </script>

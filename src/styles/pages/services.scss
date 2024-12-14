@@ -193,10 +193,19 @@
         }
 
         &__image {
+          overflow: hidden;
+
           img {
             height: auto;
             max-width: none;
             width: 100%;
+            transition: transform ease-in-out 0.4s;
+          }
+
+          &:hover {
+            img {
+              transform: scale(1.1);
+            }
           }
         }
 
@@ -566,6 +575,12 @@
           line-height: 20px;
         }
       }
+    }
+  }
+
+  .cta__title {
+    @include desktop {
+      max-width: 70%;
     }
   }
 }

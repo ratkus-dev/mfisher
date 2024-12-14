@@ -55,6 +55,8 @@
     }
 
     &__description-item {
+      color: var(--medium-grey);
+
       &:last-child {
         @include mobile {
           display: none;
@@ -145,12 +147,22 @@
       }
 
       .portfolio__item-content {
-        transform: scale(1);
+        opacity: 1;
       }
 
       .portfolio__item-img {
         img {
           transform: scale(1.1);
+        }
+      }
+    }
+
+    &:hover {
+      &:nth-child(3n) {
+        .portfolio__item-img {
+          img {
+            transform: scale(1.1);
+          }
         }
       }
     }
@@ -286,7 +298,7 @@
 
   &__item-content {
     position: absolute;
-    transform: scale(0);
+    opacity: 0;
     left: 0;
     top: 0;
     height: 100%;
@@ -304,7 +316,7 @@
       rgba(26, 26, 37, 0.86) 78.5%,
       rgba(26, 26, 37, 0.86) 100%
     );
-    transition: transform ease-in 0.4s;
+    transition: opacity ease-in 0.4s;
 
     @include desktop {
       display: flex;
