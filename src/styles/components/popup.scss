@@ -130,6 +130,15 @@
 
       &__icon {
         color: var(--main-green);
+        transition: color ease-in-out 0.4s;
+      }
+
+      &__item {
+        &:hover {
+          .social__icon {
+            color: var(--hover-green);
+          }
+        }
       }
     }
   }
