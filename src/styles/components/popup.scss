@@ -75,7 +75,7 @@
     }
 
     @include desktop {
-      padding: 60px 52px 45px 40px;
+      padding: 40px 40px 40px 46px;
     }
   }
 
@@ -90,7 +90,7 @@
     @include desktop {
       display: flex;
       flex-direction: column;
-      padding: 60px;
+      padding: 40px 60px 70px 60px;
     }
 
     .contacts {
