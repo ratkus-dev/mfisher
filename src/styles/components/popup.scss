@@ -35,14 +35,11 @@
     height: 100%;
     overflow-y: auto;
 
-    @include tablet {
-    }
-
     @include desktop {
       max-width: 1087px;
       width: 100%;
       max-height: none;
-      height: fit-content;
+      height: 100%;
     }
   }
 
