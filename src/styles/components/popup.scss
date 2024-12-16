@@ -39,6 +39,10 @@
       max-width: 1087px;
       width: 100%;
       max-height: none;
+      height: fit-content;
+    }
+
+    @include media-custom-height(774px) {
       height: 100%;
     }
   }
