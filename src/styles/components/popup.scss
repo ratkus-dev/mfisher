@@ -31,14 +31,14 @@
     background-color: var(--white);
     position: relative;
     box-shadow: 0 14px 54px 0 rgba(0, 0, 0, 0.16);
-    max-height: 792px;
-    height: 100%;
+    //max-height: 792px;
+    //height: 100%;
     overflow-y: auto;
 
     @include desktop {
       max-width: 1087px;
       width: 100%;
-      max-height: none;
+      //max-height: none;
       height: fit-content;
     }
 
@@ -69,6 +69,7 @@
     width: 100%;
     background-color: var(--white);
     padding: 30px 12px;
+    flex-shrink: 0;
 
     @include tablet {
       padding: 50px 40px 42px;
@@ -90,7 +91,7 @@
     @include desktop {
       display: flex;
       flex-direction: column;
-      padding: 40px 60px 70px 60px;
+      padding: 40px 60px;
     }
 
     .contacts {
@@ -121,6 +122,10 @@
         justify-content: flex-start;
         align-items: center;
         gap: 8px;
+
+        a {
+          text-decoration: underline;
+        }
       }
     }
 

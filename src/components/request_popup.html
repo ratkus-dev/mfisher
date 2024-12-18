@@ -47,11 +47,11 @@
               <span class="social__icon icon-behance"></span>
             </a>
           </li>
-          <li class="social__item">
-            <a href="https://facebook.com" class="social__link" target="_blank">
-              <span class="social__icon icon-facebook"></span>
-            </a>
-          </li>
+          <!--          <li class="social__item">-->
+          <!--            <a href="https://facebook.com" class="social__link" target="_blank">-->
+          <!--              <span class="social__icon icon-facebook"></span>-->
+          <!--            </a>-->
+          <!--          </li>-->
           <li class="social__item">
             <a href="https://linkedin.com" class="social__link" target="_blank">
               <span class="social__icon icon-linkedin"></span>
@@ -146,7 +146,15 @@
                 <span class="p-2">I want to protect my data by signing an NDA.</span>
               </label>
             </div>
-            <span class="icon-info"></span>
+            <div class="tooltip__container">
+              <span class="icon-info"></span>
+              <div class="tooltip">
+                <span class="p-4"
+                  >Before we discuss any details about your project you can request to sign a Non Disclosure
+                  Agreement</span
+                >
+              </div>
+            </div>
           </div>
 
           <span class="p-4 form__empty-error" id="empty-error" aria-live="assertive"></span>
@@ -165,7 +173,7 @@
               </label>
               <input type="file" id="file-upload" name="files" style="display: none" multiple />
             </div>
-            <span class="p-4"
+            <span class="p-5"
               >*No more than 3 files may be attached up to 30 MB each. Formats doc, docx, pdf, ppt, pptx, xlsx, zip,
               rar.</span
             >
@@ -177,7 +185,6 @@
 </div>
 
 <script type="module">
-  import emailjs from "@emailjs/browser";
   document.addEventListener("DOMContentLoaded", () => {
     const buttons = document.querySelectorAll(".hero__btn, .team__btn, .cta__btn, .accordion__btn, .process__btn");
     const popup = document.getElementById("popup");
@@ -213,7 +220,7 @@
       uploadedFiles.clear();
       popup.classList.remove("is-open");
       document.querySelector("html").classList.remove("no-scroll");
-      resetErrors(); // Удаляем ошибки при закрытии
+      resetErrors();
     });
 
     popup.addEventListener("click", (event) => {
@@ -224,38 +231,9 @@
         uploadedFiles.clear();
         popup.classList.remove("is-open");
         document.querySelector("html").classList.remove("no-scroll");
-        resetErrors(); // Удаляем ошибки при клике вне формы
+        resetErrors();
       }
     });
-
-    const validateEmail = (email) => {
-      const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
-      if (!emailRegex.test(email)) return false;
-
-      const domain = email.split("@")[1];
-      const domainParts = domain.split(".");
-      if (domainParts.length < 2) return false;
-
-      const tld = domainParts[domainParts.length - 1];
-      return tld.length >= 2;
-    };
-
-    const validateField = (field) => {
-      const errorSpan = document.querySelector(`#${field.id}-error`);
-      if (field.type === "email") {
-        if (!validateEmail(field.value)) {
-          errorSpan.textContent = "Invalid E-mail";
-          return false;
-        }
-      } else if (!field.checkValidity()) {
-        const errorMessage = field.getAttribute("data-error-message") || "Invalid field.";
-        errorSpan.textContent = errorMessage;
-        return false;
-      } else {
-        errorSpan.textContent = "";
-      }
-      return true;
-    };
 
     const validateFiles = () => {
       const files = fileInput.files;
@@ -300,6 +278,7 @@
         deleteButton.addEventListener("click", () => {
           listItem.remove();
           uploadedFiles.delete(file.name);
+          fileInput.value = "";
           errorContainer.textContent = "";
         });
 
