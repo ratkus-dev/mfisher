@@ -13,10 +13,10 @@
       href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400..700&family=Unbounded:wght@400..700&display=swap"
       rel="stylesheet"
     />
-    <script type="module" crossorigin src="/mfisher/assets/index-BAlvDYoX.js"></script>
-    <link rel="modulepreload" crossorigin href="/mfisher/assets/vendor-D_F4v6Iz.js">
-    <link rel="modulepreload" crossorigin href="/mfisher/assets/main-BslYSBtj.js">
-    <link rel="stylesheet" crossorigin href="/mfisher/assets/main-DVRz0lgW.css">
+    <script type="module" crossorigin src="/mfisher/assets/index-BL_75Mxe.js"></script>
+    <link rel="modulepreload" crossorigin href="/mfisher/assets/vendor-W1r3Z3t7.js">
+    <link rel="modulepreload" crossorigin href="/mfisher/assets/main-Ch1togN7.js">
+    <link rel="stylesheet" crossorigin href="/mfisher/assets/main-CNas2nkN.css">
     <link rel="stylesheet" crossorigin href="/mfisher/assets/vendor--wXQMN-_.css">
   </head>
   <body id="content">
@@ -353,7 +353,7 @@
                           user-friendly, and optimized for performance.
                         </p>
                         <ul class="tag__list">
-                          <li class="tag__item p-3">iOS</li>
+                          <li class="tag__item p-3 no-cap">iOS</li>
                           <li class="tag__item p-3">Android</li>
                           <li class="tag__item p-3">Cross-platform</li>
                           <li class="tag__item p-3">Fintech</li>
@@ -1017,12 +1017,12 @@
             <span class="footer__social-icon icon-behance"></span>
           </a>
         </li>
-        <li class="footer__social-item">
-          <a href="https://facebook.com" class="footer__social-link p-2" target="_blank">
-            <span class="footer__social-text">Facebook</span>
-            <span class="footer__social-icon icon-facebook"></span>
-          </a>
-        </li>
+        <!--        <li class="footer__social-item">-->
+        <!--          <a href="https://facebook.com" class="footer__social-link p-2" target="_blank">-->
+        <!--            <span class="footer__social-text">Facebook</span>-->
+        <!--            <span class="footer__social-icon icon-facebook"></span>-->
+        <!--          </a>-->
+        <!--        </li>-->
         <li class="footer__social-item">
           <a href="https://linkedin.com" class="footer__social-link p-2" target="_blank">
             <span class="footer__social-text">LinkedIn</span>
@@ -1062,7 +1062,11 @@
 <div class="footer-bottom">
   <div class="container">
     <div class="footer-bottom__content">
-      <span>© 2023 MaryFisher. All Rights Reserved.</span>
+      <span
+        ><script>
+          document.write("©" + new Date().getFullYear() + " MaryFisher. All Rights Reserved.");
+        </script></span
+      >
       <a href="#" target="_blank">Terms of Service</a>
       <a href="#" target="_blank">Privacy Policy</a>
     </div>
@@ -1201,11 +1205,11 @@
               <span class="social__icon icon-behance"></span>
             </a>
           </li>
-          <li class="social__item">
-            <a href="https://facebook.com" class="social__link" target="_blank">
-              <span class="social__icon icon-facebook"></span>
-            </a>
-          </li>
+          <!--          <li class="social__item">-->
+          <!--            <a href="https://facebook.com" class="social__link" target="_blank">-->
+          <!--              <span class="social__icon icon-facebook"></span>-->
+          <!--            </a>-->
+          <!--          </li>-->
           <li class="social__item">
             <a href="https://linkedin.com" class="social__link" target="_blank">
               <span class="social__icon icon-linkedin"></span>
@@ -1300,7 +1304,15 @@
                 <span class="p-2">I want to protect my data by signing an NDA.</span>
               </label>
             </div>
-            <span class="icon-info"></span>
+            <div class="tooltip__container">
+              <span class="icon-info"></span>
+              <div class="tooltip">
+                <span class="p-4"
+                  >Before we discuss any details about your project you can request to sign a Non Disclosure
+                  Agreement</span
+                >
+              </div>
+            </div>
           </div>
 
           <span class="p-4 form__empty-error" id="empty-error" aria-live="assertive"></span>
@@ -1319,7 +1331,7 @@
               </label>
               <input type="file" id="file-upload" name="files" style="display: none" multiple />
             </div>
-            <span class="p-4"
+            <span class="p-5"
               >*No more than 3 files may be attached up to 30 MB each. Formats doc, docx, pdf, ppt, pptx, xlsx, zip,
               rar.</span
             >
