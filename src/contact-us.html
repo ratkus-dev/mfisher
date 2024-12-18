@@ -66,7 +66,16 @@
             </div>
             <div class="contacts__content-form">
               <h5>Send us a message</h5>
-              <form id="order-form" name="order-form" class="form order-form" novalidate autocomplete="off">
+              <form
+                action="send-email.php"
+                method="POST"
+                enctype="multipart/form-data"
+                id="order-form"
+                name="order-form"
+                class="form order-form"
+                novalidate
+                autocomplete="off"
+              >
                 <div class="input-field">
                   <div class="input-field-box">
                     <input
