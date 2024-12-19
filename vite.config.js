@@ -5,6 +5,7 @@ import FullReload from "vite-plugin-full-reload";
 import { ViteImageOptimizer } from "vite-plugin-image-optimizer";
 import autoprefixer from "autoprefixer";
 import postcssSortMediaQueries from "postcss-sort-media-queries";
+import { viteStaticCopy } from "vite-plugin-static-copy";
 import path from "path";
 
 export default defineConfig(({ command }) => {
@@ -30,6 +31,9 @@ export default defineConfig(({ command }) => {
         },
       },
     },
+    server: {
+      historyApiFallback: true,
+    },
     css: {
       postcss: {
         plugins: [
@@ -52,6 +56,14 @@ export default defineConfig(({ command }) => {
           header: path.resolve(__dirname, "src/components/header.html"),
           footer: path.resolve(__dirname, "src/components/footer.html"),
         },
+      }),
+      viteStaticCopy({
+        targets: [
+          {
+            src: "*.php",
+            dest: ".",
+          },
+        ],
       }),
       FullReload(["./src/**/*.html", "./src/**/*.scss"]),
       ViteImageOptimizer({
