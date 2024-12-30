@@ -52,11 +52,11 @@
                     <span class="social__icon icon-behance"></span>
                   </a>
                 </li>
-                <!--                <li class="social__item">-->
-                <!--                  <a href="https://facebook.com" class="social__link">-->
-                <!--                    <span class="social__icon icon-facebook"></span>-->
-                <!--                  </a>-->
-                <!--                </li>-->
+                <li class="social__item">
+                  <a href="https://upwork.com" class="social__link">
+                    <span class="social__icon icon-upwork"></span>
+                  </a>
+                </li>
                 <li class="social__item">
                   <a href="https://linkedin.com" class="social__link">
                     <span class="social__icon icon-linkedin"></span>
@@ -378,7 +378,7 @@
             }
 
             try {
-              const response = await fetch("send-email.php", {
+              const response = await fetch("https://mfisher.agency/send-email.php", {
                 method: "POST",
                 body: formData,
               });
